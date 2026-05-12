@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Local-only directories
+_react-reference/
+myResume/
+.gstack/
+
+# Editors
+.vscode/
+.idea/
+
+# Logs / temp
+*.log
+*.tmp
