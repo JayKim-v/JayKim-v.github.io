@@ -3,18 +3,18 @@
    Light + Minimal + 큰 타이포 (warm-paper neutrals + ink black)
    ───────────────────────────────────────────────────────── */
 :root {
-  /* Deep forest accent + sage-cream paper neutrals (warm, low-contrast) */
-  --bg:        #F1EEE3;          /* sage-tinted paper */
-  --bg-elev:   #FBF9F2;          /* slightly elevated card surface */
+  /* Deep forest accent + warm cream-yellow paper neutrals */
+  --bg:        #FDFCF8;          /* near-white warm paper */
+  --bg-elev:   #F4EFE2;          /* visibly darker cream card surface */
   --ink:       #0E1512;          /* near-black with the faintest forest tint */
   --ink-soft:  #1F2622;
-  --muted:     #6B6B5E;          /* sage-warm gray */
-  --line:      #DAD5C5;          /* sage hairline */
-  --line-soft: #E6E2D3;
+  --muted:     #7A7263;          /* warm paper-gray */
+  --line:      #E5DECB;          /* cream hairline */
+  --line-soft: #EFEADC;          /* faint cream line */
 
   --accent:    #2F5D48;          /* deep forest moss */
   --accent-soft: rgba(47, 93, 72, .12);
-  --accent-ink: #FBF9F2;
+  --accent-ink: #FDFCF8;          /* text on accent — matches bg */
 
   --pad-x:     clamp(20px, 5vw, 80px);
   --max-w:     1320px;
@@ -124,7 +124,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 12px 0; }
   border-bottom: 1px solid transparent;
 }
 .nav.is-scrolled {
-  background: rgba(241, 238, 227, .78);
+  background: rgba(253, 252, 248, .78);
   backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
   border-bottom-color: var(--line);
@@ -171,14 +171,19 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 12px 0; }
 .nav__cta:hover { background: var(--accent); transform: translateY(-1px); }
 
 .nav__right {
-  display: inline-flex; align-items: center; gap: 14px;
+  display: inline-flex; flex-direction: row; align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
 }
 .nav__lang {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex; flex-direction: row; align-items: center;
+  gap: 8px;
   font-family: var(--font-en);
   font-size: 12px; font-weight: 600;
   letter-spacing: .08em;
   color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .nav__lang a {
   padding: 4px 6px;
@@ -517,12 +522,19 @@ section {
 }
 .project__name {
   margin: 8px 0 12px 0;
-  font-size: clamp(30px, 4.4vw, 56px);
+  /* Cap at 44px on laptops so long English compounds fit in the ~580–620px
+     copy column at 1280–1600px viewports. Larger viewports get a bigger cap
+     via the @media (min-width: 1700px) block at the bottom. */
+  font-size: clamp(28px, 3.6vw, 44px);
   font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -.035em;
-  word-break: keep-all;
-  overflow-wrap: anywhere;
+  line-height: 1.06;
+  letter-spacing: -.03em;
+  /* For Korean — break at spaces / middots normally.
+     For English — only break at <wbr> hints or, last resort, at chars.
+     Never auto-hyphenate (mangles brand names like Precision-MicroEndo…). */
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 .project__badge {
   display: inline-block;
@@ -727,7 +739,7 @@ section {
 .site-frame__chrome {
   display: flex; align-items: center; gap: 8px;
   padding: 12px 16px;
-  background: #F5F2E7;
+  background: #F0EBDB;
   border-bottom: 1px solid var(--line-soft);
 }
 .site-frame__chrome > span {
@@ -773,7 +785,7 @@ section {
 .visual__chrome {
   display: flex; align-items: center; gap: 8px;
   padding: 12px 16px;
-  background: #F5F2E7;
+  background: #F0EBDB;
   border-bottom: 1px solid var(--line-soft);
 }
 .visual__chrome > span {
@@ -804,7 +816,7 @@ section {
 
 /* Precision screen */
 .visual__screen--precision {
-  background: linear-gradient(180deg, #FBF9F2 0%, #ECE7D6 100%);
+  background: linear-gradient(180deg, #F4EFE2 0%, #E5DEC9 100%);
 }
 .precision-hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
 .precision-hero__pre {
@@ -954,7 +966,7 @@ section {
 
 /* Legacy mentoring screen block (unused) */
 .visual__screen--mentoring {
-  background: linear-gradient(180deg, #ECE8DA 0%, #FBF9F2 100%);
+  background: linear-gradient(180deg, #E8E2CF 0%, #F4EFE2 100%);
 }
 .ment-head { margin-bottom: 16px; }
 .ment-head__logo {
@@ -1533,6 +1545,66 @@ section {
 }
 @media (max-width: 700px) {
   .foot { flex-direction: column; gap: 6px; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Large viewport (≥1700px — 27"+ external monitors)
+   Default clamp() caps were tuned for 1280–1600px laptops. On wider
+   screens content felt small and lost. Bump max content width, gutters,
+   and typography caps so the page scales up gracefully.
+   ───────────────────────────────────────────────────────── */
+@media (min-width: 1700px) {
+  :root {
+    --max-w: 1560px;
+    --pad-x: clamp(60px, 5vw, 140px);
+  }
+  .hero__title { font-size: clamp(160px, 11vw, 240px); }
+  .hero__sub-en { font-size: clamp(20px, 1.4vw, 26px); }
+  .hero__sub-ko { font-size: clamp(18px, 1.3vw, 24px); }
+
+  .about__lead .big-text { font-size: clamp(36px, 2.6vw, 50px); }
+  .about__lead .big-text--small { font-size: clamp(18px, 1.3vw, 24px); }
+  .facts__row dt,
+  .facts__row dd { font-size: clamp(14px, 1.05vw, 18px); }
+
+  .work__title,
+  .stack__title,
+  .career__title,
+  .creds__title { font-size: clamp(70px, 6vw, 110px); }
+
+  .project__role { font-size: clamp(14px, 1.05vw, 17px); }
+  /* 56px cap so Precision<wbr>Micro<wbr>Endodontics fits one line in
+     the ~700–900px copy column on 1700–2200px viewports. Above 2200px
+     we bump again (column is wider, can fit larger font). */
+  .project__name { font-size: clamp(44px, 3vw, 56px); }
+  .project__tag { font-size: clamp(17px, 1.4vw, 22px); }
+  .project__points li { font-size: clamp(15px, 1.15vw, 19px); }
+  .project__stack span { font-size: clamp(11px, 0.85vw, 14px); padding: 6px 14px; }
+
+  /* Visual mockups: grow with column on big screens */
+  .precision-stack { max-width: 660px; margin-top: -240px; }
+  .dsat-stack { max-width: 720px; }
+  .ment-stack { max-width: 740px; }
+  .cw-stage { max-width: 720px; padding: 32px; gap: 26px; }
+  .phone { width: clamp(180px, 14vw, 260px); }
+
+  .contact__title { font-size: clamp(100px, 7vw, 160px); }
+  .contact__card { padding: 44px 36px; }
+  .contact__card-value { font-size: clamp(28px, 2.5vw, 40px); }
+  .contact__note { font-size: clamp(14px, 1.05vw, 17px); }
+}
+
+@media (min-width: 2200px) {
+  :root {
+    --max-w: 1760px;
+  }
+  .hero__title { font-size: clamp(200px, 10.5vw, 280px); }
+  .project__name { font-size: clamp(56px, 3vw, 72px); }
+  .precision-stack { max-width: 780px; margin-top: -280px; }
+  .dsat-stack { max-width: 820px; }
+  .ment-stack { max-width: 840px; }
+  .cw-stage { max-width: 820px; }
+  .phone { width: clamp(220px, 14vw, 300px); }
 }
 
 /* ─────────────────────────────────────────────────────────
