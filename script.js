@@ -244,22 +244,23 @@
   // pinned section. Compute min-height per project so the sticky stays alive
   // until the user has scrolled past the entire copy column.
   function fitProjectHeights() {
+    const isMobile = window.matchMedia('(max-width: 1000px)').matches;
     const vh = window.innerHeight;
     document.querySelectorAll('.project').forEach((proj) => {
+      // Mobile: no sticky pin, let content drive height naturally
+      if (isMobile) {
+        proj.style.minHeight = '';
+        return;
+      }
       const copy = proj.querySelector('.project__copy');
       const visual = proj.querySelector('.project__visual');
       if (!copy) return;
-      // Temporarily clear so measurement reflects natural layout
       proj.style.minHeight = '';
       const copyH = copy.getBoundingClientRect().height;
       const visualH = visual ? visual.getBoundingClientRect().height : 0;
       const tallest = Math.max(copyH, visualH);
-      // Each project: keep at least 2.2 viewports of scroll (the original
-      // baseline that gives time for copy reveals + visual scrub). If the
-      // copy column is unusually tall (Claude Widget), extend further so the
-      // sticky stays alive until the user has scrolled past every line.
       const baseline = vh * 2.2;
-      const needed = tallest + vh * 1.0; // copy + 1 viewport of pin time
+      const needed = tallest + vh * 1.0;
       proj.style.minHeight = Math.max(baseline, needed) + 'px';
     });
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
@@ -279,7 +280,11 @@
   });
 
   // --------- Project visuals — scrub-driven motion inside the pin ---------
-  if (window.ScrollTrigger && !prefersReduced) {
+  // Only runs on desktop where the sticky pin is alive. On mobile the layout
+  // collapses to a normal stack and scrub-driven displacement just pushes
+  // mockups out of the column (overflow → cut-off).
+  const isMobileLayout = window.matchMedia('(max-width: 1000px)').matches;
+  if (window.ScrollTrigger && !prefersReduced && !isMobileLayout) {
     document.querySelectorAll('.project').forEach((proj) => {
       const which = proj.dataset.project;
       const sticky = proj.querySelector('.project__sticky');

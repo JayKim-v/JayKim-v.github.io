@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en-AU">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jaehee Kim — CV</title>
+  <meta name="description"
+    content="Jaehee Kim — Full-Stack Developer based in Seoul. Open to AU remote roles. 3y 10m experience, 2y 5m proven remote with US client." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+
+  <style>
+    /* ─── design tokens ─── */
+    :root {
+      --ink:        #14181B;
+      --ink-soft:   #2A3236;
+      --muted:      #5B6571;
+      --line:       #D9DCE0;
+      --line-soft:  #ECEEF1;
+      --accent:     #2F5D48;
+      --bg:         #FFFFFF;
+
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: #F4F4F0;
+      font-size: 14px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'kern', 'ss01';
+    }
+    a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
+    a:hover { color: var(--accent); border-color: var(--accent); }
+    ul { margin: 0; padding: 0; list-style: none; }
+    p { margin: 0 0 8px; }
+
+    /* ─── page (screen) ─── */
+    .page {
+      max-width: 820px;
+      margin: 24px auto;
+      background: var(--bg);
+      padding: 56px 64px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    }
+
+    /* ─── header ─── */
+    .h-name {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin: 0 0 4px;
+    }
+    .h-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 14px;
+      letter-spacing: -.005em;
+    }
+    .h-contact {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .h-contact span + span::before {
+      content: ' · ';
+      color: var(--line);
+      margin: 0 4px;
+    }
+
+    /* ─── section ─── */
+    .section { margin-top: 22px; }
+    .section__head {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--accent);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* ─── summary / work-rights blocks ─── */
+    .summary { font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); }
+    .rights {
+      list-style: none; padding: 0; margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px 16px;
+    }
+    .rights li {
+      font-size: 13px;
+      padding-left: 14px;
+      position: relative;
+      color: var(--ink-soft);
+    }
+    .rights li::before {
+      content: '';
+      position: absolute; left: 2px; top: 9px;
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* ─── skills ─── */
+    .skills { display: grid; grid-template-columns: 130px 1fr; gap: 6px 14px; font-size: 13px; }
+    .skills dt { font-weight: 600; color: var(--ink); }
+    .skills dd { margin: 0; color: var(--ink-soft); }
+
+    /* ─── experience entries ─── */
+    .entry { margin-bottom: 18px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry__head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 2px;
+    }
+    .entry__title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .entry__title em {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .entry__date {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .entry__sub {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .entry__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .entry__list li {
+      position: relative;
+      padding-left: 13px;
+      margin-bottom: 3px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+    .entry__list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 4px; height: 4px;
+      background: var(--ink);
+      border-radius: 50%;
+    }
+    .entry__stack {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ─── education compact list ─── */
+    .edu-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 6px 16px;
+      margin-bottom: 8px;
+    }
+    .edu-row__title { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+    .edu-row__title em { font-style: normal; font-weight: 400; color: var(--muted); }
+    .edu-row__date { font-size: 12px; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .edu-row__desc { grid-column: 1 / -1; font-size: 12.5px; color: var(--ink-soft); margin-top: -2px; }
+
+    /* ─── references ─── */
+    .refs { font-size: 12.5px; color: var(--muted); font-style: italic; }
+
+    /* ─── print ─── */
+    @media print {
+      @page { size: A4; margin: 14mm 14mm; }
+
+      html, body { background: #FFFFFF !important; }
+
+      .page {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .section { margin-top: 16px; }
+      .entry { page-break-inside: avoid; break-inside: avoid; }
+      .edu-row { page-break-inside: avoid; break-inside: avoid; }
+
+      a { color: var(--ink); border: 0; }
+      a[href^="http"]::after { content: ""; }
+
+      h1, h2, h3, h4 { page-break-after: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header>
+      <h1 class="h-name">Jaehee Kim</h1>
+      <div class="h-title">Full-Stack Developer · Remote (AEST overlap)</div>
+      <div class="h-contact">
+        <span>Seoul, South Korea</span>
+        <span><a href="mailto:jaeheekim.dev@gmail.com">jaeheekim.dev@gmail.com</a></span>
+        <span>+82 10-9025-9880</span>
+        <span>Portfolio: <a href="https://jaykim-v.github.io/en/au/">jaykim-v.github.io/en/au</a></span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section__head">Summary</h2>
+      <p class="summary">
+        Full-stack developer with <strong>nearly 4 years of professional experience</strong> across web and mobile,
+        and <strong>writing code daily since 2021</strong> (formal training + four roles + ongoing solo product
+        work). Led a Washington D.C. dental clinic's website <strong>100% remote from Seoul for 2 years 5 months</strong>,
+        owning strategy, design, development, SEO, and hosting single-handed. Shipped a casual game to iOS and
+        Android solo, and now building my own developer tooling (AI Usage, SwiftUI, on TestFlight). Open to
+        <strong>AU remote roles</strong> — Seoul sits within 1–2 hours of AEST and no Australian visa sponsorship
+        is required.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__head">Work Rights &amp; Availability</h2>
+      <ul class="rights">
+        <li>Remote contractor based in Seoul (UTC+9) — <strong>1–2 hour overlap with AEST</strong>, nearly a full sync workday</li>
+        <li>Available immediately · <strong>no Australian work visa or sponsorship required</strong></li>
+        <li>2 years 5 months of proven full-time remote work with an English-speaking US client</li>
+        <li>Comfortable with async and synchronous collaboration in English (Slack, email, video calls)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__head">Key Skills</h2>
+      <dl class="skills">
+        <dt>Frontend</dt>
+        <dd>React · TypeScript · JavaScript (ES6+) · Vue.js · jQuery · GSAP · Tailwind · HTML · CSS</dd>
+        <dt>Mobile</dt>
+        <dd>React Native · Expo · Swift / SwiftUI · WidgetKit</dd>
+        <dt>Backend</dt>
+        <dd>Node.js · Java · Spring · JSP · PHP · Supabase Edge Functions</dd>
+        <dt>Databases</dt>
+        <dd>PostgreSQL (Supabase) · MySQL · MariaDB · OracleDB · SQLite (GRDB)</dd>
+        <dt>Infra &amp; Tools</dt>
+        <dd>Git / GitHub · EAS CI/CD · SiteGround Hosting · Figma · Notion · Sentry · AdMob · i18next</dd>
+      </dl>
+    </section>
+
+    <section class="section">
+      <h2 class="section__head">Work Experience</h2>
+
+      <article class="entry">
+        <div class="entry__head">
+          <div class="entry__title">Independent Developer <em>— Solo full-stack, web + mobile</em></div>
+          <div class="entry__date">05/2026 – present</div>
+        </div>
+        <div class="entry__sub">Seoul, South Korea · remote</div>
+        <ul class="entry__list">
+          <li>Operating Apple Pop (live on App Store and Google Play) — release management, IAP receipt verification, leaderboard ops, and 22-locale i18n upkeep</li>
+          <li>Building AI Usage — SwiftUI macOS menubar + iOS widget tracking Claude Code and Codex CLI token usage, currently on TestFlight</li>
+          <li>Open to AU / global remote contracts: full-stack web, React / React Native, design-to-deploy ownership</li>
+        </ul>
+        <div class="entry__stack">React Native · TypeScript · Supabase · Swift / SwiftUI · GRDB</div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__head">
+          <div class="entry__title">PrecisionMicroEndodontics <em>— Lead Developer (Remote, Solo)</em></div>
+          <div class="entry__date">01/2024 – 05/2026</div>
+        </div>
+        <div class="entry__sub">Washington D.C., USA · 100% remote from Seoul</div>
+        <ul class="entry__list">
+          <li>Led an endodontic clinic's website end-to-end as the sole developer, 100% remote from Seoul</li>
+          <li>Designed and built a <strong>PHP + JSON-file content rendering system</strong> from scratch — including publishing, categorisation, and URL structure</li>
+          <li>Improved local Google ranking through keyword-driven content, metadata, sitemap, and OG tags (Vienna, VA local SEO)</li>
+          <li>Maintained <strong>2 years 5 months of uptime</strong> on SiteGround managed hosting; handled domain, SSL, backups, and incident response personally; handed off cleanly to automation</li>
+        </ul>
+        <div class="entry__stack">PHP · jQuery · Bootstrap 5 · Animate On Scroll · SiteGround · Figma · Notion · GitHub</div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__head">
+          <div class="entry__title">Educational Space Co. <em>— Software Engineer, Dev Team (Assistant Manager)</em></div>
+          <div class="entry__date">06/2023 – 01/2024</div>
+        </div>
+        <div class="entry__sub">Seoul, South Korea</div>
+        <ul class="entry__list">
+          <li>Owned the IA, wireframes, Figma prototype, and UX/UI design for a B2B SaaS Digital SAT web app — Students, Tests, Lessons, and Points modules — single-handed</li>
+          <li>Translated client requirements straight into screens in 1:1 client meetings — the full client-to-product cycle ran through one person</li>
+          <li>Built the React frontend and connected it to a Java + MariaDB backend, auto-saving and restoring test sitting state</li>
+          <li>Designed per-academy student dashboards: round averages, per-student ranking, peer-academy comparison charts</li>
+        </ul>
+        <div class="entry__stack">React · JavaScript (ES6) · Java · MariaDB · Figma</div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__head">
+          <div class="entry__title">Entels <em>— Web Developer, Solutions Team</em></div>
+          <div class="entry__date">12/2021 – 09/2022</div>
+        </div>
+        <div class="entry__sub">Seoul, South Korea</div>
+        <ul class="entry__list">
+          <li>Built the Korean Ministry of Education / KOEF "Remote Career Mentoring" site — a <strong>dual-portal site</strong> for Mentors (career instructors, training providers) and Schools (teachers, institutions) on a shared backend</li>
+          <li>Implemented member, class, board, and statistics modules in Spring MVC + JSP, with jQuery / AJAX for async interactions</li>
+          <li>Operated within a public-sector cycle: requirements alignment → development → deployment → incident response</li>
+          <li>Built selected screens with React (JSXTransformer) for dynamic component composition</li>
+        </ul>
+        <div class="entry__stack">Java · Spring MVC · JSP · MySQL · jQuery · React (partial)</div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__head">
+          <div class="entry__title">AIS <em>— Intern</em></div>
+          <div class="entry__date">2021</div>
+        </div>
+        <div class="entry__sub">Seoul, South Korea</div>
+        <ul class="entry__list">
+          <li>Built a daily auto-email pipeline using UiPath RPA</li>
+        </ul>
+        <div class="entry__stack">UiPath · Windows automation</div>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section__head">Featured Projects</h2>
+
+      <article class="entry">
+        <div class="entry__head">
+          <div class="entry__title">Apple Pop <em>— casual puzzle game, iOS + Android, solo full-stack</em></div>
+          <div class="entry__date">2024 – present</div>
+        </div>
+        <ul class="entry__list">
+          <li>Designed component library and design-system tokens from scratch (colour, typography, motion, spacing)</li>
+          <li>Implemented authentication, ranking transactions, and <strong>server-side IAP receipt verification</strong> on Supabase + Edge Functions to block tampering</li>
+          <li>Localised into <strong>22 languages</strong> with i18next, including font fallbacks and string externalisation</li>
+          <li>Set up EAS CI/CD, auto-signing, review automation, Sentry monitoring, AdMob, and privacy-policy compliance</li>
+        </ul>
+        <div class="entry__stack">React Native · Expo · TypeScript · Supabase / PostgreSQL · Edge Functions · EAS · Sentry · i18next · AdMob — live on App Store + Google Play</div>
+      </article>
+
+      <article class="entry">
+        <div class="entry__head">
+          <div class="entry__title">AI Usage <em>— macOS menubar + iOS widget, solo</em></div>
+          <div class="entry__date">2025 – present (TestFlight)</div>
+        </div>
+        <ul class="entry__list">
+          <li>Built a usage dashboard Anthropic doesn't ship: SwiftUI menubar + popover tracking <strong>Claude Code and Codex CLI in one place</strong></li>
+          <li>Persisted 90 days of usage locally in GRDB (SQLite), with FSEvents watching session files in real time</li>
+          <li>Synced data from iPhone → Mac via iCloud Drive snapshots — same view across menubar and home widget</li>
+          <li>Built iOS home and lock-screen widgets (systemSmall · systemMedium · accessoryRectangular). <strong>Zero servers, zero external data</strong> — fully local</li>
+        </ul>
+        <div class="entry__stack">Swift · SwiftUI · WidgetKit · GRDB / SQLite · FSEvents · iCloud Drive · App Group</div>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section__head">Education</h2>
+
+      <div class="edu-row">
+        <div class="edu-row__title">Green Academy <em>— Project-based Frontend (React, Vue)</em></div>
+        <div class="edu-row__date">01/2023 – 06/2023</div>
+        <div class="edu-row__desc">Responsive web apps, SPAs, PWAs (CGV / Hankook Tire site clones). Embedded GitHub-based collaboration.</div>
+      </div>
+
+      <div class="edu-row">
+        <div class="edu-row__title">Hi-Media IT Academy <em>— AI Digital Transformation Systems Development</em></div>
+        <div class="edu-row__date">07/2021 – 10/2021</div>
+        <div class="edu-row__desc">Built and deployed projects across Java / JSP / Python / SQL / UiPath.</div>
+      </div>
+
+      <div class="edu-row">
+        <div class="edu-row__title">Ogeum High School</div>
+        <div class="edu-row__date">Class of 2018</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__head">Certifications</h2>
+      <div class="edu-row">
+        <div class="edu-row__title">Computerised Accounting Level 1 <em>— Korean Tax Accountants Association (national certification)</em></div>
+        <div class="edu-row__date">03/2021</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-row__title">Driver's Licence <em>— Korean National Police Agency</em></div>
+        <div class="edu-row__date">07/2018</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-row__title">Document Practical Skills Level 4 <em>— KIMA (national certification)</em></div>
+        <div class="edu-row__date">05/2010</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__head">Languages</h2>
+      <div class="edu-row">
+        <div class="edu-row__title">English <em>— Conversational</em></div>
+        <div class="edu-row__date">TOEIC Speaking IM1 · 06/2023</div>
+        <div class="edu-row__desc">2 years 5 months of real async and synchronous remote work with an English-speaking US client — Slack, email, and video calls all in English.</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-row__title">Korean</div>
+        <div class="edu-row__date">Native</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__head">References</h2>
+      <p class="refs">Available upon request.</p>
+    </section>
+
+  </main>
+</body>
+
+</html>

@@ -170,8 +170,32 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 12px 0; }
 }
 .nav__cta:hover { background: var(--accent); transform: translateY(-1px); }
 
+.nav__right {
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.nav__lang {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-en);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+.nav__lang a {
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color .2s, background .2s;
+}
+.nav__lang a:hover { color: var(--ink); }
+.nav__lang a.is-active {
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+.nav__lang span { opacity: .4; }
+
 @media (max-width: 760px) {
   .nav__menu { display: none; }
+  .nav__lang { font-size: 11px; }
+  .nav__right { gap: 8px; }
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -617,11 +641,13 @@ section {
   .project { min-height: auto; }
   .project__sticky {
     position: relative; height: auto;
+    min-height: 0;
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 60px 0;
+    gap: 32px;
+    padding: 40px 0;
+    align-items: start;
   }
-  .project__visual { min-height: 60vh; }
+  .project__visual { min-height: 0; }
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -660,6 +686,30 @@ section {
   .precision-stack__front { width: 80%; left: 10%; }
 }
 
+@media (max-width: 1000px) {
+  /* On mobile the scroll-scrubbed fan-out is disabled (no sticky pin),
+     so give all three cards a clearly readable staggered default position. */
+  .precision-stack {
+    aspect-ratio: 4 / 3.6;
+    max-width: 100%;
+    margin: 0 auto;
+    perspective: none;
+  }
+  .precision-stack__back  { width: 84%; left: 14%; top: 0;   transform: rotate(2deg);  opacity: 1; }
+  .precision-stack__mid   { width: 84%; left: 2%;  top: 14%; transform: rotate(-1.5deg); opacity: 1; }
+  .precision-stack__front { width: 88%; left: 6%;  top: 28%; transform: rotate(0); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .site-frame__chrome { padding: 8px 10px; gap: 6px; }
+  .site-frame__chrome > span { width: 8px; height: 8px; }
+  .site-frame__url {
+    font-size: 10px;
+    padding: 4px 8px;
+    margin: 0 6px;
+  }
+}
+
 /* ─────────────────────────────────────────────────────────
    Live site frame (real screenshot inside browser chrome)
    ───────────────────────────────────────────────────────── */
@@ -688,6 +738,7 @@ section {
 .site-frame__chrome > span:nth-child(3) { background: #27C840; }
 .site-frame__url {
   flex: 1;
+  min-width: 0;
   margin: 0 12px;
   text-align: center;
   font-family: var(--font-mono);
@@ -697,6 +748,9 @@ section {
   padding: 5px 12px;
   border-radius: 6px;
   border: 1px solid var(--line-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .site-frame__shot {
   width: 100%; height: auto; display: block;
@@ -976,6 +1030,9 @@ section {
 .phone--b { z-index: 3; transform: rotate(0deg) translateY(-6px); }
 .phone--c { margin-left: -56px; z-index: 2; transform: rotate(8deg) translateY(8px); }
 
+@media (max-width: 1000px) {
+  .phones { height: auto; padding: 12px 0; }
+}
 @media (max-width: 600px) {
   .phone { width: clamp(120px, 28vw, 160px); }
   .phone--a { margin-right: -36px; }
@@ -1125,6 +1182,59 @@ section {
 .cw-lock__widget b { font-size: 14px; font-weight: 800; }
 .cw-lock__lbl { opacity: .55; }
 .cw-lock__sep { opacity: .4; margin: 0 2px; }
+
+@media (max-width: 600px) {
+  .cw-stage {
+    padding: 16px;
+    gap: 16px;
+    border-radius: 18px;
+  }
+  .cw-menubar {
+    gap: 8px;
+    padding: 6px 10px;
+    font-size: 10.5px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+  /* Hide secondary macOS app labels on narrow screens — keep Finder + spacer + pill + clock */
+  .cw-menubar__app:nth-child(2),
+  .cw-menubar__app:nth-child(3),
+  .cw-menubar__app:nth-child(4) { display: none; }
+  .cw-menubar__pill { padding: 3px 8px; gap: 4px; }
+  .cw-menubar__sys:nth-of-type(1) { display: none; }
+
+  .cw-pop { padding: 14px 14px; }
+  .cw-pop__head { font-size: 10px; margin-bottom: 10px; }
+  .cw-pop__row {
+    grid-template-columns: 56px 1fr auto;
+    column-gap: 10px;
+    padding: 10px 0;
+  }
+  .cw-pop__brand { font-size: 10px; }
+  .cw-pop__pct { font-size: 26px; }
+  .cw-pop__sub { font-size: 10px; }
+  .cw-pop__stats { gap: 10px; }
+  .cw-pop__stats b { font-size: 12px; }
+  .cw-pop__stats span { font-size: 9px; }
+  .cw-pop__foot { font-size: 10.5px; padding-top: 10px; }
+
+  .cw-lock { padding: 12px 14px; }
+  .cw-lock__time { font-size: 24px; }
+  .cw-lock__date { font-size: 10.5px; margin-bottom: 10px; }
+  .cw-lock__widget {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 9px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cw-menubar__app:first-child { display: none; }
+  .cw-pop__row { grid-template-columns: 48px 1fr auto; column-gap: 8px; }
+  .cw-pop__pct { font-size: 22px; }
+  .cw-pop__stats { gap: 8px; }
+}
 
 /* ─────────────────────────────────────────────────────────
    Mac mockup (legacy, kept but unused)
@@ -1393,6 +1503,8 @@ section {
   font-size: clamp(22px, 2.5vw, 32px);
   font-weight: 700;
   letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact__note {
@@ -1400,6 +1512,12 @@ section {
   font-size: 13px;
   color: var(--muted);
   line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .contact__grid { grid-template-columns: 1fr; }
+  .contact__card { padding: 24px 22px; }
+  .contact__card-value { font-size: 20px; }
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1427,4 +1545,171 @@ section {
   [data-reveal-words] .word-inner { transform: none !important; }
   body { cursor: auto; }
   .cursor { display: none; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Print (PDF export via Chrome headless --print-to-pdf)
+   ───────────────────────────────────────────────────────── */
+@media print {
+  @page { size: A4; margin: 14mm 12mm; }
+
+  html, body {
+    background: #FFFFFF !important;
+    overflow: visible !important;
+    cursor: auto !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide interactive chrome */
+  .cursor,
+  .scroll-progress,
+  .hero__scroll,
+  .nav { display: none !important; }
+
+  /* Reveal everything (belt-and-braces — JS already does this under reduced-motion) */
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-reveal-words] .word-inner { transform: none !important; }
+  .hero__line .char,
+  .hero__sub > p { opacity: 1 !important; transform: none !important; }
+
+  /* Kill viewport-locked heights so the document flows naturally on paper */
+  .hero {
+    min-height: 0 !important;
+    padding-top: 20px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .project {
+    min-height: 0 !important;
+    padding: 0 var(--pad-x);
+  }
+  /* Single-column on paper: visual on top, copy below.
+     The 2-col desktop grid squeezes into ~280px columns on A4 and overflows
+     across pages, leaving stray tag-only orphans. */
+  .project__sticky {
+    position: static !important;
+    min-height: 0 !important;
+    display: block !important;
+    grid-template-columns: none !important;
+    padding: 16px 0 !important;
+  }
+  .project__visual,
+  .project__copy {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 16px;
+  }
+  /* Visual mockups: kill aspect-ratio cages, absolute positions, and rotations
+     so each screenshot becomes a simple in-flow block that never splits. */
+  .project__visual { max-width: 100%; overflow: visible !important; }
+  .precision-stack,
+  .ment-stack,
+  .dsat-stack,
+  .phones,
+  .cw-stage {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    perspective: none !important;
+    display: block !important;
+  }
+  .precision-stack .site-frame,
+  .ment-stack .site-frame {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    margin: 0 auto 12px !important;
+    opacity: 1 !important;
+    filter: none !important;
+    box-shadow: 0 0 0 1px var(--line) !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .ment-stack__caption { display: none !important; }
+  .precision-stack__back,
+  .precision-stack__mid,
+  .precision-stack__front,
+  .ment-stack__a,
+  .ment-stack__b { top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; }
+  /* Only show the front-most precision card to save a page (front = hero shot) */
+  .precision-stack__back,
+  .precision-stack__mid { display: none !important; }
+
+  /* Phones / dsat: stack inline-block thumbnails so they fit one row if possible */
+  .phone, .dsat-fig {
+    position: static !important;
+    display: inline-block !important;
+    width: 30% !important;
+    margin: 0 6px 12px 0 !important;
+    transform: none !important;
+    vertical-align: top;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .dsat-fig figcaption { font-size: 9px !important; }
+
+  /* Claude widget mockup is complex; just hide secondary elements */
+  .cw-menubar, .cw-lock { display: none !important; }
+  .cw-pop { position: static !important; margin: 0 auto !important; max-width: 320px !important; }
+
+  /* Contact: 1-column on paper so cards have room for full email */
+  .contact__grid {
+    grid-template-columns: 1fr !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .contact__card-value { font-size: 18px !important; word-break: break-all; }
+  .contact { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Keep small atomic blocks together. Use modern `break-inside` — works on
+     flex/grid children where the legacy `page-break-inside` is silently
+     ignored by Chrome.
+     Intentionally NOT avoiding break on `.project` or `.project__stack`:
+     projects are taller than a page and forcing them atomic creates ugly
+     orphan tag rows on the next page with whitespace above. Letting them
+     flow naturally produces a denser, cleaner result. */
+  .strengths__item,
+  .facts__row,
+  .timeline__item,
+  .creds__col,
+  .creds__list > li,
+  .contact__card,
+  .stack__group,
+  .project__points li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Footer is just "© 2026 Jaehee Kim" — redundant with Contact, drop it
+     to avoid orphaning a near-empty final page. */
+  .foot { display: none !important; }
+
+  /* Reset any per-project sticky/transform fanouts so screenshots sit flat */
+  .precision-stack,
+  .phones,
+  .dsat-stack,
+  .ment-stack,
+  .cw-stage {
+    transform: none !important;
+  }
+  .precision-stack__back, .precision-stack__mid, .precision-stack__front,
+  .phone--a, .phone--b, .phone--c,
+  .dsat-fig, .ment-stack__a, .ment-stack__b {
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  /* Make links visibly link-colored on paper */
+  a { color: var(--accent) !important; }
+
+  /* Don't let pulsing dot animate (mostly off via reduced-motion already) */
+  .hero__meta-dot { animation: none !important; }
 }
