@@ -13,3 +13,11 @@ myResume/
 # Logs / temp
 *.log
 *.tmp
+
+# Office lock files
+~$*
+
+# 원본 이력서 (연봉 이력·자기소개서 포함) — 공개 저장소에 올리지 말 것.
+# 사이트에는 민감 정보를 제거한 assets/cv/jay-resume-ko.pdf 만 배포한다.
+/resume.ko.jaykim.pdf
+/assets/cv/jay-resume-ko.docx
