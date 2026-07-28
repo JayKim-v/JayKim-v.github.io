@@ -20,4 +20,7 @@ myResume/
 # 원본 이력서 (연봉 이력·자기소개서 포함) — 공개 저장소에 올리지 말 것.
 # 사이트에는 민감 정보를 제거한 assets/cv/jay-resume-ko.pdf 만 배포한다.
 /resume.ko.jaykim.pdf
-/assets/cv/jay-resume-ko.docx
+
+# 이력서 원본 문서(.docx)는 편집용 로컬 파일이다. 사이트에는 PDF 만 배포한다.
+# 저장소에 올리면 링크가 없어도 URL 직접 접근으로 다운로드된다.
+*.docx
