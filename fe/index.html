@@ -17,7 +17,7 @@
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:title" content="김재희 · 프론트엔드 — 업무 프로세스를 화면으로 구조화합니다" />
   <meta property="og:description"
-    content="실무 4년 2개월. Next.js·TypeScript로 사용자 웹·관리자 CMS·API 세 서비스 담당. Lighthouse 실측을 좋은 값과 나쁜 값 모두 공개." />
+    content="실무 4년 2개월. Next.js·TypeScript로 사용자 웹·관리자 CMS·API 세 서비스 담당. Lighthouse·Web Vitals 실측과 접근성 규칙을 문서에 함께 실었습니다." />
   <meta property="og:url" content="https://jaykim-v.github.io/fe/" />
   <meta name="twitter:card" content="summary" />
 
@@ -257,7 +257,6 @@
 
               <p class="entry__links"><a href="https://precisionrct.com" target="_blank"
                   rel="noopener">precisionrct.com</a></p>
-              <p class="footnote">이 사이트의 Lighthouse 점수는 아래 02 표에 낮은 값 그대로 적었습니다.</p>
             </div>
           </article>
 
@@ -311,8 +310,7 @@
             <div class="entry__body">
               <h3>mStone · 제품 라인업 사이트</h3>
               <p class="minor__prose">기계식 키보드 브랜드의 팬 제작 디자인 시안입니다. 제품 3종을 빌드 시점에 정적으로 만들었습니다 — 갱신되지 않는 시안이라 재검증 주기를 정할 근거가 없었고,
-                갱신이 생기면 App Router에서 라우트 단위로 켤 수 있는 형태까지만 열어뒀습니다. 데스크톱은 네 항목 모두 100에 LCP 0.8초인데 같은 페이지 모바일은 성능 76 · LCP 4.7초입니다.
-                데스크톱만 적으면 절반만 말하는 것이라 둘 다 적었습니다.</p>
+                갱신이 생기면 App Router에서 라우트 단위로 켤 수 있는 형태까지만 열어뒀습니다. 데스크톱은 네 항목 모두 100에 LCP 0.8초, 같은 페이지 모바일은 성능 76 · LCP 4.7초입니다.</p>
               <p class="spec-line">Next.js · App Router · Vercel — 데스크톱 100 / 100 / 100 / 100 · LCP 0.8s · CLS 0.003 — 모바일 성능 76 · LCP 4.7s</p>
               <p class="entry__links"><a href="https://mstone-demo.vercel.app" target="_blank" rel="noopener">mstone-demo.vercel.app</a></p>
               <p class="footnote">실존 브랜드와 무관한 팬 제작 시안입니다.</p>
@@ -367,7 +365,7 @@
     <section class="sec" id="numbers">
       <div class="wrap">
         <h2 data-no="02"><span class="sec__label">02 / 성능 · 접근성 실측</span>성능 · 접근성 실측</h2>
-        <p class="sec__lead">잘 나온 것만 싣지 않았습니다. 같은 사람이 만든 결과물의 좋은 점수와 나쁜 점수를 같은 표에 넣었습니다. 감이 아니라 수치로 확인합니다.</p>
+        <p class="sec__lead">제가 만든 결과물을 같은 조건으로 재고, 편차마다 원인을 붙였습니다.</p>
 
         <div class="sec__body tablewrap">
           <table>
@@ -469,10 +467,9 @@
         </div>
 
         <p class="t-after">
-          가장 낮은 줄 <span class="num">모바일 55</span>가 제 기존 포트폴리오이고, 가장 높은 줄 <span class="num">모바일 100</span>이 이 페이지입니다. 같은 사람이 만들었고, 차이는 CDN 웹폰트 세 벌 · 스크립트 연출 라이브러리 세 개 · 최적화 없는 이미지를 각각 self-host 서브셋 · 스크립트 0바이트 · 필요한 장수만 자리 고정으로 되돌린 것뿐입니다.
-        </p>
-        <p class="t-after">
-          다만 정적 문서에서 100점은 어려운 일이 아닙니다. 이 표에서 봐주셨으면 하는 것은 점수 자체가 아니라 편차이고, 편차마다 원인을 적어뒀다는 점입니다.
+          가장 낮은 줄 <span class="num">모바일 55</span>가 제 기존 포트폴리오이고 가장 높은 줄 <span class="num">모바일 100</span>이 이 페이지인데, 정적 문서라 100 자체가 어려운 일은
+          아닙니다. 여기서 보실 것은 점수가 아니라 편차입니다 — 차이는 CDN 웹폰트 세 벌 · 스크립트 연출 라이브러리 세 개 · 최적화 없는 이미지를 각각 self-host 서브셋 ·
+          스크립트 0바이트 · 필요한 장수만 자리 고정으로 되돌린 것뿐입니다.
         </p>
         <p class="print-note">이력 전체와 상세 규칙은 jaykim-v.github.io/fe 에 있습니다.</p>
       </div>
@@ -637,7 +634,7 @@
     <section class="sec" id="map">
       <div class="wrap">
         <h2 data-no="05"><span class="sec__label">05 / 자격요건 대응</span>자격요건 대응</h2>
-        <p class="sec__lead jd-lead">JYP엔터테인먼트 IT LAB · Software Engineer / Frontend 공고의 자격요건을 원문 순서 그대로 옮기고 제 근거를 붙였습니다. 충족하지 못한 항목을 충족한 것처럼 적지 않았습니다.</p>
+        <p class="sec__lead jd-lead">JYP엔터테인먼트 IT LAB · Software Engineer / Frontend 공고의 자격요건을 원문 순서 그대로 옮기고 제 근거를 붙였습니다.</p>
         <p class="sec__lead web-only">프론트엔드 채용에서 자주 요구되는 항목에 제 근거를 대응시켰습니다.</p>
 
         <div class="sec__body tablewrap">
@@ -674,7 +671,7 @@
               </tr>
               <tr>
                 <td>웹 성능 최적화 · 접근성</td>
-                <td>askedtech를 인계 전에 측정해 모바일 27 · LCP 64.2초의 원인을 전달 계층으로 좁혔습니다(01). precisionrct는 2년 5개월 운영하며 낮은 값 그대로 02 표에 실었습니다.
+                <td>askedtech를 인계 전에 측정해 모바일 27 · LCP 64.2초의 원인을 전달 계층으로 좁혔습니다(01). precisionrct는 2년 5개월간 성능 · 접근성 · SEO를 혼자 재고 고쳤습니다(02).
                   접근성은 이 문서에서 대비비 규칙 · 건너뛰기 링크 · <span class="mono" lang="en">:focus-visible</span>까지 구현했습니다(03)</td>
                 <td class="ok">성능 실무 · 접근성 문서</td>
               </tr>
@@ -704,12 +701,13 @@
     <!-- ═══ 06 GraphQL ═══ -->
     <section class="sec sec--light" id="gaps">
       <div class="wrap">
-        <h2 data-no="06"><span class="sec__label">06 / GraphQL</span>GraphQL — 실무 전 검증</h2>
+        <h2 data-no="06"><span class="sec__label">06 / GraphQL</span>GraphQL — 쿼리 수로 확인한 것</h2>
 
         <div class="gap-item">
-          <p>REST로 세 서비스를 잇는 계약을 다루면서, 화면마다 필요한 필드가 달라 엔드포인트가 늘거나 안 쓰는 필드가 쌓이는 문제를 겪었습니다. 그게 GraphQL이 푸는 지점이라는 것까지 확인하고 싶어, 제가
-            출시한 게임의 Postgres 스키마 모양을 그대로 옮긴 로컬 DB 위에 GraphQL 계층을 직접 얹어봤습니다. 리그 8개 × 25명을 중첩해 조회할 때 쿼리가 409번 나가는 것을 계측기로 확인했고,
-            DataLoader로 배치해 4번으로 줄였습니다. 로더를 요청 단위로 만들어야 한다는 것도 그 과정에서 알았습니다. 다만 운영 규모에서의 캐시 무효화와 스키마 변경 관리는 아직 겪어보지 못했습니다.</p>
+          <p>REST로 세 서비스를 잇다 보니 화면마다 필요한 필드가 달라 엔드포인트가 늘고 안 쓰는 필드가 쌓였습니다. GraphQL이 그 지점을 푼다는 건 글로 알고 있었지만 리졸버 단위의 N+1은
+            직접 세어보기 전에는 감이 오지 않아, 제가 출시한 게임의 Postgres 스키마 모양을 그대로 옮긴 로컬 DB 위에 GraphQL 계층을 얹고 계측기를 붙였습니다. 리그 8개 × 25명을 중첩
+            조회할 때 <span class="num">409번</span> 나가던 쿼리를 DataLoader로 배치해 <span class="num">4번</span>으로 줄였습니다. 로더를 요청 단위로 만들지 않으면 요청 사이로 캐시가
+            새는 것도 여기서 확인했습니다. 운영 규모의 캐시 무효화와 스키마 변경 관리는 이 실험의 범위 밖이라, 계측할 수 있는 것까지만 계측했습니다.</p>
           <p class="entry__links"><a href="https://github.com/JayKim-v/graphql-n-plus-one" target="_blank"
               rel="noopener">github.com/JayKim-v/graphql-n-plus-one</a></p>
         </div>
