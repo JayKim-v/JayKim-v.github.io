@@ -392,11 +392,14 @@ footer a { color: var(--ink-soft); }
   .fields > div { grid-template-columns: 1fr; gap: 4px; }
   .fields dt { padding-top: 0; }
   .entry--lead .entry__body { padding: 20px 20px 20px 16px; }
-  .swatch-labels { font-size: 8px; }
+  .swatch-labels { font-size: 10px; }
 }
 @media (max-width: 520px) {
   .hero h1 { font-size: 30px; }
-  .diagram svg { display: none; }
+  /* 도식을 display:none 으로 숨기면 안에 든 title · desc 까지 접근성 트리에서 사라진다.
+     좁은 화면에서는 가로로 스크롤시킨다. */
+  .diagram { overflow-x: auto; }
+  .diagram svg { min-width: 460px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

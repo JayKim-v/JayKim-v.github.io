@@ -96,7 +96,7 @@
         </div>
         <div>
           <dt>Frontend</dt>
-          <dd>React · Next.js · TypeScript · JavaScript(ES6+) · HTML / CSS · Vue</dd>
+          <dd>React · Next.js · TypeScript · JavaScript(ES6+) · HTML / CSS</dd>
         </div>
         <div>
           <dt>Mobile</dt>
@@ -116,7 +116,7 @@
         </div>
         <div>
           <dt>그 외</dt>
-          <dd>Node.js / NestJS · Java / Spring · PHP · MySQL · MariaDB · MongoDB</dd>
+          <dd>Node.js / NestJS · Java / Spring · PHP · MariaDB · MongoDB</dd>
         </div>
       </dl>
     </section>
@@ -298,7 +298,7 @@
               <p class="entry__def">기계식 키보드 브랜드의 팬 제작 디자인 시안. 제품 3종의 라인업과 상세.</p>
               <hr class="hr" />
               <dl class="fields">
-                <div class="f--list web-only">
+                <div class="f--list">
                   <dt>설계</dt>
                   <dd>
                     <ul>
@@ -465,7 +465,7 @@
                 <td class="n">1.4s · 0</td>
               </tr>
               <tr class="judge">
-                <td colspan="7">위 진단을 그대로 적용한 결과입니다. 스크립트 0바이트 · 웹폰트 self-host 서브셋 4파일 104KB. CLS 0은 본문 도판 2장까지 <span class="mono" lang="en">width</span> · <span class="mono" lang="en">height</span>로 자리를 미리 잡은 결과이고, 나머지는 우연이 아니라
+                <td colspan="7">위 진단을 그대로 적용한 결과입니다. 스크립트 0바이트 · 웹폰트 self-host 서브셋 4파일 104KB. CLS 0은 본문 도판 4장까지 <span class="mono" lang="en">width</span> · <span class="mono" lang="en">height</span>로 자리를 미리 잡은 결과이고, 나머지는 우연이 아니라
                   폴백 서체의 ascent · descent를 Pretendard 실측값으로 맞춰둔 결과입니다.</td>
               </tr>
             </tbody>
@@ -475,8 +475,8 @@
         <p class="t-after">
           가장 낮은 줄 <span class="num">모바일 55</span>가 제 기존 포트폴리오이고, 가장 높은 줄 <span class="num">모바일 100</span>이 이 페이지입니다. 같은 사람이 만들었고, 차이는 CDN 웹폰트 세 벌 · 스크립트 연출 라이브러리 세 개 · 최적화 없는 이미지를 각각 self-host 서브셋 · 스크립트 0바이트 · 필요한 장수만 자리 고정으로 되돌린 것뿐입니다.
         </p>
-        <p class="t-after web-only">
-          정적 문서에서 100점은 어려운 일이 아닙니다. 이 표에서 봐주셨으면 하는 것은 점수 자체보다 편차이고, 편차마다 원인을 적어뒀다는 점입니다.
+        <p class="t-after">
+          다만 정적 문서에서 100점은 어려운 일이 아닙니다. 이 표에서 봐주셨으면 하는 것은 점수 자체가 아니라 편차이고, 편차마다 원인을 적어뒀다는 점입니다.
         </p>
         <p class="print-note">이력 전체와 상세 규칙은 jaykim-v.github.io/fe 에 있습니다.</p>
       </div>
@@ -543,7 +543,7 @@
                 <td class="mono" lang="en">--bg on --accent</td>
                 <td class="n">7.36:1</td>
                 <td>AAA</td>
-                <td>화면에서 04 밴드의 제목과 본문. 인쇄본은 배경을 빼고 상하 경계선으로 바꿔 <span class="mono" lang="en">--ink on --bg</span> 18.03:1이 됩니다. 배경 박스가 페이지 경계에서 잘리기 때문이고, 두 매체에서 같은 값을 쓰지 않습니다</td>
+                <td>화면에서 04 밴드의 제목과 본문. 인쇄본은 배경을 빼 <span class="mono" lang="en">--ink on --bg</span> 18.03:1이 됩니다 — 배경 박스가 페이지 경계에서 잘리기 때문입니다</td>
               </tr>
               <tr class="web-only">
                 <td class="mono" lang="en">--line on --accent</td>
@@ -599,7 +599,7 @@
 
         <div class="item">
           <h3>같은 백엔드 위에서 화면을 가릅니다</h3>
-          <p>성격이 다른 두 집단이 한 시스템을 쓰는 구조를 세 번 만났습니다. 실무에서 두 번, 교육 과정에서 한 번입니다. 아래는 그중 하나 — 교육부 원격영상 진로멘토링에서 제가 맡은 두 포털입니다.</p>
+          <p>성격이 다른 두 집단이 한 시스템을 쓰는 구조를 세 번 만났습니다. 실무에서 두 번, 교육 과정에서 한 번입니다. 아래는 그중 하나 — 교육부 원격영상 진로멘토링에서 제가 맡은 두 포털입니다. Spring MVC · JSP · jQuery 로 된 시스템이었고 일부 화면을 React 로 얹었습니다.</p>
 
           <figure class="shot shot--pair">
             <img src="img/mentoring-mentor.jpg" width="1000" height="625" loading="lazy" decoding="async"
@@ -680,9 +680,10 @@
               </tr>
               <tr>
                 <td>웹 성능 최적화 · 접근성</td>
-                <td>02 실측표에 LCP · CLS를 좋은 값과 나쁜 값 모두 기재 · 03에 대비비 전 조합과 미달 조합의 사용 금지 규칙 · 이 문서에 건너뛰기 링크와
-                  <span class="mono" lang="en">:focus-visible</span> · <span class="mono" lang="en">prefers-reduced-motion</span> 구현(03)</td>
-                <td class="ok">실무</td>
+                <td>askedtech를 인계 전에 측정해 모바일 27 · LCP 64.2초의 원인을 전달 계층으로 좁혔고(01), precisionrct는 2년 5개월 운영하며 모바일 57까지 올린 뒤 낮은 값 그대로
+                  02 표에 실었습니다. 접근성은 이 문서에서 대비비 전 조합과 미달 조합의 사용 금지 규칙 · 건너뛰기 링크 ·
+                  <span class="mono" lang="en">:focus-visible</span> · <span class="mono" lang="en">prefers-reduced-motion</span>까지 구현했습니다(03)</td>
+                <td class="ok">성능 실무 · 접근성 문서</td>
               </tr>
               <tr>
                 <td>디자인 / 기획 의도의 기술적 해석</td>
@@ -730,7 +731,7 @@
 
 
     <!-- ═══ 08 연락처 ═══ -->
-    <section class="sec sec--light" id="contact">
+    <section class="sec sec--light web-only" id="contact">
       <div class="wrap">
         <h2 data-no="07"><span class="sec__label">07 / 연락처</span>연락처</h2>
 
@@ -748,7 +749,7 @@
 
   <footer class="wrap">
     <div>
-      스크립트 0바이트 · 본문 도판 2장(자리 고정 · 지연 로딩) · 웹폰트 self-host 서브셋 4파일<br />
+      스크립트 0바이트 · 본문 도판 4장(자리 고정 · 지연 로딩) · 웹폰트 self-host 서브셋 4파일<br />
       이 페이지의 소스는 브라우저에서 그대로 보실 수 있습니다 — jaykim-v.github.io/fe
     </div>
   </footer>
