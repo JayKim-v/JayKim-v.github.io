@@ -57,15 +57,11 @@
       <hr class="rule" />
 
       <p class="hero__lead">
-        실무 <span class="num">4년 2개월</span>입니다. 일하는 방식은 두 가지로 요약됩니다.
-        하나는 측정입니다 — 이 문서 자체가 실서버 Lighthouse 데스크톱 · 모바일 <span class="num">전 항목 100</span>, CLS 0이고,
-        같은 표에 모바일 57점짜리 제 결과물도 원인과 함께 실었습니다(02).
-        다른 하나는 만들지 않기로 하는 판단입니다 — SNS 자동 발행의 손익분기를 <span class="num">53주</span>로 계산해
-        자동화하지 않고, 사람이 한 번 누르는 반자동 MVP를 제안해 채택시켰습니다(04).
-        React 계열은 2023년 Digital SAT를 전면 구현했고, 2026년부터 Next.js · TypeScript로
+        실무 <span class="num">4년 2개월</span>입니다. 일하는 방식은 두 가지로 요약됩니다. 하나는 측정입니다 — 좋은 값만 고르지 않고
+        모바일 57점짜리 제 결과물도 원인과 함께 같은 표에 실었습니다(02). 다른 하나는 만들지 않기로 하는 판단입니다 —
+        SNS 자동 발행의 손익분기를 <span class="num">53주</span>로 계산해 자동화하지 않고, 사람이 한 번 누르는 반자동 MVP를
+        제안해 채택시켰습니다(04). React 계열은 2023년 Digital SAT를 전면 구현했고, 2026년부터 Next.js · TypeScript로
         사용자 웹 · 관리자 CMS · API <span class="num">세 서비스</span>를 맡고 있습니다.
-        그사이 <span class="num">2년 5개월</span>은 미국 클라이언트 사이트를 원격 단독으로 리드하며
-        기획 · IA · 디자인 · 구현 · 배포 · 운영을 분리 없이 했습니다.
       </p>
 
       <p class="hero__links">
@@ -78,7 +74,7 @@
       <p class="badges">
         <span><b>409 → 4</b><i>GraphQL 중첩 조회 쿼리 수. DataLoader 로 배치해 99% 감소 — 계측으로 확인(06)</i></span>
         <span><b>2년 5개월</b><i>미국 워싱턴 D.C. 의료기관 사이트를 100% 원격으로 단독 리드. 합의부터 인계까지 영어 서면(01)</i></span>
-        <span><b>100 / 100</b><i>이 문서의 실서버 Lighthouse. 데스크톱 · 모바일 네 항목 전부, CLS 0(02)</i></span>
+        <span><b>60ms → 64.2초</b><i>지금 맡은 서비스. 서버는 60ms에 응답하는데 모바일 LCP는 64.2초 — 병목을 전달 계층으로 좁히고 폰트 한 개 2MB를 찾았습니다(01)</i></span>
       </p>
 
       <dl class="stack-sum">
@@ -196,10 +192,10 @@
                 <figcaption>이 칸을 통과하지 못하면 아무것도 나가지 않습니다.</figcaption>
               </figure>
 
-              <p class="t-after">인계를 앞두고 서비스를 한 번 재봤습니다. 모바일 성능 <span class="num">27</span> · LCP <span class="num">64.2초</span>입니다. 서버 응답은 60ms라 병목은 서버가 아니라 전달
-                계층에 있었습니다. 전체 15.9MB 중 이미지가 3.4MB, 스크립트가 48건에 2.9MB, 그리고 <strong>폰트 한 개가 2MB</strong>입니다 — 서브셋이 되어 있지 않습니다. 이 포트폴리오의
-                폰트를 104KB로 줄인 이유가 이겁니다(02). 남은 기간에 손댈 수 있는 범위는 폰트 서브셋과 이미지 지연 로딩까지라고 보고, 그 아래 스크립트 48건은 손대면 회귀 위험이 커서
-                측정값과 원인만 남기는 편이 낫다고 판단했습니다.</p>
+              <p class="t-after">인계를 앞두고 한 번 재봤습니다. 모바일 성능 <span class="num">27</span> · LCP <span class="num">64.2초</span>인데 서버 응답은 60ms라, 병목은 서버가 아니라 전달 계층에
+                있었습니다. 전체 15.9MB 중 이미지 3.4MB · 스크립트 48건 2.9MB, 그리고 <strong>폰트 한 개가 2MB</strong>입니다 — 서브셋이 되어 있지 않습니다. 이 포트폴리오의 폰트를 104KB로
+                줄인 이유가 이겁니다(02). 남은 기간에 손댈 수 있는 범위는 폰트 서브셋과 이미지 지연 로딩까지로 보고, 스크립트 48건은 회귀 위험이 커서 측정값과 원인만 남기는 편이 낫다고
+                판단했습니다.</p>
 
               <p class="spec-line">Next.js · TypeScript · NestJS · MongoDB · AWS EC2 3대 무중단 배포 · 사이트맵 자동화 7,000+ URL</p>
               <p class="entry__links"><a href="https://askedtech.com" target="_blank"
@@ -288,39 +284,24 @@
           </article>
 
 
-          <article class="entry">
+
+          <span class="subhead">그 외</span>
+
+          <article class="entry minor">
             <div class="entry__meta">
               <span>2026.05</span>
               <span>개인 작업</span>
             </div>
             <div class="entry__body">
               <h3>mStone · 제품 라인업 사이트</h3>
-              <p class="entry__def">기계식 키보드 브랜드의 팬 제작 디자인 시안. 제품 3종의 라인업과 상세.</p>
-              <hr class="hr" />
-              <dl class="fields">
-                <div class="f--list">
-                  <dt>설계</dt>
-                  <dd>
-                    <ul>
-                      <li>제품 3종을 빌드 시점에 정적으로 만들었습니다. 갱신되지 않는 시안이라 재검증 주기를 정할 근거가 없었습니다.</li>
-                      <li>갱신이 생기면 App Router에서 라우트 단위로 켤 수 있는 형태까지만 열어뒀습니다.</li>
-                    </ul>
-                  </dd>
-                </div>
-                <div>
-                  <dt>결정</dt>
-                  <dd>데스크톱은 네 항목 모두 100, LCP 0.8초. 같은 페이지 모바일은 성능 76, LCP 4.7초입니다. 데스크톱만 적으면 절반만 말하는 것이라 둘 다 적었습니다.</dd>
-                </div>
-              </dl>
-              <p class="spec-line">Next.js · App Router · Vercel — 데스크톱 100 / 100 / 100 / 100 · LCP 0.8s · CLS 0.003 — 모바일
-                성능 76 · LCP 4.7s</p>
-              <p class="entry__links"><a href="https://mstone-demo.vercel.app" target="_blank"
-                  rel="noopener">mstone-demo.vercel.app</a></p>
+              <p class="minor__prose">기계식 키보드 브랜드의 팬 제작 디자인 시안입니다. 제품 3종을 빌드 시점에 정적으로 만들었습니다 — 갱신되지 않는 시안이라 재검증 주기를 정할 근거가 없었고,
+                갱신이 생기면 App Router에서 라우트 단위로 켤 수 있는 형태까지만 열어뒀습니다. 데스크톱은 네 항목 모두 100에 LCP 0.8초인데 같은 페이지 모바일은 성능 76 · LCP 4.7초입니다.
+                데스크톱만 적으면 절반만 말하는 것이라 둘 다 적었습니다.</p>
+              <p class="spec-line">Next.js · App Router · Vercel — 데스크톱 100 / 100 / 100 / 100 · LCP 0.8s · CLS 0.003 — 모바일 성능 76 · LCP 4.7s</p>
+              <p class="entry__links"><a href="https://mstone-demo.vercel.app" target="_blank" rel="noopener">mstone-demo.vercel.app</a></p>
               <p class="footnote">실존 브랜드와 무관한 팬 제작 시안입니다.</p>
             </div>
           </article>
-
-          <span class="subhead">그 외</span>
 
           <article class="entry minor">
             <div class="entry__meta">
@@ -409,8 +390,7 @@
                 <td class="n">4.7s · —</td>
               </tr>
               <tr class="judge">
-                <td colspan="7">데스크톱 0.8초와 갈리는 지점은 회선이 아니라 모바일 프로파일의 CPU 스로틀링입니다. 반복 측정하면 76에서 96까지 흔들리는데, 그 편차가 CPU 민감도의 신호입니다.
-                  다음 작업은 히어로 구간의 렌더 경로를 줄이는 것입니다.</td>
+                <td colspan="7">데스크톱 0.8초와 갈리는 지점은 회선이 아니라 모바일 CPU 스로틀링입니다. 반복 측정하면 76에서 96까지 흔들리고, 그 편차가 CPU 민감도의 신호입니다.</td>
               </tr>
               <tr>
                 <td lang="en">precisionrct.com</td>
@@ -565,11 +545,10 @@
               </tr>
             </tbody>
           </table>
-          <p class="t-after">대비비 말고 이 문서에서 실제로 한 것 — 첫 초점에 본문 바로가기 링크를 두고, 윤곽선은 <span class="mono" lang="en">:focus-visible</span>에만 줬습니다. 마우스로
-            눌렀을 때도 윤곽선이 뜨면 그건 키보드 사용자에게만 필요한 신호가 아니게 됩니다. 표는 <span class="mono" lang="en">scope</span>로 어느 헤더에 속한 칸인지 묶었고, 도식에는
-            <span class="mono" lang="en">title</span>과 <span class="mono" lang="en">desc</span>를 달아 그림으로 읽는 정보가 음성으로도 같은 내용이 되게 했습니다. 영문 토큰명에는
-            <span class="mono" lang="en">lang</span>을 지정했습니다 — 지정하지 않으면 스크린리더가 한국어 발음으로 읽습니다. <span class="mono" lang="en">prefers-reduced-motion</span>에서는
-            전환을 전부 끕니다.</p>
+          <p class="t-after">대비비 말고 이 문서에서 실제로 한 것 — 첫 초점에 본문 바로가기 링크를 두고, 윤곽선은 <span class="mono" lang="en">:focus-visible</span>에만 줬습니다.
+            마우스로 눌렀을 때도 뜨면 키보드 사용자에게만 필요한 신호가 아니게 됩니다. 표는 <span class="mono" lang="en">scope</span>로 헤더를 묶고, 도식에는
+            <span class="mono" lang="en">title</span>과 <span class="mono" lang="en">desc</span>를 달았습니다. 영문 토큰명에 <span class="mono" lang="en">lang</span>을 지정하지 않으면
+            스크린리더가 한국어 발음으로 읽습니다.</p>
         </div>
 
         <div class="sec__body web-only">
@@ -658,8 +637,7 @@
             <tbody>
               <tr>
                 <td>프론트엔드 개발 경력 5년 이상 7년 이하</td>
-                <td>실무 4년 2개월입니다. 이 중 2년 5개월은 기획 · IA · 디자인 · 구현 · 배포 · 운영을 혼자 정하고 혼자 책임진 기간이고, 지금은 사용자 웹 · 관리자 CMS · API 세 서비스를 동시에
-                  맡고 있습니다. 인수인계까지 완주한 프로젝트가 1건 있습니다(01)</td>
+                <td>실무 4년 2개월입니다. 이 중 2년 5개월은 기획부터 운영까지 혼자 정하고 혼자 책임진 기간이고, 지금은 세 서비스를 동시에 맡고 있습니다. 인수인계까지 완주한 프로젝트가 1건 있습니다(01)</td>
                 <td>4년 2개월</td>
               </tr>
               <tr>
@@ -680,9 +658,8 @@
               </tr>
               <tr>
                 <td>웹 성능 최적화 · 접근성</td>
-                <td>askedtech를 인계 전에 측정해 모바일 27 · LCP 64.2초의 원인을 전달 계층으로 좁혔고(01), precisionrct는 2년 5개월 운영하며 모바일 57까지 올린 뒤 낮은 값 그대로
-                  02 표에 실었습니다. 접근성은 이 문서에서 대비비 전 조합과 미달 조합의 사용 금지 규칙 · 건너뛰기 링크 ·
-                  <span class="mono" lang="en">:focus-visible</span> · <span class="mono" lang="en">prefers-reduced-motion</span>까지 구현했습니다(03)</td>
+                <td>askedtech를 인계 전에 측정해 모바일 27 · LCP 64.2초의 원인을 전달 계층으로 좁혔습니다(01). precisionrct는 2년 5개월 운영하며 낮은 값 그대로 02 표에 실었습니다.
+                  접근성은 이 문서에서 대비비 규칙 · 건너뛰기 링크 · <span class="mono" lang="en">:focus-visible</span>까지 구현했습니다(03)</td>
                 <td class="ok">성능 실무 · 접근성 문서</td>
               </tr>
               <tr>
@@ -693,14 +670,12 @@
               </tr>
               <tr>
                 <td>글로벌 유저 경험</td>
-                <td>Apple Pop 22개 로케일 — 문자열을 전부 외부화하고 폰트 폴백 순서를 정한 뒤에 번역을 넣었습니다(01) · 미국 클라이언트 사이트를 2년 5개월 원격 단독 운영, 요구사항 합의부터
-                  인수인계까지 영어 서면(01)</td>
+                <td>Apple Pop 22개 로케일 — 문자열을 외부화하고 폰트 폴백 순서를 정한 뒤 번역을 넣었습니다(01) · 미국 클라이언트 사이트 2년 5개월 원격 단독 운영, 합의부터 인계까지 영어 서면(01)</td>
                 <td>개인 앱 · 해외 실무</td>
               </tr>
               <tr>
                 <td>협업 주도</td>
-                <td>프론트엔드 4인 팀 리드로 정보구조와 공통 규칙을 먼저 합의(01) · 엔텔스에서 두 포털이 같은 백엔드를 쓰는 구조라 백엔드 담당과 응답 계약을 조율(04) · 반자동 MVP를 제안해
-                  설득하고 채택(04)</td>
+                <td>엔텔스에서 두 포털이 같은 백엔드를 쓰는 구조라 백엔드 담당과 응답 계약을 조율(04) · 반자동 MVP를 제안해 설득하고 채택(04) · 프론트엔드 4인 팀 리드로 공통 규칙 합의(01)</td>
                 <td class="ok">실무</td>
               </tr>
             </tbody>
