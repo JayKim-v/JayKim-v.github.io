@@ -119,6 +119,13 @@ table { border-collapse: collapse; width: 100%; }
   display: block; width: 100%; height: auto;
   border: 1px solid var(--line); border-radius: 3px; background: var(--bg-elev);
 }
+.shot--pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.shot--pair figcaption { grid-column: 1 / -1; }
+@media (max-width: 640px) { .shot--pair { grid-template-columns: 1fr; } }
+/* 반전 밴드 위에서는 캡션이 밴드 글자색을 따라야 한다. */
+.band .shot figcaption { color: var(--band-fg); opacity: .85; }
+.band .shot img { border-color: var(--band-line); }
+
 .shot figcaption { margin-top: 8px; font-size: .875rem; line-height: 1.6; color: var(--muted); }
 
 /* 30초 스캔용 앵커 — 문서 전체에서 가장 큰 숫자 셋만 첫 면에 세운다. */
@@ -567,6 +574,10 @@ footer a { color: var(--ink-soft); }
     border: .5pt solid #aaa;
     width: auto; max-width: 100%; max-height: 38mm; margin-inline: auto;
   }
+  .shot--pair { gap: 5mm; }
+  .shot--pair img { max-height: 34mm; }
+  .band .shot figcaption { color: #555; opacity: 1; }
+  .band .shot img { border-color: #aaa; }
   .shot figcaption { font-size: 8.5pt; margin-top: 5pt; color: #555; }
   .badges { gap: 6pt; margin-top: 10pt; break-inside: avoid; }
   .badges > span { padding: 6pt 8pt; border: .5pt solid #bbb; background: none; }
