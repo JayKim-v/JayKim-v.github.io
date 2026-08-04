@@ -128,7 +128,7 @@ table { border-collapse: collapse; width: 100%; }
   padding: 12px 14px; background: var(--bg-elev);
 }
 .badges b { display: block; font-family: var(--font-mono); font-size: 1.5rem; line-height: 1.1; color: var(--accent); }
-.badges i { display: block; margin-top: 6px; font-style: normal; font-size: .8125rem; line-height: 1.5; color: var(--muted); }
+.badges i { display: block; margin-top: 6px; font-style: normal; font-size: .8125rem; line-height: 1.5; color: var(--ink-soft); }
 
 .num { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .print-only, .for-application, .print-note, .jd-lead { display: none; }
