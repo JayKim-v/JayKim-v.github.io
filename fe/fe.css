@@ -113,6 +113,23 @@ table { border-collapse: collapse; width: 100%; }
 
 .mono { font-family: var(--font-mono); }
 /* 숫자 강조는 굵기로만. mono로 감싸면 한글 조사가 폴백되며 공백 폭이 어긋난다. */
+/* 본문 도판 — aspect-ratio 로 자리를 먼저 잡아야 로딩 중 CLS 가 생기지 않는다. */
+.shot { margin-top: 24px; }
+.shot img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: 3px; background: var(--bg-elev);
+}
+.shot figcaption { margin-top: 8px; font-size: .875rem; line-height: 1.6; color: var(--muted); }
+
+/* 30초 스캔용 앵커 — 문서 전체에서 가장 큰 숫자 셋만 첫 면에 세운다. */
+.badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.badges > span {
+  flex: 1 1 150px; border: 1px solid var(--line); border-radius: 3px;
+  padding: 12px 14px; background: var(--bg-elev);
+}
+.badges b { display: block; font-family: var(--font-mono); font-size: 1.5rem; line-height: 1.1; color: var(--accent); }
+.badges i { display: block; margin-top: 6px; font-style: normal; font-size: .8125rem; line-height: 1.5; color: var(--muted); }
+
 .num { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .print-only, .for-application, .print-note, .jd-lead { display: none; }
 
@@ -545,6 +562,17 @@ footer a { color: var(--ink-soft); }
 
   /* 긴 블록에 break-inside:avoid를 걸면 앞 페이지가 통째로 비므로,
      짧은 단위(표 행 · 코드 · 스와치)에만 적용하고 긴 엔트리는 고아/과부 줄만 막는다. */
+  .shot { break-inside: avoid; margin-top: 11pt; }
+  .shot img {
+    border: .5pt solid #aaa;
+    width: auto; max-width: 100%; max-height: 38mm; margin-inline: auto;
+  }
+  .shot figcaption { font-size: 8.5pt; margin-top: 5pt; color: #555; }
+  .badges { gap: 6pt; margin-top: 10pt; break-inside: avoid; }
+  .badges > span { padding: 6pt 8pt; border: .5pt solid #bbb; background: none; }
+  .badges b { font-size: 13pt; }
+  .badges i { font-size: 7.5pt; margin-top: 3pt; }
+
   tr, tr.judge, pre, .swatch, .diagram, .band .item, .gap-item, .fields > div { break-inside: avoid; }
   .entry, .entry--lead { break-inside: auto; orphans: 3; widows: 3; }
 

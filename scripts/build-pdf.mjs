@@ -83,6 +83,16 @@ const browser = await puppeteer.launch({
 try {
   const page = await browser.newPage();
   await page.goto(`http://127.0.0.1:${port}/fe/`, { waitUntil: 'networkidle0' });
+  // loading="lazy" 는 화면 밖 이미지를 로드하지 않는다. 인쇄에서는 전 지면이
+  // 한꺼번에 나가야 하므로 eager 로 바꾸고 디코딩까지 기다린다.
+  await page.evaluate(async () => {
+    const imgs = [...document.images];
+    imgs.forEach((i) => { i.loading = 'eager'; });
+    await Promise.all(imgs.map((i) => (i.complete ? i.decode().catch(() => {}) : new Promise((ok) => {
+      i.addEventListener('load', ok, { once: true });
+      i.addEventListener('error', ok, { once: true });
+    }))));
+  });
   // 웹폰트가 올라오기 전에 찍으면 폴백 서체로 조판돼 줄 수가 달라진다.
   await page.evaluateHandle('document.fonts.ready');
 
