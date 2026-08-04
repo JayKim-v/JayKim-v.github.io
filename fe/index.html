@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>김재희 · 프론트엔드 — 업무 프로세스를 화면으로 구조화합니다</title>
+  <meta name="description"
+    content="실무 4년 2개월. Next.js·TypeScript로 사용자 웹·관리자 CMS·API 세 서비스 담당. 같은 백엔드 위 듀얼 페르소나 설계, LLM 파이프라인의 승인 게이트, Lighthouse 실측 공개." />
+  <meta name="author" content="김재희" />
+  <meta name="theme-color" content="#FDFCF8" />
+  <link rel="canonical" href="https://jaykim-v.github.io/fe/" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FDFCF8'/%3E%3Cpath d='M7 8h18M7 16h12M7 24h18' stroke='%232F5D48' stroke-width='3' stroke-linecap='square'/%3E%3C/svg%3E" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="김재희 · 프론트엔드 — 업무 프로세스를 화면으로 구조화합니다" />
+  <meta property="og:description"
+    content="실무 4년 2개월. Next.js·TypeScript로 사용자 웹·관리자 CMS·API 세 서비스 담당. Lighthouse 실측을 좋은 값과 나쁜 값 모두 공개." />
+  <meta property="og:url" content="https://jaykim-v.github.io/fe/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/Pretendard-Regular.subset.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/Pretendard-Bold.subset.woff2" crossorigin />
+  <link rel="stylesheet" href="./fe.css" />
+
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"김재희","jobTitle":"Frontend Engineer","email":"mailto:jaeheekim.dev@gmail.com","url":"https://jaykim-v.github.io/fe/","sameAs":["https://github.com/JayKim-v","https://precisionrct.com","https://mstone-demo.vercel.app"]}
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <header class="wrap">
+    <div class="topmeta">
+      <span>김재희 · Frontend</span>
+      <span>프론트엔드 중심으로 다시 정리한 버전</span>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero wrap">
+      <div class="for-application">
+        <p class="mono">JYP엔터테인먼트 IT LAB · Software Engineer / Frontend (경력) 지원 — 김재희</p>
+        <p>여러 부서가 한 업무 시스템을 함께 쓰는 환경에서 화면을 어디까지 공유하고 어디부터 갈라야 하는지 정하는 일을 세 번 했습니다(05). 자동화를 어디까지 기계에 맡기고 어느 칸을 사람에게 남길지 정하는 일은 지금
+          하고 있습니다(01). 지원한 자리의 일이 그 둘의 연장선이라고 이해했습니다.</p>
+      </div>
+
+      <h1>업무를 화면으로 옮기는 게 아니라,<br /><span class="hl">파편화</span>된 프로세스를<br />다시 구조로 세웁니다.</h1>
+
+      <hr class="rule" />
+
+      <p class="hero__lead">
+        실무 <span class="num">4년 2개월</span>입니다. 그 안에 기획 · IA · 디자인 · 구현 · 배포 · 운영이 분리되지 않은 채로 들어 있습니다.
+        성격이 다른 두 집단이 한 시스템을 함께 쓰는 구조를 <span class="num">세 번</span> 다뤘고,
+        지금은 Next.js와 TypeScript로 사용자 웹 · 관리자 CMS · API <span class="num">세 서비스</span>를 맡고 있습니다.
+      </p>
+
+      <p class="hero__links">
+        <a href="https://askedtech.com" target="_blank" rel="noopener">askedtech.com<span class="role">재직 중</span></a>
+        <a href="https://mstone-demo.vercel.app" target="_blank" rel="noopener">mstone-demo.vercel.app<span
+            class="role">개인 작업</span></a>
+        <a href="https://precisionrct.com" target="_blank" rel="noopener">precisionrct.com<span class="role">단독
+            리드</span></a>
+      </p>
+    </section>
+
+
+    <!-- ═══ 01 지금 하는 일 ═══ -->
+    <section class="sec" id="now">
+      <div class="wrap">
+        <h2><span class="sec__label">01 / 지금 하는 일</span>지금 하는 일</h2>
+
+        <div class="sec__body">
+          <article class="entry entry--lead">
+            <div class="entry__meta">
+              <span>2026.06 – 2026.08</span>
+              <span>계약직</span>
+              <span>IT부서</span>
+            </div>
+            <div class="entry__body">
+              <h3>askedtech · 러닝스파크</h3>
+              <p class="entry__def">에듀테크 정보 플랫폼의 사용자 웹 · 관리자 CMS · API 세 서비스를 담당합니다.</p>
+              <p class="entry__note">계약 기간이 정해진 자리이고 8월에 종료됩니다. 인계 시점에서 역산해 문서와 자동화를 먼저 남기는 순서로 일하고 있습니다.</p>
+
+              <hr class="hr" />
+
+              <dl class="fields">
+                <div>
+                  <dt>문제</dt>
+                  <dd>자료는 RSS와 메일함으로 나뉘어 들어오고, 발행까지 섹션 분류 · 요약 · 검수를 거쳐야 합니다.</dd>
+                </div>
+                <div class="f--list">
+                  <dt>설계</dt>
+                  <dd>
+                    <ul>
+                      <li>RSS와 메일에서 수집해 LLM이 섹션을 분류하고 한국어로 요약합니다. 여기까지는 기계가 합니다.</li>
+                      <li>발행 버튼은 사람이 누릅니다. LLM 요약은 대체로 맞지만 가끔 틀리고, 뉴스레터는 회수가 안 됩니다.</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="f--list">
+                  <dt>결정</dt>
+                  <dd>
+                    <ul>
+                      <li>LLM 호출부를 주입 가능한 클라이언트로 분리하고 드라이런 모드를 넣었습니다. 테스트할 때마다 실제 메일이 나가면 안 됩니다.</li>
+                      <li>프롬프트보다 먼저 정한 것은 “이 호출을 하지 않고도 전체를 돌려볼 수 있는가”였습니다.</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+
+              <figure class="diagram">
+                <svg viewBox="0 0 620 116" role="img" aria-labelledby="d-t d-d">
+                  <title id="d-t">뉴스레터 파이프라인의 승인 게이트</title>
+                  <desc id="d-d">RSS와 메일에서 수집한 자료를 LLM이 분류하고 요약한 뒤, 사람이 승인하는 칸을 통과해야만 Maily API로 발행됩니다.</desc>
+                  <path d="M8 46 H612" fill="none" stroke="#E5DECB" stroke-width="1" />
+                  <g fill="#1F2622" font-family="monospace" font-size="16">
+                    <text x="8" y="38">RSS · 메일</text>
+                    <text x="132" y="38">LLM 분류 · 요약</text>
+                    <text x="404" y="38">발행 · Maily API</text>
+                  </g>
+                  <path d="M388 10 V104" fill="none" stroke="#2F5D48" stroke-width="2.5" />
+                  <g font-family="monospace" font-size="16" text-anchor="end">
+                    <text x="374" y="76" fill="#2F5D48">승인 · 사람</text>
+                    <text x="374" y="100" fill="#7A7263">되돌릴 수 없음</text>
+                  </g>
+                </svg>
+                <figcaption>이 칸을 통과하지 못하면 아무것도 나가지 않습니다.</figcaption>
+              </figure>
+
+              <p class="spec-line">Next.js · TypeScript · NestJS · MongoDB · 사이트맵 자동화 7,000+ URL</p>
+              <p class="entry__links"><a href="https://askedtech.com" target="_blank"
+                  rel="noopener">askedtech.com</a></p>
+              <p class="footnote">뉴스레터 파이프라인은 회사 산출물이고 인증 정보가 얽혀 있어 코드와 화면은 공개하지 않습니다. 구조와 판단 근거까지만 적습니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ 02 선택한 작업 ═══ -->
+    <section class="sec" id="work">
+      <div class="wrap">
+        <h2><span class="sec__label">02 / 선택한 작업</span>선택한 작업</h2>
+        <p class="sec__lead">아래 세 건은 만든 것보다 무엇을 정하고 무엇을 포기했는지를 적었습니다.</p>
+
+        <div class="sec__body">
+
+          <article class="entry">
+            <div class="entry__meta">
+              <span>2023.06 – 2024.01</span>
+              <span>개발팀 대리</span>
+            </div>
+            <div class="entry__body">
+              <h3>Digital SAT 웹앱 · 교육공간</h3>
+              <p class="entry__def">학원 · 강사 · 학생이 함께 쓰는 B2B 시험 운영 웹앱.</p>
+              <hr class="hr" />
+              <dl class="fields">
+                <div>
+                  <dt>문제</dt>
+                  <dd>학생 · 시험 · 강의 · 포인트 네 모듈을 만들어야 하는데 화면 정의가 없었습니다.</dd>
+                </div>
+                <div>
+                  <dt>설계</dt>
+                  <dd>IA와 와이어프레임을 먼저 만들고 Figma 프로토타입으로 합의한 뒤 React로 구현했습니다. 요구사항을 기다리지 않고, 합의부터 시작했습니다.</dd>
+                </div>
+                <div class="f--list">
+                  <dt>결정</dt>
+                  <dd>
+                    <ul>
+                      <li>성적통계 대시보드는 화면보다 지표 정의를 먼저 합의했습니다. 조직 단위와 개인 단위는 축이 달라 같은 자리에 놓으면 둘 다 안 읽힙니다.</li>
+                      <li>응시 상태 자동저장 · 복원은 실패 시나리오에서 출발했습니다. 시험 중 브라우저가 닫히면 응시가 사라지므로 저장을 시스템 책임으로 옮겼습니다.</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+              <p class="spec-line">React · Java · MariaDB · Figma — IA · 와이어프레임 · 프로토타입 · UX/UI를 직접 만들고 구현까지 담당</p>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="entry__meta">
+              <span>2024.01 – 2026.05</span>
+              <span>프리랜서 · 단독 리드</span>
+              <span>원격</span>
+            </div>
+            <div class="entry__body">
+              <h3 lang="en">precisionrct.com</h3>
+              <p class="entry__def">2년 5개월간 100% 원격으로 맡은 미국 워싱턴 D.C. 의료기관 사이트. 요구사항 합의부터 인수인계까지 현지 담당자와 영어 서면으로 진행했습니다.</p>
+              <hr class="hr" />
+              <dl class="fields">
+                <div class="f--list">
+                  <dt>설계</dt>
+                  <dd>
+                    <ul>
+                      <li>CMS 없이 PHP + JSON 파일 기반 렌더링 구조를 직접 설계했습니다. WordPress를 얹으면 플러그인과 보안 패치 부채를 원격 1인이 영구히 떠안습니다.</li>
+                      <li>비개발자가 직접 편집할 수 없다는 비용이 생기는데, 담당자와 합의하고 받아들였습니다.</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div>
+                  <dt>결정</dt>
+                  <dd>그 비용은 나갈 때 정산했습니다. 계약 종료 시점에 발행을 자동화해 인계했습니다. 시스템의 성공 여부는 담당자가 바뀐 다음에 드러납니다.</dd>
+                </div>
+              </dl>
+              <p class="spec-line">PHP · JSON · jQuery · Bootstrap 5 · SiteGround — 반응형 / 크로스브라우징 · 메타데이터 · 사이트맵 · OG · 호스팅
+                · SSL · 백업 · 장애 대응</p>
+              <p class="entry__links"><a href="https://precisionrct.com" target="_blank"
+                  rel="noopener">precisionrct.com</a></p>
+              <p class="footnote">이 사이트의 Lighthouse 점수는 아래 03 표에 낮은 값 그대로 적었습니다.</p>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="entry__meta">
+              <span>2026.05</span>
+              <span>개인 작업</span>
+            </div>
+            <div class="entry__body">
+              <h3>mStone · 제품 라인업 사이트</h3>
+              <p class="entry__def">기계식 키보드 브랜드의 팬 제작 디자인 시안. 제품 3종의 라인업과 상세.</p>
+              <hr class="hr" />
+              <dl class="fields">
+                <div class="f--list">
+                  <dt>설계</dt>
+                  <dd>
+                    <ul>
+                      <li>제품 3종을 빌드 시점에 정적으로 만들었습니다. 갱신되지 않는 시안이라 재검증 주기를 정할 근거가 없었습니다.</li>
+                      <li>갱신이 생기면 App Router에서 라우트 단위로 켤 수 있는 형태까지만 열어뒀습니다.</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div>
+                  <dt>결정</dt>
+                  <dd>데스크톱은 네 항목 모두 100, LCP 0.8초. 같은 페이지 모바일은 성능 76, LCP 4.7초입니다. 데스크톱만 적으면 절반만 말하는 것이라 둘 다 적었습니다.</dd>
+                </div>
+              </dl>
+              <p class="spec-line">Next.js · App Router · Vercel — 데스크톱 100 / 100 / 100 / 100 · LCP 0.8s · CLS 0.003 — 모바일
+                성능 76 · LCP 4.7s</p>
+              <p class="entry__links"><a href="https://mstone-demo.vercel.app" target="_blank"
+                  rel="noopener">mstone-demo.vercel.app</a></p>
+              <p class="footnote">실존 브랜드와 무관한 팬 제작 시안입니다.</p>
+            </div>
+          </article>
+
+          <span class="subhead web-only">그 외</span>
+
+          <article class="entry minor web-only">
+            <div class="entry__meta">
+              <span>2023.01 – 06</span>
+              <span>교육 과정 최종 프로젝트</span>
+              <span>프론트엔드 4인 팀 리드</span>
+            </div>
+            <div class="entry__body">
+              <h3>할리스 리뉴얼</h3>
+              <p class="minor__prose">일반 고객과 창업 예정 사업자를 두 사이트로 나누지 않고, 진입점은 하나로 두고 그 뒤부터 동선을 갈랐습니다. 스크롤 인터랙션은 유료 라이브러리 대신 직접 구현했습니다.
+                제어권을 외부에 넘기면 요구가 들어올 때마다 우회 코드가 쌓이고, 팀원 3명이 유지보수해야 했기 때문입니다.</p>
+              <p class="spec-line">React · JavaScript · 카카오맵 API</p>
+              <p class="entry__links">
+                <a href="https://projectteamtwo.github.io" target="_blank" rel="noopener">projectteamtwo.github.io</a>
+                <a class="a-note" href="https://jhhj2.notion.site/34376caca1854f5db51f9ac0681485fb" target="_blank"
+                  rel="noopener">정리 노트</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="entry minor web-only">
+            <div class="entry__meta">
+              <span>개인 작업</span>
+              <span>iOS · Android 출시</span>
+            </div>
+            <div class="entry__body">
+              <h3>Apple Pop</h3>
+              <p class="minor__prose">색 · 타이포 · 라운드 · 간격 · 모션을 토큰으로 먼저 정하고 그 위에 재사용 컴포넌트를 얹었습니다. 22개 로케일을 붙이면 번역 파일보다 레이아웃이 먼저 깨집니다.
+                같은 버튼이 언어에 따라 두 배로 길어지므로, 문자열을 전부 분리하고 폰트 폴백 순서를 정한 다음에 번역을 넣었습니다. 인앱결제 영수증 검증은 Supabase Edge Function에
+                뒀습니다.</p>
+              <p class="spec-line">React Native · TypeScript · Supabase · i18next 22개 로케일 · EAS CI/CD · Sentry · iOS ·
+                Android 양대 마켓 출시</p>
+              <p class="entry__links"><a href="https://apps.apple.com/kr/app/apple-pop/id6761319588" target="_blank"
+                  rel="noopener">App Store</a></p>
+            </div>
+          </article>
+
+          <p class="print-note">이 밖에 할리스 리뉴얼(프론트엔드 4인 팀 리드 · 듀얼 페르소나 정보구조 · 유료 라이브러리를 대체한 스크롤 인터랙션 자체 구현)과 Apple Pop(디자인 토큰 · i18next 22개 로케일 · iOS / Android 출시)은 jaykim-v.github.io/fe 에 적었습니다.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ 03 실측치 ═══ -->
+    <section class="sec" id="numbers">
+      <div class="wrap">
+        <h2><span class="sec__label">03 / 실측치</span>실측치</h2>
+        <p class="sec__lead">잘 나온 것만 싣지 않았습니다. 같은 사람이 만든 결과물의 좋은 점수와 나쁜 점수를 같은 표에 넣었습니다. 감이 아니라 수치로 확인합니다.</p>
+
+        <div class="sec__body tablewrap">
+          <table>
+            <caption>측정: Chrome Lighthouse (모바일 / 데스크톱 프로파일), 시크릿 창 · 캐시 비활성. — 는 측정하지 않은 항목입니다.</caption>
+            <thead>
+              <tr>
+                <th scope="col">대상</th>
+                <th scope="col">환경</th>
+                <th scope="col">성능</th>
+                <th scope="col">접근성</th>
+                <th scope="col">모범사례</th>
+                <th scope="col">SEO</th>
+                <th scope="col">LCP · CLS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>mStone</td>
+                <td>데스크톱</td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n">0.8s · 0.003</td>
+              </tr>
+              <tr class="judge">
+                <td colspan="7">처음부터 Next.js로 만든 경우.</td>
+              </tr>
+              <tr>
+                <td>mStone</td>
+                <td>모바일</td>
+                <td class="n lo">76<span class="bar" style="--v:76"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n">4.7s · —</td>
+              </tr>
+              <tr class="judge">
+                <td colspan="7">데스크톱 0.8초와 갈리는 지점은 회선이 아니라 모바일 프로파일의 CPU 스로틀링입니다. 반복 측정하면 76에서 96까지 흔들리는데, 그 편차가 CPU 민감도의 신호입니다.
+                  다음 작업은 히어로 구간의 렌더 경로를 줄이는 것입니다.</td>
+              </tr>
+              <tr>
+                <td lang="en">precisionrct.com</td>
+                <td>데스크톱</td>
+                <td class="n lo">67<span class="bar" style="--v:67"></span></td>
+                <td class="n">—</td>
+                <td class="n">—</td>
+                <td class="n">—</td>
+                <td class="n">—</td>
+              </tr>
+              <tr>
+                <td lang="en">precisionrct.com</td>
+                <td>모바일</td>
+                <td class="n lo">57<span class="bar" style="--v:57"></span></td>
+                <td class="n lo">80<span class="bar" style="--v:80"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">92<span class="bar" style="--v:92"></span></td>
+                <td class="n">—</td>
+              </tr>
+              <tr class="judge">
+                <td colspan="7">jQuery · Bootstrap 5 기반 자산을 2년 5개월 운영한 사이트. 계약 종료 시점의 1순위는 발행 자동화 인계였고 성능은 뒤로 미뤘습니다. 미룬 것도
+                  판단입니다.</td>
+              </tr>
+              <tr>
+                <td lang="en">jaykim-v.github.io</td>
+                <td>모바일</td>
+                <td class="n lo">55<span class="bar" style="--v:55"></span></td>
+                <td class="n">—</td>
+                <td class="n">—</td>
+                <td class="n">—</td>
+                <td class="n">—</td>
+              </tr>
+              <tr class="judge">
+                <td colspan="7">제 기존 포트폴리오입니다. 원인은 CDN 웹폰트 세 벌 · 스크롤 연출 라이브러리 세 개 · 이미지입니다.</td>
+              </tr>
+              <tr>
+                <td>이 페이지</td>
+                <td>데스크톱</td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n">0.4s · 0</td>
+              </tr>
+              <tr>
+                <td>이 페이지</td>
+                <td>모바일</td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n hi">100<span class="bar" style="--v:100"></span></td>
+                <td class="n">1.7s · 0</td>
+              </tr>
+              <tr class="judge">
+                <td colspan="7">위 진단을 그대로 적용한 결과입니다. 스크립트 0바이트 · 웹폰트 self-host 서브셋 4파일 104KB · 이미지 0장. CLS 0은 우연이 아니라
+                  폴백 서체의 ascent · descent를 Pretendard 실측값으로 맞춰둔 결과입니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="t-after">
+          가장 낮은 줄은 제 기존 포트폴리오입니다. 이 페이지는 그 세 원인을 각각 self-host 서브셋 · 스크립트 0바이트 · 이미지 0장으로 되돌린 결과입니다.
+        </p>
+        <p class="t-after web-only">
+          정적 문서에서 100점은 어려운 일이 아닙니다. 이 표에서 봐주셨으면 하는 것은 점수 자체보다 편차이고, 편차마다 원인을 적어뒀다는 점입니다.
+        </p>
+        <p class="print-note">이력 전체와 상세 규칙은 jaykim-v.github.io/fe 에 있습니다.</p>
+      </div>
+    </section>
+
+
+    <!-- ═══ 04 토큰과 규칙 ═══ -->
+    <section class="sec" id="rules">
+      <div class="wrap">
+        <h2><span class="sec__label">04 / 토큰과 규칙</span>토큰과 규칙</h2>
+        <p class="sec__lead">규칙을 먼저 정하고 컴포넌트를 얹습니다. 이 페이지의 색 토큰은 새로 만들지 않고 기존 포트폴리오에서 그대로 가져왔습니다. 디자인 시스템의 값은 처음 만들 때보다 다음 화면에서
+          다시 쓰일 때 생깁니다.</p>
+
+        <div class="sec__body rules">
+          <p>색은 코어 6개로 닫고, 나머지 2개는 같은 계열에서 한 단계 낮춘 파생값입니다. 파생값에 새 색을 넣지 않습니다.</p>
+          <p>간격은 4px 배수만 씁니다. 예외를 한 번 허용하면 다음 화면에서 3px이 생깁니다.</p>
+          <p>컴포넌트는 색을 받지 않고 의미를 받습니다. 색을 받는 순간 그 컴포넌트가 쓰인 모든 자리가 토큰 교체의 예외가 됩니다.</p>
+          <p class="web-only">컴포넌트는 자기 바깥 여백을 갖지 않습니다. 여백은 배치하는 쪽의 책임입니다.</p>
+          <p class="web-only">투명도로 색을 만들지 않습니다. 반투명 텍스트는 배경이 바뀌는 순간 대비비가 계산에서 빠져나갑니다. 흐리게 보여야 하면 흐린 색을 토큰으로 만듭니다.</p>
+          <p class="web-only">색 스킴은 하나로 고정했습니다. 이 페이지는 인쇄해서 제출하는 문서이기도 해서, 화면과 종이가 같은 색으로 보여야 합니다.</p>
+        </div>
+
+        <div class="swatch" role="img" aria-label="색 토큰 8개를 밝은 순서로 배열한 색 띠">
+          <span style="background:#FDFCF8"></span><span style="background:#EFEADC"></span><span
+            style="background:#F4EFE2"></span><span style="background:#E5DECB"></span><span
+            style="background:#7A7263"></span><span style="background:#1F2622"></span><span
+            style="background:#0E1512"></span><span style="background:#2F5D48"></span>
+        </div>
+        <p class="swatch-labels" aria-hidden="true">
+          <span>--bg<br />#FDFCF8</span><span>--line-soft<br />#EFEADC</span><span>--bg-elev<br />#F4EFE2</span><span>--line<br />#E5DECB</span><span>--muted<br />#7A7263</span><span>--ink-soft<br />#1F2622</span><span>--ink<br />#0E1512</span><span>--accent<br />#2F5D48</span>
+        </p>
+        <p class="cap">배경 인쇄가 꺼지면 색은 사라지고 값은 남습니다.</p>
+
+        <div class="sec__body tablewrap">
+          <table>
+            <caption>접근성은 말이 아니라 대비비로 적습니다. AAA에 못 미치는 조합은 사용 규칙을 함께 적었습니다. 위 값은 sRGB 상대휘도로 계산했습니다.</caption>
+            <thead>
+              <tr>
+                <th scope="col">조합</th>
+                <th scope="col">대비비</th>
+                <th scope="col">판정</th>
+                <th scope="col">사용 규칙</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono" lang="en">--ink on --bg</td>
+                <td class="n">18.03:1</td>
+                <td>AAA</td>
+                <td>본문 · 제목</td>
+              </tr>
+              <tr>
+                <td class="mono" lang="en">--ink-soft on --bg</td>
+                <td class="n">15.06:1</td>
+                <td>AAA</td>
+                <td>본문 보조 · 각주</td>
+              </tr>
+              <tr>
+                <td class="mono" lang="en">--accent on --bg</td>
+                <td class="n">7.36:1</td>
+                <td>AAA</td>
+                <td>링크 · 강조</td>
+              </tr>
+              <tr>
+                <td class="mono" lang="en">--bg on --accent</td>
+                <td class="n">7.36:1</td>
+                <td>AAA</td>
+                <td>05 밴드의 제목과 본문. 이 면에서는 투명도를 쓰지 않습니다</td>
+              </tr>
+              <tr class="web-only">
+                <td class="mono" lang="en">--line on --accent</td>
+                <td class="n">5.63:1</td>
+                <td>비텍스트 3:1 통과</td>
+                <td>05 밴드 안의 구분선</td>
+              </tr>
+              <tr class="web-only">
+                <td class="mono" lang="en">--muted on --bg</td>
+                <td class="n">4.63:1</td>
+                <td>AA (AAA 미달)</td>
+                <td>라벨 · 메타에만. 이 색에 투명도를 걸지 않습니다</td>
+              </tr>
+              <tr class="web-only">
+                <td class="mono" lang="en">--muted on --bg-elev</td>
+                <td class="n">4.14:1</td>
+                <td>AA 미달</td>
+                <td>쓰지 않습니다. 그 면에서는 --ink-soft로 올립니다</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sec__body web-only">
+          <pre><code>/* 이 페이지의 토큰 — 코어 6 + 파생 2 */
+:root {
+  --bg:#FDFCF8;  --bg-elev:#F4EFE2;  --ink:#0E1512;
+  --muted:#7A7263;  --line:#E5DECB;  --accent:#2F5D48;
+  --ink-soft:#1F2622;  --line-soft:#EFEADC;
+}
+/* 반전 면은 색을 다시 고르지 않고 변수만 뒤집는다. */
+.band { --band-fg: var(--bg); --band-line: var(--line);
+        background: var(--accent); color: var(--band-fg); }
+@media print {
+  .band { --band-fg: var(--ink); --band-line: var(--line-soft);
+          background: none; border-block: 2pt solid #2F5D48; }
+}</code></pre>
+          <p class="cap">인쇄에서 바뀌는 것은 변수 두 줄이고 컴포넌트 코드는 그대로입니다.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ 05 일하는 방식 ═══ -->
+    <section class="sec band" id="how">
+      <div class="wrap">
+        <h2><span class="sec__label">05 / 일하는 방식</span>일하는 방식</h2>
+
+        <div class="item">
+          <h3>같은 백엔드 위에서 화면을 가릅니다</h3>
+          <p>성격이 다른 두 집단이 한 시스템을 쓰는 구조를 세 번 만났습니다. Digital SAT에서는 학생과 학원 관리자의 정보구조를 직접 설계했고, 할리스 리뉴얼에서는 고객과 창업 예정자의 동선을 팀 리드로서
+            갈랐고, 교육부 진로멘토링에서는 멘토 포털과 학교 포털이 백엔드를 공유하는 구조에서 화면을 맡았습니다.</p>
+          <p>어려운 건 화면을 두 벌 만드는 일이 아니라 어디까지 공유하고 어디부터 갈라야 하는지 선을 긋는 일이었습니다. 화면을 나누는 기준이 곧 권한 모델이고, 권한 모델은 나중에 붙일 수 없습니다.</p>
+        </div>
+
+        <div class="item">
+          <h3>우회를 막는 통제가 아니라, 우회할 이유를 줄이는 설계</h3>
+          <p>승인이 귀찮으면 사람들은 파이프라인을 우회해서 손으로 보냅니다. 그래서 통제를 조이는 대신, 승인 화면을 한 번에 훑고 끝낼 수 있게 만드는 쪽을 먼저 봤습니다. 만들어놓고 안 쓰는 시스템이 아니라
+            매일 열리는 시스템이 되어야 합니다.</p>
+        </div>
+
+        <div class="item">
+          <h3>만들지 않기로 한 것</h3>
+          <p>SNS 자동 발행을 검토하면서 개발 공수와 절감 시간을 계산했더니 손익분기가 53주였습니다. 그래서 자동화하지 않았습니다. 대신 사람이 한 번 누르는 반자동 MVP를 제안했고, 설득해서 채택됐습니다.
+            기술적으로 가능한 것과 지금 만들 것을 구분하는 게 제가 하는 일의 절반입니다.</p>
+        </div>
+
+        <div class="item">
+          <h3>업무 시스템에 대해 제가 전제하는 것</h3>
+          <ul>
+            <li>트래픽은 평균이 아니라 특정 시점에 몰립니다. 그 시점에 배포가 서비스를 멈추면 안 됩니다.</li>
+            <li>다국어는 나중에 붙이는 기능이 아니라 처음에 정하는 규칙입니다. 22개 로케일을 붙여보고 알았습니다.</li>
+            <li>자동화의 마지막 한 칸은 사람이 눌러야 합니다. 공개되면 되돌릴 수 없는 것일수록 그렇습니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ 06 요건과 근거 ═══ -->
+    <section class="sec" id="map">
+      <div class="wrap">
+        <h2><span class="sec__label">06 / 요건과 근거</span>요건과 근거</h2>
+        <p class="sec__lead">프론트엔드 채용에서 자주 요구되는 항목에 제 근거를 대응시켰습니다.</p>
+
+        <div class="sec__body tablewrap">
+          <table class="maptable">
+            <caption>각 근거 뒤 괄호는 이 문서의 섹션 번호입니다.</caption>
+            <thead>
+              <tr>
+                <th scope="col">항목</th>
+                <th scope="col">근거</th>
+                <th scope="col">상태</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>프론트엔드 경력</td>
+                <td>실무 4년 2개월. 5년 이상을 요구하는 자리라면 10개월이 모자랍니다. 아래 07</td>
+                <td>4년 2개월</td>
+              </tr>
+              <tr>
+                <td lang="en">React · Next.js</td>
+                <td>Digital SAT React 구현(02) · mStone App Router(02) · askedtech 웹 / CMS(01)</td>
+                <td class="ok">실무</td>
+              </tr>
+              <tr>
+                <td lang="en">TypeScript</td>
+                <td>askedtech 전 구간(01) · Apple Pop 양대 마켓 출시(02)</td>
+                <td class="ok">실무</td>
+              </tr>
+              <tr>
+                <td lang="en">REST API · GraphQL 연동</td>
+                <td>REST: 세 서비스를 잇는 계약 운용(01) · Supabase Edge Functions로 REST / RPC 작성(02). GraphQL 미보유 — 07에 적었습니다</td>
+                <td>REST 실무 · GraphQL 없음</td>
+              </tr>
+              <tr>
+                <td>웹 성능 최적화 · 접근성</td>
+                <td>03 실측표에 LCP · CLS 등 Web Vitals 지표를 좋은 값과 나쁜 값 모두 기재 · 04 대비비표(미달 조합의 사용 금지 규칙까지)</td>
+                <td class="ok">실무</td>
+              </tr>
+              <tr>
+                <td>협업 주도</td>
+                <td>기획 · 백엔드와 함께 듀얼 페르소나 구조를 설계(05) · 프론트엔드 4인 팀 리드로 정보구조와 공통 규칙을 먼저 합의(02) · 미국 클라이언트와 2년 5개월 영어 서면 협업(02) · 반자동
+                  MVP를 제안해 설득하고 채택(05)</td>
+                <td class="ok">실무</td>
+              </tr>
+              <tr>
+                <td>디자인 · 기획 의도의 기술적 해석</td>
+                <td>산출물이 없는 상태에서 IA · 와이어프레임 · Figma · UX/UI를 직접 만들고 React로 구현(02) · 토큰을 먼저 정하고 컴포넌트를 얹음(02)</td>
+                <td class="ok">실무</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ 07 지금 없는 것 ═══ -->
+    <section class="sec sec--light" id="gaps">
+      <div class="wrap">
+        <h2><span class="sec__label">07 / 지금 없는 것</span>지금 없는 것</h2>
+
+        <div class="gap-item">
+          <h3 lang="en">GraphQL <span lang="ko">— 실무 적용 경험 없음</span></h3>
+          <p>REST로 세 서비스를 잇는 계약을 다루면서, 화면마다 필요한 필드가 달라 엔드포인트가 늘거나 안 쓰는 필드가 쌓이는 문제를 겪었습니다. GraphQL이 푸는 지점이 거기라는 것까지는 알고 있고, 리졸버
+            단위의 N+1과 정규화 캐시 무효화는 글로만 읽었습니다. 써본 적 없는 것을 써봤다고 적지 않기 위해 여기에 적습니다.</p>
+        </div>
+
+        <div class="gap-item">
+          <h3>경력 4년 2개월</h3>
+          <p>5년 이상을 요구하는 자리라면 10개월이 모자랍니다. 그 안에는 미국 클라이언트 사이트를 2년 5개월간 원격으로 리드하며 요구사항 합의부터 인수인계까지 영어 서면으로 진행한 기간이 있고, 지금은 한
+            사람이 세 서비스를 맡고 있습니다. 기획 · IA · 디자인 · 구현 · 배포 · 운영이 분리되지 않은 환경에서의 4년 2개월입니다.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ 08 이력 · 학력 ═══ -->
+    <section class="sec sec--light web-only" id="career">
+      <div class="wrap">
+        <h2><span class="sec__label">08 / 이력 · 학력</span>이력 · 학력</h2>
+
+        <dl class="timeline">
+          <div>
+            <dt>2026.06 – 2026.08</dt>
+            <dd>러닝스파크 · IT부서 — askedtech 사용자 웹 · 관리자 CMS · API. EC2 3대 무중단 배포</dd>
+          </div>
+          <div>
+            <dt>2024.01 – 2026.05</dt>
+            <dd><span lang="en">Precision Micro Endodontics</span> (미국 워싱턴 D.C.) · Develop 팀장 · 프리랜서 · 100% 원격</dd>
+          </div>
+          <div>
+            <dt>2023.06 – 2024.01</dt>
+            <dd>교육공간 · 개발팀 대리 — Digital SAT B2B 웹앱</dd>
+          </div>
+          <div>
+            <dt>2023.01 – 2023.06</dt>
+            <dd>그린아카데미 프론트엔드 과정 — 최종 프로젝트 프론트엔드 4인 팀장</dd>
+          </div>
+          <div>
+            <dt>2021.12 – 2022.09</dt>
+            <dd>엔텔스 · 솔루션사업부 — 교육부 원격영상 진로멘토링. 멘토 포털과 학교 포털이 같은 백엔드를 공유하는 구조에서 화면 담당. Spring MVC / JSP / jQuery, 일부 화면 React
+            </dd>
+          </div>
+          <div>
+            <dt>학력</dt>
+            <dd>한국방송통신대학교 컴퓨터과학과 4학년 재학</dd>
+          </div>
+        </dl>
+
+        <p class="tl-note">React 계열: 2022 일부 화면 → 2023.06–2024.01 Digital SAT 전면 → 2026 mStone · askedtech</p>
+        <p class="footnote">그 밖에: AI Usage — Claude Code · Codex CLI의 토큰 사용량을 계측해 macOS 메뉴바와 iOS 위젯에 표시. Swift / SwiftUI /
+          WidgetKit / GRDB, TestFlight 배포 중.</p>
+      </div>
+    </section>
+
+
+    <!-- ═══ 09 연락처 ═══ -->
+    <section class="sec sec--light" id="contact">
+      <div class="wrap">
+        <h2><span class="sec__label">09 / 연락처</span>연락처</h2>
+
+        <p class="contact-lines">
+          김재희 · <a href="mailto:jaeheekim.dev@gmail.com">jaeheekim.dev@gmail.com</a><span class="print-only"> ·
+            010-9025-9880</span><br />
+          <a href="https://github.com/JayKim-v" target="_blank" rel="noopener">github.com/JayKim-v</a> · 전체 이력 <a
+            href="https://jaykim-v.github.io" target="_blank" rel="noopener">jaykim-v.github.io</a>
+        </p>
+
+        <p class="preface">이 페이지는 프론트엔드 직무에 맞춰 다시 쓴 버전입니다. 백엔드 · 인프라 · 모바일을 포함한 전체 이력은 jaykim-v.github.io 에 있고, 그쪽 PDF는
+          2026년 5월 생성본이라 현재 맡고 있는 일이 반영돼 있지 않습니다.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    <div>
+      스크립트 0바이트 · 이미지 0장 · 웹폰트 self-host 서브셋 4파일<br />
+      소스: <a href="https://github.com/JayKim-v/JayKim-v.github.io/tree/main/fe" target="_blank"
+        rel="noopener">github.com/JayKim-v/JayKim-v.github.io/tree/main/fe</a>
+    </div>
+  </footer>
+</body>
+
+</html>

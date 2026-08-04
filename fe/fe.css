@@ -1,0 +1,514 @@
+/* ═══════════════════════════════════════════════
+   /fe — 프론트엔드 직무용 포트폴리오
+   스크립트 0바이트 · 이미지 0장 · 인쇄(A4) 겸용
+   ═══════════════════════════════════════════════ */
+
+/* ── 폰트 ───────────────────────────────────── */
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/Pretendard-Regular.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/Pretendard-Bold.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0020-007E;
+  src: url('./fonts/JetBrainsMono-Regular.subset.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0020-007E;
+  src: url('./fonts/JetBrainsMono-SemiBold.subset.woff2') format('woff2');
+}
+/* 폴백 메트릭 정렬 — Pretendard 실측 기준 */
+@font-face {
+  font-family: 'Pretendard Fallback';
+  src: local('Apple SD Gothic Neo'), local('Malgun Gothic'), local('Noto Sans KR');
+  size-adjust: 100%;
+  ascent-override: 95.2%;
+  descent-override: 24.1%;
+  line-gap-override: 0%;
+}
+
+/* ── 토큰 — 코어 6 + 파생 2 ─────────────────── */
+:root {
+  --bg:#FDFCF8;  --bg-elev:#F4EFE2;  --ink:#0E1512;
+  --muted:#7A7263;  --line:#E5DECB;  --accent:#2F5D48;
+  --ink-soft:#1F2622;  --line-soft:#EFEADC;
+
+  --font-ko: 'Pretendard', 'Pretendard Fallback', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --max-w: 880px;
+  --pad-x: clamp(20px, 5vw, 56px);
+  --col-meta: 140px;
+  --col-gap: 40px;
+  --col-body: 580px;
+
+  --t-hero: clamp(30px, 5.6vw, 54px);
+  --t-h2: clamp(21px, 2.6vw, 28px);
+  --t-h3: 22px;
+  --t-h3-lead: 26px;
+  --t-h3-min: 19px;
+  --t-lead: 17px;
+  --t-body: 15px;
+  --t-small: 13px;
+  --t-meta: 12px;
+  --t-label: 11px;
+}
+
+/* ── 기본 ───────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ko);
+  font-size: var(--t-body);
+  line-height: 1.8;
+  letter-spacing: -.005em;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { margin: 0; font-weight: 700; }
+p, dl, dd, figure { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+b, strong { font-weight: 600; }
+a { color: inherit; text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+a { transition: color 120ms ease; }
+table { border-collapse: collapse; width: 100%; }
+
+.wrap { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad-x); }
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 99;
+  background: var(--accent); color: var(--bg);
+  padding: 12px 20px; border-radius: 4px; text-decoration: none;
+}
+.skip:focus { left: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+#main:focus { outline: none; }
+
+.mono { font-family: var(--font-mono); }
+/* 숫자 강조는 굵기로만. mono로 감싸면 한글 조사가 폴백되며 공백 폭이 어긋난다. */
+.num { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.print-only, .for-application, .print-note { display: none; }
+
+/* ── 상단 메타 ──────────────────────────────── */
+.topmeta {
+  font-family: var(--font-mono); font-size: var(--t-meta); color: var(--muted);
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--line); padding-bottom: 16px; padding-top: 24px;
+}
+
+/* ── HERO ───────────────────────────────────── */
+.hero { padding: clamp(56px, 8vw, 96px) 0 clamp(40px, 5vw, 64px); }
+.hero h1 {
+  font-size: var(--t-hero); line-height: 1.16; letter-spacing: -.035em;
+  max-width: 19ch; text-wrap: balance;
+}
+.hl {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.rule { width: 120px; height: 1px; background: var(--line); margin: 28px 0; border: 0; }
+.hero__lead { font-size: var(--t-lead); line-height: 1.8; max-width: 54ch; color: var(--ink-soft); }
+.hero__links {
+  margin-top: 32px; display: flex; flex-wrap: wrap; gap: 24px;
+  font-size: var(--t-body);
+}
+.hero__links a { color: var(--accent); }
+.hero__links .role {
+  display: block; font-family: var(--font-mono); font-size: var(--t-meta);
+  color: var(--muted); margin-top: 4px;
+}
+
+/* ── 섹션 ───────────────────────────────────── */
+.sec { padding: clamp(56px, 8vw, 96px) 0; }
+.sec--light { padding: clamp(40px, 5vw, 64px) 0; }
+.sec h2 {
+  font-size: var(--t-h2); line-height: 1.30; letter-spacing: -.030em;
+}
+.sec__label {
+  font-family: var(--font-mono); font-size: var(--t-label); font-weight: 600;
+  letter-spacing: .12em; color: var(--muted); text-transform: uppercase;
+  border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 12px;
+  display: block;
+}
+.sec__lead { font-size: var(--t-lead); line-height: 1.8; max-width: 54ch; color: var(--ink-soft); margin-top: 16px; }
+.sec__body { margin-top: 40px; }
+
+/* ── 저널 2단 ───────────────────────────────── */
+.entry {
+  display: grid;
+  grid-template-columns: var(--col-meta) minmax(0, var(--col-body));
+  gap: var(--col-gap);
+  align-items: start;
+}
+.entry + .entry { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 28px; }
+.entry__meta {
+  font-family: var(--font-mono); font-size: var(--t-meta); line-height: 1.5;
+  letter-spacing: .02em; color: var(--muted);
+  border-left: 1px solid var(--line); padding-left: 16px;
+}
+.entry__meta span { display: block; }
+.entry h3 { font-size: var(--t-h3); line-height: 1.35; letter-spacing: -.025em; }
+.entry__def { font-size: var(--t-lead); line-height: 1.8; color: var(--ink); margin-top: 8px; }
+.entry__note { font-size: var(--t-body); color: var(--ink-soft); margin-top: 8px; }
+.hr { border: 0; border-top: 1px solid var(--line); margin: 20px 0 24px; }
+
+.fields { display: grid; gap: 16px; }
+.fields > div { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start; }
+.fields dt {
+  font-family: var(--font-mono); font-size: var(--t-meta); font-weight: 600;
+  letter-spacing: .02em; color: var(--muted); padding-top: 4px;
+}
+.fields dd { font-size: var(--t-body); line-height: 1.8; color: var(--ink-soft); }
+.fields dd ul { display: grid; gap: 8px; }
+.fields dd li { position: relative; padding-left: 14px; }
+.fields dd li::before {
+  content: "·"; position: absolute; left: 2px; top: -.05em;
+  color: var(--accent); font-weight: 700;
+}
+/* 불릿을 가진 필드는 라벨을 블록으로 올려 판단 단위가 눈에 끊기게 한다. */
+.f--list dt { display: block; margin-bottom: 8px; }
+
+.spec-line {
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7;
+  color: var(--ink-soft); margin-top: 24px;
+  border-top: 1px solid var(--line); padding-top: 12px;
+}
+.entry__links { margin-top: 12px; font-size: var(--t-body); display: flex; gap: 20px; flex-wrap: wrap; }
+.entry__links a { color: var(--accent); }
+.footnote {
+  font-family: var(--font-mono); font-size: 11.5px; line-height: 1.7; color: var(--ink-soft);
+  border-top: 1px dashed var(--line); padding-top: 12px; margin-top: 20px;
+}
+
+/* 리드 엔트리 (01) */
+.entry--lead .entry__body {
+  background: var(--bg-elev);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 28px 28px 28px 24px;
+}
+.entry--lead h3 { font-size: var(--t-h3-lead); }
+.entry--lead .fields dt { color: var(--ink-soft); }
+.entry--lead .entry__meta { border-left-color: var(--line); }
+
+/* 그 외 엔트리 */
+.minor h3 { font-size: var(--t-h3-min); }
+.minor__prose { font-size: var(--t-body); line-height: 1.8; color: var(--ink-soft); margin-top: 12px; }
+.subhead {
+  font-family: var(--font-mono); font-size: var(--t-label); font-weight: 600;
+  letter-spacing: .12em; color: var(--muted); text-transform: uppercase;
+  border-top: 1px solid var(--line); padding-top: 12px; margin-top: 56px; display: block;
+}
+
+/* ── SVG 도식 ───────────────────────────────── */
+.diagram { margin-top: 24px; }
+.diagram svg { width: 100%; height: auto; display: block; }
+.diagram figcaption { font-size: var(--t-small); color: var(--ink-soft); margin-top: 12px; }
+
+/* ── 표 ─────────────────────────────────────── */
+.tablewrap { overflow-x: auto; }
+caption {
+  text-align: left; font-size: var(--t-small); color: var(--ink-soft);
+  padding-bottom: 12px; line-height: 1.7;
+}
+th, td {
+  text-align: left; vertical-align: top; padding: 12px 12px 12px 0;
+  border-bottom: 1px solid var(--line-soft); font-size: var(--t-body);
+}
+th {
+  font-family: var(--font-mono); font-size: var(--t-meta); font-weight: 600;
+  letter-spacing: .04em; color: var(--muted); text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+}
+td.n { font-family: var(--font-mono); font-size: 16px; color: var(--ink); white-space: nowrap; }
+.bar {
+  display: block; width: calc(var(--v) * 1%);
+  border-bottom: 2px solid currentColor; margin-top: 4px;
+}
+td.n.lo { color: var(--muted); }
+td.n.hi { color: var(--accent); }
+tr.judge td {
+  font-size: var(--t-small); color: var(--ink-soft); line-height: 1.7;
+  padding: 0 0 16px 16px; border-bottom: 1px solid var(--line);
+}
+.t-after { font-size: var(--t-lead); line-height: 1.8; color: var(--ink-soft); max-width: 54ch; margin-top: 32px; }
+
+/* 06 요건표 */
+.maptable td:nth-child(1) { font-weight: 600; color: var(--ink); }
+.maptable td:nth-child(3) {
+  font-family: var(--font-mono); font-size: var(--t-meta); color: var(--muted); white-space: nowrap;
+}
+.maptable td:nth-child(3).ok { color: var(--accent); }
+
+/* ── 04 규칙 ────────────────────────────────── */
+.rules { display: grid; gap: 24px; }
+.rules p {
+  border-left: 2px solid var(--line); padding-left: 16px;
+  font-size: var(--t-body); line-height: 1.8; color: var(--ink-soft); max-width: 54ch;
+}
+.swatch { display: flex; height: 48px; border: 1px solid var(--muted); margin-top: 40px; }
+.swatch span { flex: 1; border-right: 1px solid var(--muted); }
+.swatch span:last-child { border-right: 0; }
+.swatch-labels {
+  display: flex; margin-top: 8px;
+  font-family: var(--font-mono); font-size: 10px; line-height: 1.5; color: var(--ink-soft);
+}
+.swatch-labels span { flex: 1; word-break: break-all; padding-right: 4px; }
+.cap { font-size: var(--t-small); color: var(--ink-soft); margin-top: 12px; }
+
+pre {
+  margin: 0; background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: 4px; padding: 18px 20px; overflow-x: auto;
+}
+code { font-family: var(--font-mono); font-size: 13px; line-height: 1.7; color: var(--ink-soft); }
+
+/* ── 05 밴드 ────────────────────────────────── */
+.band {
+  --band-fg: var(--bg);
+  --band-line: var(--line);
+  background: var(--accent);
+  color: var(--band-fg);
+}
+.band h2, .band h3, .band p, .band li, .band .sec__label { color: var(--band-fg); }
+.band .sec__label { border-bottom-color: var(--band-line); }
+.band .item { border-top: 1px solid var(--band-line); padding-top: 20px; margin-top: 32px; }
+.band .item h3 { font-size: var(--t-h3-min); line-height: 1.4; }
+.band .item p { font-size: var(--t-body); line-height: 1.8; margin-top: 12px; max-width: 60ch; }
+.band ul { border-left: 1px solid var(--band-line); padding-left: 16px; margin-top: 12px; }
+.band li { font-size: var(--t-body); line-height: 1.8; margin-bottom: 12px; max-width: 60ch; }
+.band li:last-child { margin-bottom: 0; }
+
+/* ── 07 / 08 / 09 ───────────────────────────── */
+.gap-item { margin-top: 32px; max-width: 60ch; }
+.gap-item h3 { font-size: var(--t-lead); }
+.gap-item p { font-size: var(--t-body); line-height: 1.8; color: var(--ink-soft); margin-top: 8px; }
+
+.timeline { margin-top: 32px; }
+.timeline > div {
+  display: grid; grid-template-columns: var(--col-meta) minmax(0, 1fr); gap: var(--col-gap);
+  padding: 12px 0; border-bottom: 1px solid var(--line-soft); align-items: start;
+}
+.timeline dt {
+  font-family: var(--font-mono); font-size: var(--t-meta); color: var(--muted); letter-spacing: .02em;
+}
+.timeline dd { font-size: var(--t-body); line-height: 1.7; color: var(--ink-soft); }
+.tl-note {
+  font-family: var(--font-mono); font-size: var(--t-meta); color: var(--ink-soft);
+  margin-top: 16px; line-height: 1.7;
+}
+
+.contact-lines { font-size: 16px; font-weight: 500; line-height: 1.9; margin-top: 32px; }
+.contact-lines a { color: var(--accent); }
+.preface {
+  font-size: var(--t-small); line-height: 1.8; color: var(--ink-soft);
+  max-width: 60ch; margin-top: 40px;
+}
+footer {
+  font-family: var(--font-mono); font-size: var(--t-meta); line-height: 1.8; color: var(--ink-soft);
+  border-top: 1px solid var(--line); padding: 24px 0 44px; margin-top: 24px;
+}
+footer a { color: var(--ink-soft); }
+
+/* ── 반응형 ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  :root { --col-meta: 120px; --col-gap: 28px; }
+}
+@media (max-width: 720px) {
+  :root { --pad-x: 20px; }
+  .sec { padding: 48px 0; }
+  .sec--light { padding: 40px 0; }
+  .entry, .timeline > div { grid-template-columns: 1fr; gap: 16px; }
+  .entry__meta { border-left: 0; padding-left: 0; }
+  .entry__meta span { display: inline; }
+  .entry__meta span + span::before { content: " · "; }
+  .fields > div { grid-template-columns: 1fr; gap: 4px; }
+  .fields dt { padding-top: 0; }
+  .entry--lead .entry__body { padding: 20px 20px 20px 16px; }
+  .swatch-labels { font-size: 8px; }
+}
+@media (max-width: 520px) {
+  .hero h1 { font-size: 30px; }
+  .diagram svg { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* ── 인쇄 (A4) ──────────────────────────────── */
+@media print {
+  @page { size: A4; margin: 14mm 15mm; }
+  html { scroll-behavior: auto; }
+  body { background: #fff; font-size: 10.5pt; line-height: 1.7; }
+  .skip, .topmeta { display: none !important; }
+  .for-application { display: block; }
+  .print-only { display: inline; }
+
+  /* 서류 단계용 축약본 — 근거의 중심만 남기고 정독용 섹션은 웹으로 보낸다.
+     JYP는 면접 제출물에 대해 "충분히 담아 제출"을 명시했고, 서류는 스캔 구간이다. */
+  .web-only { display: none !important; }
+  .print-note {
+    display: block; font-size: 9pt; color: #555;
+    border-top: .5pt solid #ccc; padding-top: 6pt; margin-top: 10pt;
+  }
+  .wrap { max-width: none; padding-inline: 0; }
+
+  /* 본문 행 길이 제한 — 180mm 전폭은 10.5pt 한글로 줄당 45~50자가 되어 읽기 어렵다.
+     한글 본문 적정 30~38자에 맞춰 135mm로 묶고, 우측은 비워둔다. */
+  .hero__lead, .sec__lead, .entry__def, .entry__note, .minor__prose,
+  .fields dd, .t-after, .gap-item p, .band .item p, .band li,
+  .rules p, .preface, .for-application p { max-width: 135mm; }
+  .spec-line, .footnote, .print-note { max-width: 150mm; }
+
+  .hero { padding: 0 0 6pt; }
+  /* 인쇄에서는 폭이 180mm로 넓어지므로 ch 기준 상한을 풀어야 수동 개행이 지켜진다. */
+  .hero h1 { font-size: 19pt; max-width: none; line-height: 1.26; }
+  .hero__lead { font-size: 10.5pt; max-width: none; margin-top: 0; }
+  .rule { margin: 8pt 0; }
+  .hero__links { margin-top: 12pt; font-size: 10pt; gap: 14pt; }
+  .hero__links .role { font-size: 8.5pt; margin-top: 2pt; }
+  .for-application {
+    font-size: 9.5pt; line-height: 1.4; color: #333;
+    border-bottom: .5pt solid #ccc; padding-bottom: 6pt; margin-bottom: 10pt;
+  }
+  .for-application .mono { font-size: 8.5pt; color: #555; display: block; margin-bottom: 4pt; }
+  .sec { padding: 14pt 0; }
+  .sec--light { padding: 10pt 0; }
+  .sec h2 { font-size: 17pt; letter-spacing: -.02em; }
+  .entry h3, .entry--lead h3 { font-size: 14.5pt; }
+  .minor h3, .band .item h3 { font-size: 12.5pt; }
+  .entry__def { font-size: 11.5pt; color: var(--ink); }
+  .mono, .entry__meta, .spec-line, .footnote, th, .timeline dt, .tl-note, footer, code { font-size: 8.5pt; }
+
+  /* 인쇄는 본문 180mm 전폭을 쓴다. 좌 메타를 한 줄로 접으면 행당 글자수가 늘어
+     같은 내용이 더 적은 줄에 들어간다. */
+  /* 좌측 기준선을 하나로 — 섹션라벨 · h2 · 메타 · h3 · 본문 · 필드가 모두 같은 x에서 시작한다. */
+  .entry, .timeline > div { grid-template-columns: 1fr; gap: 4pt; }
+  .entry__meta { border-left: 0; padding-left: 0; }
+  .entry__meta span { display: inline; }
+  .entry__meta span + span::before { content: " · "; }
+  .timeline > div { grid-template-columns: 28mm 1fr; gap: 6mm; }
+
+  /* 필드 라벨을 열이 아니라 런인으로 — 두 번째 기준선을 없앤다.
+     행 길이 제한은 인라인 dd가 아니라 이 블록 컨테이너에 걸어야 적용된다. */
+  .fields > div { display: block; max-width: 135mm; }
+  .fields dt {
+    display: block; font-family: var(--font-mono); font-size: 8.5pt; font-weight: 600;
+    color: #2F5D48; letter-spacing: .1em; padding: 0; margin-bottom: 3pt;
+  }
+  .fields dt::after { content: none; }
+  .fields dd { display: inline; }
+  /* 불릿 필드는 런인에서 제외 — 라벨은 블록, 항목은 세로로 끊는다. */
+  .f--list dt { display: block; margin-bottom: 3pt; }
+  .f--list dt::after { content: none; }
+  .f--list dd { display: block; }
+  .fields dd ul { display: block; }
+  .fields dd li { padding-left: 11pt; margin-bottom: 6pt; }
+  .fields dd li:last-child { margin-bottom: 0; }
+
+  /* 01 리드 박스: 음수 마진으로 상쇄해 박스 '내용'이 기준선에 맞게 한다. */
+  .entry--lead .entry__body {
+    margin-left: -10pt; margin-right: -10pt;
+    padding: 9pt 8pt 9pt 8pt;
+  }
+  #numbers .wrap, #map .wrap, #how .wrap { display: block; }
+  .tablewrap { overflow: visible; }
+
+  /* 표 열 너비 고정 — 자동 폭에 맡기면 "데스크 / 톱"처럼 두 글자에서 줄이 바뀐다. */
+  table { table-layout: fixed; }
+  #numbers td, #numbers th { padding: 6pt 4pt 6pt 0; }
+  #numbers th:nth-child(1), #numbers td:nth-child(1) { width: 40mm; }
+  #numbers th:nth-child(2), #numbers td:nth-child(2) { width: 15mm; white-space: nowrap; }
+  #numbers th:nth-child(3), #numbers td:nth-child(3),
+  #numbers th:nth-child(4), #numbers td:nth-child(4),
+  #numbers th:nth-child(5), #numbers td:nth-child(5),
+  #numbers th:nth-child(6), #numbers td:nth-child(6) { width: 16mm; }
+  #numbers th:nth-child(7), #numbers td:nth-child(7) { width: auto; }
+  #numbers td.n { white-space: nowrap; font-size: 10pt; }
+  tr.judge td { padding: 0 0 8pt 8pt; }
+  /* 수치 행과 바로 아래 판단 행은 반드시 같은 페이지에 둔다. */
+  tr:has(+ tr.judge) { break-after: avoid; }
+
+  #map th:nth-child(1), #map td:nth-child(1) { width: 38mm; }
+  #map th:nth-child(3), #map td:nth-child(3) { width: 34mm; }
+  #map td { padding: 6pt 4pt 6pt 0; }
+
+  .band {
+    --band-fg: var(--ink);
+    --band-line: var(--line-soft);
+    background: none;
+    border-block: 2pt solid #2F5D48;
+    padding-block: 10pt;
+  }
+  .entry--lead .entry__body {
+    background: #FAF7EF;
+    border-left: 2pt solid #2F5D48;
+  }
+  pre { border: .5pt solid #999; }
+  .swatch, .swatch span { border-color: #999; }
+  .swatch span { border-right: .5pt solid #999; }
+
+  /* 긴 블록에 break-inside:avoid를 걸면 앞 페이지가 통째로 비므로,
+     짧은 단위(표 행 · 코드 · 스와치)에만 적용하고 긴 엔트리는 고아/과부 줄만 막는다. */
+  tr, tr.judge, pre, .swatch, .diagram, .band .item, .gap-item, .fields > div { break-inside: avoid; }
+  .entry, .entry--lead { break-inside: auto; orphans: 3; widows: 3; }
+
+  /* ── 고아 제목 방지 ──
+     제목만 페이지 끝에 남고 본문이 다음 장으로 넘어가는 것을 막는다.
+     제목은 뒤따르는 내용과 반드시 같은 페이지에 있어야 한다. */
+  h1, h2, h3, h4 { break-after: avoid; break-inside: avoid; }
+  .sec__label { break-after: avoid; }
+  .entry__meta { break-after: avoid; }        /* 기간·역할 줄이 h3와 갈라지지 않게 */
+  /* 한두 줄짜리 짧은 블록은 쪼개지 않는다 — 문장 중간에서 페이지가 넘어가면 다시 읽어야 한다. */
+  .entry__def, .entry__note, .sec__lead, .cap, figcaption {
+    break-after: avoid; break-inside: avoid;
+  }
+  .hr { break-after: avoid; break-before: avoid; }
+  .fields dt, .f--list dt { break-after: avoid; }  /* 라벨과 항목 분리 금지 */
+  .sec__lead { break-after: avoid; }
+  caption { break-after: avoid; }
+  thead { display: table-header-group; }      /* 표가 나뉘면 헤더를 다음 장에 반복 */
+  tfoot { display: table-footer-group; }
+  li { break-inside: avoid; }
+  p, dd, li { orphans: 2; widows: 2; }
+  .sec { padding: 13pt 0; }
+  .sec--light { padding: 8pt 0; }
+  .sec__body { margin-top: 13pt; }
+  .entry + .entry { margin-top: 19pt; padding-top: 19pt; }
+  .subhead { margin-top: 20pt; }
+  .rules { gap: 10pt; }
+  .item { margin-top: 18pt !important; padding-top: 12pt !important; }
+  .t-after { margin-top: 12pt; }
+  .swatch { height: 26pt; margin-top: 14pt; }
+  .hr { margin: 9pt 0 12pt; }
+  .fields { gap: 13pt; }
+  .spec-line, .footnote { margin-top: 10pt; padding-top: 6pt; }
+  .diagram { margin-top: 10pt; }
+  .timeline { margin-top: 14pt; }
+  .timeline > div { padding: 6pt 0; }
+  .preface { margin-top: 16pt; }
+  footer { padding: 10pt 0 0; margin-top: 12pt; }
+  .a-note::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+}
