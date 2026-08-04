@@ -1,0 +1,11 @@
+{
+  "name": "jaykim-v.github.io",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pdf": "node scripts/build-pdf.mjs"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}
