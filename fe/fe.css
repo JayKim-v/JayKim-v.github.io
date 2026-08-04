@@ -403,7 +403,7 @@ footer a { color: var(--ink-soft); }
 
   .hero { padding: 0 0 6pt; }
   /* 인쇄에서는 폭이 180mm로 넓어지므로 ch 기준 상한을 풀어야 수동 개행이 지켜진다. */
-  .hero h1 { font-size: 19pt; max-width: none; line-height: 1.26; }
+  .hero h1 { font-size: 17pt; max-width: none; line-height: 1.22; }
   .hero__lead { font-size: 10.5pt; margin-top: 0; }
   /* 문서 머리 — 연락처가 8페이지 끝에만 있으면 30초 스캔에서 못 찾는다. */
   .doc-head {
