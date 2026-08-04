@@ -147,6 +147,21 @@ table { border-collapse: collapse; width: 100%; }
   color: var(--muted); margin-top: 4px;
 }
 
+/* ── 기술 스택 요약 ─────────────────────────── */
+.stack-sum {
+  margin-top: 40px; display: grid; gap: 12px;
+  border-top: 1px solid var(--line); padding-top: 24px;
+}
+.stack-sum > div {
+  display: grid; grid-template-columns: var(--col-meta) minmax(0, 1fr);
+  gap: var(--col-gap); align-items: baseline;
+}
+.stack-sum dt {
+  font-family: var(--font-mono); font-size: var(--t-label); font-weight: 600;
+  letter-spacing: .1em; color: var(--accent); text-transform: uppercase;
+}
+.stack-sum dd { font-size: 14px; line-height: 1.7; color: var(--ink-soft); }
+
 /* ── 섹션 ───────────────────────────────────── */
 .sec { padding: clamp(56px, 8vw, 96px) 0; }
 .sec--light { padding: clamp(40px, 5vw, 64px) 0; }
@@ -390,6 +405,20 @@ footer a { color: var(--ink-soft); }
   /* 인쇄에서는 폭이 180mm로 넓어지므로 ch 기준 상한을 풀어야 수동 개행이 지켜진다. */
   .hero h1 { font-size: 19pt; max-width: none; line-height: 1.26; }
   .hero__lead { font-size: 10.5pt; margin-top: 0; }
+  /* 문서 머리 — 연락처가 8페이지 끝에만 있으면 30초 스캔에서 못 찾는다. */
+  .doc-head {
+    font-family: var(--font-mono); font-size: 8.5pt; line-height: 1.5; color: #555;
+    border-bottom: .5pt solid #ccc; padding-bottom: 5pt; margin-bottom: 8pt;
+    overflow-wrap: normal; word-break: keep-all;  /* URL이 중간에서 갈리지 않게 */
+  }
+  /* 기술 스택 요약 — 스택이 프로젝트마다 흩어져 있으면 한눈에 볼 곳이 없다. */
+  .stack-sum {
+    margin-top: 12pt; padding-top: 9pt; gap: 5pt;
+    border-top: .5pt solid #ccc; break-inside: avoid;
+  }
+  .stack-sum > div { grid-template-columns: 22mm 1fr; gap: 5mm; }
+  .stack-sum dt { font-size: 8pt; }
+  .stack-sum dd { font-size: 9.5pt; line-height: 1.5; }
   .rule { margin: 8pt 0; }
   .hero__links { margin-top: 12pt; font-size: 10pt; gap: 14pt; }
   .hero__links .role { font-size: 8.5pt; margin-top: 2pt; }
