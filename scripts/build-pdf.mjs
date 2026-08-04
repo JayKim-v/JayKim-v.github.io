@@ -93,7 +93,7 @@ try {
     displayHeaderFooter: true,
     headerTemplate: '<div></div>',
     footerTemplate: FOOTER,
-    margin: { top: '14mm', bottom: '16mm', left: '15mm', right: '15mm' },
+    margin: { top: '15mm', bottom: '16mm', left: '20mm', right: '20mm' },
   });
   console.log(`wrote ${OUT}`);
 } finally {

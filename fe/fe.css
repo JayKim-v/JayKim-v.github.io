@@ -83,6 +83,13 @@ body {
   line-height: 1.8;
   letter-spacing: -.005em;
   -webkit-font-smoothing: antialiased;
+  /* 한글은 기본값에서 음절 단위로 끊긴다. "기계"가 "기 / 계"로 갈라지면
+     문단 끝마다 눈이 걸린다. 어절 단위로 묶고, 넘칠 때만 예외를 허용한다. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.mono, .spec-line, .entry__links a, .footnote, code, td.n, .swatch-labels span {
+  overflow-wrap: anywhere;
 }
 h1, h2, h3, h4 { margin: 0; font-weight: 700; }
 p, dl, dd, figure { margin: 0; }
@@ -359,9 +366,9 @@ footer a { color: var(--ink-soft); }
 
 /* ── 인쇄 (A4) ──────────────────────────────── */
 @media print {
-  @page { size: A4; margin: 14mm 15mm; }
+  @page { size: A4; margin: 15mm 20mm 16mm 20mm; }
   html { scroll-behavior: auto; }
-  body { background: #fff; font-size: 10.5pt; line-height: 1.7; }
+  body { background: #fff; font-size: 10.5pt; line-height: 1.62; }
   .skip, .topmeta { display: none !important; }
   .for-application { display: block; }
   .print-only { display: inline; }
@@ -375,17 +382,14 @@ footer a { color: var(--ink-soft); }
   }
   .wrap { max-width: none; padding-inline: 0; }
 
-  /* 본문 행 길이 제한 — 180mm 전폭은 10.5pt 한글로 줄당 45~50자가 되어 읽기 어렵다.
-     한글 본문 적정 30~38자에 맞춰 135mm로 묶고, 우측은 비워둔다. */
-  .hero__lead, .sec__lead, .entry__def, .entry__note, .minor__prose,
-  .fields dd, .t-after, .gap-item p, .band .item p, .band li,
-  .rules p, .preface, .for-application p { max-width: 135mm; }
-  .spec-line, .footnote, .print-note { max-width: 150mm; }
+  /* 행 길이는 max-width 캡이 아니라 페이지 여백으로 잡는다.
+     본문만 135mm로 묶고 표·구분선은 전폭이면 우측 끝이 세 개가 되어
+     문단마다 45mm짜리 죽은 여백이 생긴다. 캡을 없애 끝을 하나로 만든다. */
 
   .hero { padding: 0 0 6pt; }
   /* 인쇄에서는 폭이 180mm로 넓어지므로 ch 기준 상한을 풀어야 수동 개행이 지켜진다. */
   .hero h1 { font-size: 19pt; max-width: none; line-height: 1.26; }
-  .hero__lead { font-size: 10.5pt; max-width: none; margin-top: 0; }
+  .hero__lead { font-size: 10.5pt; margin-top: 0; }
   .rule { margin: 8pt 0; }
   .hero__links { margin-top: 12pt; font-size: 10pt; gap: 14pt; }
   .hero__links .role { font-size: 8.5pt; margin-top: 2pt; }
@@ -436,7 +440,7 @@ footer a { color: var(--ink-soft); }
 
   /* 필드 라벨을 열이 아니라 런인으로 — 두 번째 기준선을 없앤다.
      행 길이 제한은 인라인 dd가 아니라 이 블록 컨테이너에 걸어야 적용된다. */
-  .fields > div { display: block; max-width: 135mm; }
+  .fields > div { display: block; }
   .fields dt {
     display: block; font-family: var(--font-mono); font-size: 8.5pt; font-weight: 600;
     color: #2F5D48; letter-spacing: .1em; padding: 0; margin-bottom: 3pt;
@@ -487,12 +491,16 @@ footer a { color: var(--ink-soft); }
   }
   /* 배경을 깐 박스는 페이지 경계에서 잘려 나가 인쇄물에서 사고처럼 보인다.
      좌측 굵은 선만 남기면 페이지를 넘어가도 같은 항목으로 읽힌다. */
+  /* 세로선은 페이지 경계에서 텍스트 없이 30mm씩 이어져 잘린 것처럼 보인다.
+     제목 옆 라벨로 바꾸면 같은 강조를 지면 낭비 없이 얻는다. */
   .entry--lead .entry__body {
-    background: none;
-    border-left: 2.5pt solid #2F5D48;
-    padding: 0 0 0 10pt;
-    margin-left: 0; margin-right: 0;
-    border-radius: 0;
+    background: none; border-left: 0; padding: 0;
+    margin-left: 0; margin-right: 0; border-radius: 0;
+  }
+  .entry--lead h3::after {
+    content: "재직 중"; font-family: var(--font-mono); font-size: 8.5pt;
+    color: #2F5D48; margin-left: 8pt; vertical-align: 2pt; letter-spacing: .08em;
+    font-weight: 600;
   }
   pre { border: .5pt solid #999; }
   .swatch, .swatch span { border-color: #999; }
