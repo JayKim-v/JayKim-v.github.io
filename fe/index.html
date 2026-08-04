@@ -70,16 +70,16 @@
 
       <p class="hero__links">
         <a href="https://askedtech.com" target="_blank" rel="noopener">askedtech.com<span class="role">Next.js · TS · 재직 중</span></a>
+        <a href="https://precisionrct.com" target="_blank" rel="noopener">precisionrct.com<span class="role">2년 5개월 단독 리드</span></a>
         <a href="https://mstone-demo.vercel.app" target="_blank" rel="noopener">mstone-demo.vercel.app<span
             class="role">Next.js App Router · 개인</span></a>
-        <a href="https://precisionrct.com" target="_blank" rel="noopener">precisionrct.com<span class="role">2년 5개월 단독 리드</span></a>
       </p>
 
       <dl class="stack-sum">
         <div>
           <dt>경력 · 학력</dt>
           <dd>엔텔스 2021.12–2022.09 · 교육공간 2023.06–2024.01 · Precision Micro Endodontics 2024.01–2026.05(프리랜서 · 단독
-            리드) · 러닝스파크 2026.06–2026.08 — 합 4년 2개월<br />한국방송통신대학교 컴퓨터과학과 4학년(2027.03 졸업 예정) · 2026년 8월 계약 종료, 이후 즉시 입사 가능</dd>
+            리드) · 러닝스파크 2026.06–2026.08 — 합 4년 2개월<br />React 계열 실무 10개월 — 2022 일부 화면 → 2023.06–2024.01 Digital SAT 전면 구현 → 2026 askedtech 두 프론트(진행 중)<br />한국방송통신대학교 컴퓨터과학과 4학년(2027.03 졸업 예정) · 2026년 8월 계약 종료, 이후 즉시 입사 가능</dd>
         </div>
         <div>
           <dt>Frontend</dt>
@@ -188,44 +188,13 @@
                 폰트를 104KB로 줄인 이유가 이겁니다(02). 남은 기간에 손댈 수 있는 범위는 폰트 서브셋과 이미지 지연 로딩까지라고 보고, 그 아래 스크립트 48건은 손대면 회귀 위험이 커서
                 측정값과 원인만 남기는 편이 낫다고 판단했습니다.</p>
 
-              <p class="spec-line">Next.js · TypeScript · NestJS · MongoDB · 사이트맵 자동화 7,000+ URL</p>
+              <p class="spec-line">Next.js · TypeScript · NestJS · MongoDB · AWS EC2 3대 무중단 배포 · 사이트맵 자동화 7,000+ URL</p>
               <p class="entry__links"><a href="https://askedtech.com" target="_blank"
                   rel="noopener">askedtech.com</a></p>
               <p class="footnote">뉴스레터 파이프라인은 회사 산출물이고 인증 정보가 얽혀 있어 코드와 화면은 공개하지 않습니다. 구조와 판단 근거까지만 적습니다.</p>
             </div>
           </article>
 
-          <article class="entry">
-            <div class="entry__meta">
-              <span>2026.05</span>
-              <span>개인 작업</span>
-            </div>
-            <div class="entry__body">
-              <h3>mStone · 제품 라인업 사이트</h3>
-              <p class="entry__def">기계식 키보드 브랜드의 팬 제작 디자인 시안. 제품 3종의 라인업과 상세.</p>
-              <hr class="hr" />
-              <dl class="fields">
-                <div class="f--list">
-                  <dt>설계</dt>
-                  <dd>
-                    <ul>
-                      <li>제품 3종을 빌드 시점에 정적으로 만들었습니다. 갱신되지 않는 시안이라 재검증 주기를 정할 근거가 없었습니다.</li>
-                      <li>갱신이 생기면 App Router에서 라우트 단위로 켤 수 있는 형태까지만 열어뒀습니다.</li>
-                    </ul>
-                  </dd>
-                </div>
-                <div>
-                  <dt>결정</dt>
-                  <dd>데스크톱은 네 항목 모두 100, LCP 0.8초. 같은 페이지 모바일은 성능 76, LCP 4.7초입니다. 데스크톱만 적으면 절반만 말하는 것이라 둘 다 적었습니다.</dd>
-                </div>
-              </dl>
-              <p class="spec-line">Next.js · App Router · Vercel — 데스크톱 100 / 100 / 100 / 100 · LCP 0.8s · CLS 0.003 — 모바일
-                성능 76 · LCP 4.7s</p>
-              <p class="entry__links"><a href="https://mstone-demo.vercel.app" target="_blank"
-                  rel="noopener">mstone-demo.vercel.app</a></p>
-              <p class="footnote">실존 브랜드와 무관한 팬 제작 시안입니다.</p>
-            </div>
-          </article>
 
           <article class="entry">
             <div class="entry__meta">
@@ -293,6 +262,38 @@
           </article>
 
 
+          <article class="entry">
+            <div class="entry__meta">
+              <span>2026.05</span>
+              <span>개인 작업</span>
+            </div>
+            <div class="entry__body">
+              <h3>mStone · 제품 라인업 사이트</h3>
+              <p class="entry__def">기계식 키보드 브랜드의 팬 제작 디자인 시안. 제품 3종의 라인업과 상세.</p>
+              <hr class="hr" />
+              <dl class="fields">
+                <div class="f--list">
+                  <dt>설계</dt>
+                  <dd>
+                    <ul>
+                      <li>제품 3종을 빌드 시점에 정적으로 만들었습니다. 갱신되지 않는 시안이라 재검증 주기를 정할 근거가 없었습니다.</li>
+                      <li>갱신이 생기면 App Router에서 라우트 단위로 켤 수 있는 형태까지만 열어뒀습니다.</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div>
+                  <dt>결정</dt>
+                  <dd>데스크톱은 네 항목 모두 100, LCP 0.8초. 같은 페이지 모바일은 성능 76, LCP 4.7초입니다. 데스크톱만 적으면 절반만 말하는 것이라 둘 다 적었습니다.</dd>
+                </div>
+              </dl>
+              <p class="spec-line">Next.js · App Router · Vercel — 데스크톱 100 / 100 / 100 / 100 · LCP 0.8s · CLS 0.003 — 모바일
+                성능 76 · LCP 4.7s</p>
+              <p class="entry__links"><a href="https://mstone-demo.vercel.app" target="_blank"
+                  rel="noopener">mstone-demo.vercel.app</a></p>
+              <p class="footnote">실존 브랜드와 무관한 팬 제작 시안입니다.</p>
+            </div>
+          </article>
+
           <span class="subhead">그 외</span>
 
           <article class="entry minor">
@@ -330,6 +331,8 @@
                   rel="noopener">App Store</a></p>
             </div>
           </article>
+
+          <p class="footnote">그 밖에: AI Usage — Claude Code · Codex CLI의 토큰 사용량을 계측해 macOS 메뉴바와 iOS 위젯에 표시. Swift / SwiftUI / WidgetKit / GRDB, TestFlight 배포 중.</p>
 
           
         </div>
@@ -444,7 +447,7 @@
         </div>
 
         <p class="t-after">
-          가장 낮은 줄은 제 기존 포트폴리오입니다. 이 페이지는 그 세 원인을 각각 self-host 서브셋 · 스크립트 0바이트 · 이미지 0장으로 되돌린 결과입니다.
+          가장 낮은 줄 <span class="num">모바일 55</span>가 제 기존 포트폴리오이고, 가장 높은 줄 <span class="num">모바일 100</span>이 이 페이지입니다. 같은 사람이 만들었고, 차이는 CDN 웹폰트 세 벌 · 스크립트 연출 라이브러리 세 개 · 이미지를 각각 self-host 서브셋 · 스크립트 0바이트 · 이미지 0장으로 되돌린 것뿐입니다.
         </p>
         <p class="t-after web-only">
           정적 문서에서 100점은 어려운 일이 아닙니다. 이 표에서 봐주셨으면 하는 것은 점수 자체보다 편차이고, 편차마다 원인을 적어뒀다는 점입니다.
@@ -690,49 +693,12 @@
 
 
     <!-- ═══ 07 이력 · 학력 ═══ -->
-    <section class="sec sec--light" id="career">
-      <div class="wrap">
-        <h2 data-no="07"><span class="sec__label">07 / 이력 · 학력</span>이력 · 학력</h2>
-
-        <dl class="timeline">
-          <div>
-            <dt>2026.06 – 2026.08</dt>
-            <dd>러닝스파크 · IT부서 — askedtech 사용자 웹 · 관리자 CMS · API. EC2 3대 무중단 배포</dd>
-          </div>
-          <div>
-            <dt>2024.01 – 2026.05</dt>
-            <dd><span lang="en">Precision Micro Endodontics</span> (미국 워싱턴 D.C.) · 프리랜서 · 단독 리드 · 100% 원격</dd>
-          </div>
-          <div>
-            <dt>2023.06 – 2024.01</dt>
-            <dd>교육공간 · 개발팀 대리 — Digital SAT B2B 웹앱</dd>
-          </div>
-          <div>
-            <dt>2023.01 – 2023.06</dt>
-            <dd>그린아카데미 프론트엔드 과정 — 최종 프로젝트 프론트엔드 4인 팀장</dd>
-          </div>
-          <div>
-            <dt>2021.12 – 2022.09</dt>
-            <dd>엔텔스 · 솔루션사업부 — 교육부 원격영상 진로멘토링. 멘토 포털과 학교 포털이 같은 백엔드를 공유하는 구조에서 화면 담당. Spring MVC / JSP / jQuery, 일부 화면 React
-            </dd>
-          </div>
-          <div>
-            <dt>학력</dt>
-            <dd>한국방송통신대학교 컴퓨터과학과 4학년 재학</dd>
-          </div>
-        </dl>
-
-        <p class="tl-note">React 계열: 2022 일부 화면 → 2023.06–2024.01 Digital SAT 전면 → 2026 mStone · askedtech</p>
-        <p class="footnote">그 밖에: AI Usage — Claude Code · Codex CLI의 토큰 사용량을 계측해 macOS 메뉴바와 iOS 위젯에 표시. Swift / SwiftUI /
-          WidgetKit / GRDB, TestFlight 배포 중.</p>
-      </div>
-    </section>
 
 
     <!-- ═══ 08 연락처 ═══ -->
     <section class="sec sec--light" id="contact">
       <div class="wrap">
-        <h2 data-no="08"><span class="sec__label">08 / 연락처</span>연락처</h2>
+        <h2 data-no="07"><span class="sec__label">07 / 연락처</span>연락처</h2>
 
         <p class="contact-lines">
           김재희 · <a href="mailto:jaeheekim.dev@gmail.com">jaeheekim.dev@gmail.com</a><span class="print-only"> ·
@@ -741,8 +707,6 @@
             href="https://jaykim-v.github.io" target="_blank" rel="noopener">jaykim-v.github.io</a>
         </p>
 
-        <p class="preface">이 페이지는 프론트엔드 직무에 맞춰 다시 쓴 버전입니다. 백엔드 · 인프라 · 모바일을 포함한 전체 이력은 jaykim-v.github.io 에 있고, 그쪽 PDF는
-          2026년 5월 생성본이라 현재 맡고 있는 일이 반영돼 있지 않습니다.</p>
       </div>
     </section>
 
