@@ -407,8 +407,11 @@ footer a { color: var(--ink-soft); }
   .hero__lead { font-size: 10.5pt; margin-top: 0; }
   /* 문서 머리 — 연락처가 8페이지 끝에만 있으면 30초 스캔에서 못 찾는다. */
   .doc-head {
+    /* .print-only 의 display:inline 을 되돌린다 —
+       인라인이면 세로 마진이 무시돼 밑줄이 다음 줄 글자에 붙는다. */
+    display: block;
     font-family: var(--font-mono); font-size: 8.5pt; line-height: 1.5; color: #555;
-    border-bottom: .5pt solid #ccc; padding-bottom: 5pt; margin-bottom: 8pt;
+    border-bottom: .5pt solid #ccc; padding-bottom: 6pt; margin: 0 0 10pt;
     overflow-wrap: normal; word-break: keep-all;  /* URL이 중간에서 갈리지 않게 */
   }
   /* 기술 스택 요약 — 스택이 프로젝트마다 흩어져 있으면 한눈에 볼 곳이 없다. */
@@ -446,7 +449,9 @@ footer a { color: var(--ink-soft); }
      문단이 붙어 덩어리로 보이지 않게 문단·소제목 간격을 벌린다. */
   p + p, dd + dd { margin-top: 7pt; }
   .entry h3, .entry--lead h3, .minor h3, .band .item h3, .gap-item h3 { margin-bottom: 6pt; }
-  .sec__lead { margin-bottom: 4pt; }
+  /* 섹션 안내문은 본문보다 작아야 한다. 프로젝트 내용이 주가 되어야 하는데
+     지금은 안내문(17px≒12.75pt)이 본문(10.5pt)보다 커서 위계가 뒤집혀 있었다. */
+  .sec__lead { font-size: 9.5pt; color: #555; margin-bottom: 3pt; line-height: 1.5; }
   .band .item p + p { margin-top: 7pt; }
   .band .item p { margin-top: 6pt; }
   .gap-item { margin-top: 16pt; }
@@ -510,6 +515,9 @@ footer a { color: var(--ink-soft); }
   #map th:nth-child(1), #map td:nth-child(1) { width: 38mm; }
   #map th:nth-child(3), #map td:nth-child(3) { width: 34mm; }
   #map td { padding: 6pt 4pt 6pt 0; }
+  /* 34mm 고정폭 + nowrap 조합에서 "REST 실무 · GraphQL 개인"의 끝 두 글자가 잘려
+     표가 "GraphQL 실무"로 읽혔다. 줄바꿈만 허용한다 — 열 폭은 건드리지 않는다. */
+  .maptable td:nth-child(3) { white-space: normal; line-height: 1.45; }
 
   .band {
     --band-fg: var(--ink);
