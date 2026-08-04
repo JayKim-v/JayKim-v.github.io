@@ -174,22 +174,38 @@
               </dl>
 
               <figure class="diagram">
-                <svg viewBox="0 0 620 116" role="img" aria-labelledby="d-t d-d">
+                <svg viewBox="0 0 574 78" role="img" aria-labelledby="d-t d-d">
                   <title id="d-t">뉴스레터 파이프라인의 승인 게이트</title>
-                  <desc id="d-d">RSS와 메일에서 수집한 자료를 LLM이 분류하고 요약한 뒤, 사람이 승인하는 칸을 통과해야만 Maily API로 발행됩니다.</desc>
-                  <path d="M8 46 H612" fill="none" stroke="#E5DECB" stroke-width="1" />
-                  <g fill="#1F2622" font-family="monospace" font-size="16">
-                    <text x="8" y="38">RSS · 메일</text>
-                    <text x="132" y="38">LLM 분류 · 요약</text>
-                    <text x="404" y="38">발행 · Maily API</text>
-                  </g>
-                  <path d="M388 10 V104" fill="none" stroke="#2F5D48" stroke-width="2.5" />
-                  <g font-family="monospace" font-size="16" text-anchor="end">
-                    <text x="374" y="76" fill="#2F5D48">승인 · 사람</text>
-                    <text x="374" y="100" fill="#7A7263">되돌릴 수 없음</text>
+                  <desc id="d-d">RSS와 메일에서 자료를 모으고, LLM이 분류하고 요약한 다음, 사람이 승인하는 칸을 통과해야만 Maily API로 발행됩니다.
+                    승인 칸을 통과하지 못하면 아무것도 발행되지 않습니다. 발행 뒤에는 되돌릴 수 없습니다.</desc>
+
+                  <g font-family="monospace" font-size="13">
+                    <rect x="3" y="7" width="100" height="32" rx="3" fill="#F4EFE2" stroke="#E5DECB" />
+                    <text x="53" y="28" text-anchor="middle" fill="#1F2622">RSS · 메일</text>
+
+                    <path d="M107 23 H120" stroke="#7A7263" stroke-width="1.2" fill="none" />
+                    <path d="M126 23 l-7 -4 v8 z" fill="#7A7263" />
+
+                    <rect x="130" y="7" width="130" height="32" rx="3" fill="#F4EFE2" stroke="#E5DECB" />
+                    <text x="195" y="28" text-anchor="middle" fill="#1F2622">LLM 분류 · 요약</text>
+
+                    <path d="M264 23 H277" stroke="#7A7263" stroke-width="1.2" fill="none" />
+                    <path d="M283 23 l-7 -4 v8 z" fill="#7A7263" />
+
+                    <rect x="287" y="5" width="106" height="36" rx="3" fill="none" stroke="#2F5D48" stroke-width="2" />
+                    <text x="340" y="28" text-anchor="middle" fill="#2F5D48">승인 · 사람</text>
+
+                    <path d="M397 23 H410" stroke="#7A7263" stroke-width="1.2" fill="none" />
+                    <path d="M416 23 l-7 -4 v8 z" fill="#7A7263" />
+
+                    <rect x="420" y="7" width="151" height="32" rx="3" fill="#F4EFE2" stroke="#E5DECB" />
+                    <text x="495" y="28" text-anchor="middle" fill="#1F2622">발행 · Maily API</text>
+
+                    <text x="340" y="62" text-anchor="middle" font-size="11" fill="#7A7263">막히면 여기서 멈춤</text>
+                    <text x="495" y="62" text-anchor="middle" font-size="11" fill="#7A7263">발행 뒤에는 되돌릴 수 없음</text>
                   </g>
                 </svg>
-                <figcaption>이 칸을 통과하지 못하면 아무것도 나가지 않습니다.</figcaption>
+                <figcaption>자동으로 흘러가다가 승인 칸에서 한 번 멈춥니다. 사람이 누르지 않으면 아무것도 나가지 않습니다.</figcaption>
               </figure>
 
               <p class="t-after">인계를 앞두고 한 번 재봤습니다. 모바일 성능 <span class="num">27</span> · LCP <span class="num">64.2초</span>인데 서버 응답은 60ms라, 병목은 서버가 아니라 전달 계층에
