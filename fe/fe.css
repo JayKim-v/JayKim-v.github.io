@@ -114,7 +114,7 @@ table { border-collapse: collapse; width: 100%; }
 .mono { font-family: var(--font-mono); }
 /* 숫자 강조는 굵기로만. mono로 감싸면 한글 조사가 폴백되며 공백 폭이 어긋난다. */
 .num { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
-.print-only, .for-application, .print-note { display: none; }
+.print-only, .for-application, .print-note, .jd-lead { display: none; }
 
 /* ── 상단 메타 ──────────────────────────────── */
 .topmeta {
@@ -385,7 +385,7 @@ footer a { color: var(--ink-soft); }
   html { scroll-behavior: auto; }
   body { background: #fff; font-size: 10.5pt; line-height: 1.62; }
   .skip, .topmeta { display: none !important; }
-  .for-application { display: block; }
+  .for-application, .jd-lead { display: block; }
   .print-only { display: inline; }
 
   /* 서류 단계용 축약본 — 근거의 중심만 남기고 정독용 섹션은 웹으로 보낸다.
