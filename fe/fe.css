@@ -158,7 +158,10 @@ table { border-collapse: collapse; width: 100%; }
 .shot--pair figcaption { grid-column: 1 / -1; }
 @media (max-width: 640px) { .shot--pair { grid-template-columns: 1fr; } }
 /* 반전 밴드 위에서는 캡션이 밴드 글자색을 따라야 한다. */
-.band .shot figcaption { color: var(--band-fg); opacity: .85; }
+/* 투명도를 걸지 않는다 — 이 문서가 스스로 금지한 규칙이다. 위계는 글자
+   크기(.875rem)가 이미 만들고 있고, 불투명하게 두면 대비가 9.47:1 로 오른다.
+   흐린 색을 새로 만들면 "코어 6개로 닫는다"는 옆 규칙이 깨진다. */
+.band .shot figcaption { color: var(--band-fg); }
 .band .shot img { border-color: var(--band-line); }
 
 .shot figcaption { margin-top: 8px; font-size: .875rem; line-height: 1.6; color: var(--muted); }
@@ -654,7 +657,7 @@ footer a { color: var(--ink-soft); }
   /* subhead 는 h 태그가 아니라 break-after 규칙이 안 걸린다. 고아 제목을 막는다. */
   .subhead { margin-top: 20pt; break-after: avoid; }
   thead, thead tr { break-after: avoid; }
-  .band .shot figcaption { color: #555; opacity: 1; }
+  .band .shot figcaption { color: #555; }
   .band .shot img { border-color: #aaa; }
   .shot figcaption { font-size: 8.5pt; margin-top: 5pt; color: #555; }
   .badges { gap: 6pt; margin-top: 10pt; break-inside: avoid; }
