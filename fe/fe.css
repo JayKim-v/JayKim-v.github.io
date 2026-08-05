@@ -613,7 +613,7 @@ footer a { color: var(--ink-soft); }
     min-height: 232mm; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
   }
-  .closing blockquote p { font-size: 12pt; line-height: 1.6; max-width: none; }
+  .closing blockquote p { font-size: 11.5pt; line-height: 1.75; max-width: 52ch; margin-inline: auto; }
   .closing cite { font-size: 8.5pt; margin-top: 5pt; }
   .closing > p.closing__end { font-size: 10.5pt; margin: 11pt auto 0; max-width: 46ch; line-height: 1.8; }
   .closing__end strong { font-size: 13pt; margin-top: 4pt; }
