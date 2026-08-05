@@ -203,9 +203,6 @@ table { border-collapse: collapse; width: 100%; }
 }
 .rule { width: 120px; height: 1px; background: var(--line); margin: 28px 0; border: 0; }
 .hero__lead { font-size: var(--t-lead); line-height: 1.8; max-width: 54ch; color: var(--ink-soft); }
-/* 리드는 두 문단이다. p + p 간격 규칙이 인쇄 블록 안에만 있어 화면에서는
-   두 문단이 붙어 한 덩어리로 읽힌다. 화면 쪽에도 쉼을 준다. */
-.hero__lead + .hero__lead { margin-top: 16px; }
 .hero__links {
   margin-top: 32px; display: flex; flex-wrap: wrap; gap: 24px;
   font-size: var(--t-body);
@@ -491,7 +488,6 @@ footer a { color: var(--ink-soft); }
   .hero__lead { font-size: 10.5pt; margin-top: 0; }
   /* 리드가 두 문단이므로 둘 사이에는 쉼이 있어야 한다. 위 규칙의 margin-top:0 이
      p + p (0,0,2) 를 이기므로, 인접 선택자를 (0,2,0) 로 올려 되돌린다. */
-  .hero__lead + .hero__lead { margin-top: 7pt; }
   /* 문서 머리 — 연락처가 8페이지 끝에만 있으면 30초 스캔에서 못 찾는다. */
   .doc-head {
     /* .print-only 의 display:inline 을 되돌린다 —
@@ -503,20 +499,34 @@ footer a { color: var(--ink-soft); }
   }
   /* 기술 스택 요약 — 스택이 프로젝트마다 흩어져 있으면 한눈에 볼 곳이 없다. */
   .stack-sum {
-    margin-top: 12pt; padding-top: 9pt; gap: 5pt;
+    margin-top: 24pt; padding-top: 11pt; gap: 5pt;
     border-top: .5pt solid #ccc; break-inside: avoid;
   }
   .stack-sum > div { grid-template-columns: 22mm 1fr; gap: 5mm; }
   .stack-sum dt { font-size: 8pt; }
   .stack-sum dd { font-size: 9.5pt; line-height: 1.5; }
-  .rule { margin: 8pt 0; }
-  .hero__links { margin-top: 12pt; font-size: 10pt; gap: 14pt; }
-  .hero__links .role { font-size: 8.5pt; margin-top: 2pt; }
-  .for-application {
-    font-size: 9.5pt; line-height: 1.4; color: #333;
-    border-bottom: .5pt solid #ccc; padding-bottom: 6pt; margin-bottom: 10pt;
+  .rule { display: none; }
+  .hero h1 + .hero__lead, .rule + .hero__lead { margin-top: 13pt; }
+  /* 4개가 한 줄에 안 들어가 3+1 로 접히면, 혼자 떨어진 하나가 이상으로
+     보여 시선을 훔친다. 4등분 격자로 고정해 한 줄에 맞춘다. */
+  .hero__links {
+    margin-top: 26pt; font-size: 9.5pt;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 6pt;
   }
-  .for-application .mono { font-size: 8.5pt; color: #555; display: block; margin-bottom: 4pt; }
+  .hero__links .role { font-size: 8.5pt; margin-top: 2pt; }
+  /* 지원 라벨은 머리에 한 줄로 남기고, 본문은 1면 맨 아래로 내렸다.
+     헤드라인 위에 회색 본문 다섯 줄이 깔리면 가장 큰 글자가 진입점이 아니라
+     두 번째 소제목으로 읽힌다 — 지면에 시작점이 없어진다. */
+  .jd-lead {
+    font-size: 9pt; color: #555; margin: 0 0 30pt; letter-spacing: .01em;
+  }
+  /* 1면은 표지다. 남은 자리에 01 섹션 제목이 딸려 들어오면 제목만 고아로
+     걸리고 표지의 끝이 흐려진다. 여기서 지면을 끊는다. */
+  .hero { break-after: page; }
+  .for-application {
+    font-size: 9.5pt; line-height: 1.45; color: #333;
+    border-top: .5pt solid #ccc; padding-top: 8pt; margin-top: 14pt;
+  }
   .sec { padding: 14pt 0; }
   .sec--light { padding: 10pt 0; }
   /* ── 문서용 제목 ──
@@ -660,7 +670,7 @@ footer a { color: var(--ink-soft); }
   .band .shot figcaption { color: #555; }
   .band .shot img { border-color: #aaa; }
   .shot figcaption { font-size: 8.5pt; margin-top: 5pt; color: #555; }
-  .badges { gap: 6pt; margin-top: 10pt; break-inside: avoid; }
+  .badges { gap: 6pt; margin-top: 24pt; break-inside: avoid; }
   .badges > span { padding: 6pt 8pt; border: .5pt solid #064E3B; background: #F8E7C9; }
   .badges b { font-size: 13pt; }
   .badges i { font-size: 7.5pt; margin-top: 3pt; }
