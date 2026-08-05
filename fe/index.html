@@ -76,7 +76,7 @@
 
       <p class="badges">
         <span><b>409 → 4</b><i>GraphQL 중첩 조회 쿼리 수. DataLoader 로 배치해 99% 감소 — 스키마부터 직접 구현하고 계측했습니다</i></span>
-        <span><b>2년 5개월</b><i>미국 워싱턴 D.C. 의료기관 사이트를 100% 원격으로 단독 리드. 합의부터 인계까지 영어 서면(01)</i></span>
+        <span><b>혼자 2년 5개월</b><i>미국 워싱턴 D.C. 의료기관 사이트 <strong>한 건</strong>을 100% 원격으로 단독 리드한 기간. 합의부터 인계까지 영어 서면(01)</i></span>
         <span><b>60ms → 64.2초</b><i>지금 맡은 서비스. 서버는 60ms에 응답하는데 모바일 LCP는 64.2초 — 병목을 전달 계층으로 좁히고 폰트 한 개 2MB를 찾았습니다(01)</i></span>
       </p>
 
@@ -157,8 +157,7 @@
                   <dt>결정</dt>
                   <dd>
                     <ul>
-                      <li>프롬프트보다 먼저 정한 것은 “이 호출을 하지 않고도 전체를 돌려볼 수 있는가”였습니다. LLM 호출부를 주입 가능한 클라이언트로 분리하고 드라이런 모드를 넣었습니다.
-                        사이트맵 7,000+ URL은 사람이 관리할 수 없는 규모라 생성 자체를 자동화했습니다.</li>
+                      <li>프롬프트보다 먼저 정한 것은 “이 호출을 하지 않고도 전체를 돌려볼 수 있는가”였습니다. LLM 호출부를 주입 가능한 클라이언트로 분리하고 드라이런 모드를 넣었습니다.</li>
                       <li>API는 모듈별로 생성 · 조회 · 수정을 각각 다른 DTO로 나눠 두었습니다. 28개 모듈 중 21개가 동작별로 갈립니다. 프론트가 두 개라 한쪽 화면 요구로 응답 모양을 바꾸면
                         다른 쪽이 조용히 깨지기 때문에, 화면 편의보다 계약을 먼저 정하는 쪽을 택했습니다.</li>
                       <li>두 프론트는 응답 타입을 각자 선언하지 않고 DTO에서 내린 한 벌을 공유합니다. 타입을 두 번 적으면 계약이 두 개가 되고, 어긋나는 순간을 런타임에서야 알게 됩니다.</li>
@@ -224,7 +223,7 @@
             </div>
             <div class="entry__body">
               <h3 lang="en">precisionrct.com</h3>
-              <p class="entry__def">2년 5개월간 100% 원격으로 맡은 미국 워싱턴 D.C. 의료기관 사이트. 요구사항 합의부터 인수인계까지 현지 담당자와 영어 서면으로 진행했습니다.</p>
+              <p class="entry__def">2년 5개월간 100% 원격으로 맡은 미국 워싱턴 D.C. 의료기관 사이트. 현지 담당자와 요구사항 합의부터 인수인계까지 영어 서면으로 진행했습니다.</p>
               <hr class="hr" />
               <dl class="fields">
                 <div class="f--list">
@@ -284,8 +283,8 @@
               </dl>
               <figure class="shot">
                 <img src="img/dsat-dashboard.jpg" width="1400" height="1048" loading="lazy" decoding="async"
-                  alt="강의관리 대시보드 화면 정의서. 왼쪽은 반 평균 성적 카드 12개와 최근 시험 도넛 차트, 학생별 성적 순위, 회차별 타 학원 대비 비교 막대그래프. 오른쪽은 각 영역의 데이터 범위와 계산 규칙을 적은 주석 패널." />
-                <figcaption>제가 만든 화면 정의서입니다. 오른쪽 주석이 "이 카드에 무엇을 몇 개까지 어떤 기준으로 넣는가"를 정한 부분이고, 왼쪽 배치가 그 결론입니다.</figcaption>
+                  alt="Figma로 만든 강의관리 대시보드 스토리보드와 기능정의서. 왼쪽은 반 평균 성적 카드 12개와 최근 시험 도넛 차트, 학생별 성적 순위, 회차별 타 학원 대비 비교 막대그래프를 배치한 화면 스토리보드. 오른쪽은 각 영역의 데이터 범위와 계산 규칙을 적은 기능정의서." />
+                <figcaption>Figma에 직접 만든 스토리보드와 기능정의서입니다. 왼쪽이 화면 스토리보드, 오른쪽이 각 영역의 데이터 범위와 계산 규칙을 적은 기능정의서입니다.</figcaption>
               </figure>
 
               <p class="spec-line">React · Java · MariaDB · Figma — IA · 와이어프레임 · 프로토타입 · UX/UI를 직접 만들고 구현까지 담당</p>
@@ -329,16 +328,15 @@
             </div>
           </article>
 
-          <article class="entry minor web-only">
+          <article class="entry minor">
             <div class="entry__meta">
               <span>개인 작업</span>
               <span>iOS · Android 출시</span>
             </div>
             <div class="entry__body">
               <h3>Apple Pop <span class="alt">사과게임</span></h3>
-              <p class="minor__prose">색 · 타이포 · 라운드 · 간격 · 모션을 토큰으로 먼저 정하고 그 위에 재사용 컴포넌트를 얹었습니다. 22개 로케일을 붙이면 번역 파일보다 레이아웃이 먼저 깨집니다.
-                같은 버튼이 언어에 따라 두 배로 길어지므로, 문자열을 전부 분리하고 폰트 폴백 순서를 정한 다음에 번역을 넣었습니다. 인앱결제 영수증 검증은 Supabase Edge Function에
-                뒀습니다.</p>
+              <p class="minor__prose">색 · 타이포 · 라운드 · 간격 · 모션을 <b>토큰으로 먼저 정하고 그 위에 재사용 컴포넌트를 얹었습니다.</b> 22개 로케일을 붙이면 번역 파일보다 레이아웃이
+                먼저 깨집니다 — 같은 버튼이 언어에 따라 두 배로 길어지므로, 문자열을 전부 분리하고 폰트 폴백 순서를 정한 다음에 번역을 넣었습니다.</p>
               <p class="spec-line">React Native · TypeScript · Supabase · i18next 22개 로케일 · EAS CI/CD · Sentry · iOS ·
                 Android 양대 마켓 출시</p>
               <p class="entry__links"><a href="https://apps.apple.com/kr/app/apple-pop/id6761319588" target="_blank"
@@ -444,7 +442,7 @@
         <p class="t-after">
           정적 문서라 100 자체가 어려운 일은 아닙니다. 여기서 보실 것은 점수가 아니라 편차이고, 편차마다 원인을 적어뒀다는 점입니다.
         </p>
-        <p class="t-after print-only">접근성도 같은 방식입니다. 색은 코어 6개로 닫고 대비비 전 조합을 sRGB 상대휘도로 계산해
+        <p class="t-after web-only">접근성도 같은 방식입니다. 색은 코어 6개로 닫고 대비비 전 조합을 sRGB 상대휘도로 계산해
           <span class="mono" lang="en">--ink on --bg</span> 18.03:1 · <span class="mono" lang="en">--accent on --bg</span> 9.47:1을 확인했고, AAA에 못 미치는 조합에는 사용 규칙을
           붙였습니다. 표는 <span class="mono" lang="en">scope</span>로 헤더를 묶고 영문 토큰명에 <span class="mono" lang="en">lang</span>을 지정했습니다 — 지정하지 않으면
           스크린리더가 한국어 발음으로 읽습니다. 건너뛰기 링크와 <span class="mono" lang="en">:focus-visible</span> · <span class="mono" lang="en">prefers-reduced-motion</span>도 넣었습니다.</p>
@@ -637,7 +635,7 @@
               </tr>
               <tr>
                 <td>글로벌 유저 경험</td>
-                <td>미국 클라이언트 사이트를 2년 5개월 원격 단독 운영 — 합의부터 인계까지 영어 서면(01) · Apple Pop 22개 로케일, 문자열 외부화 후 폰트 폴백 순서를 정하고 번역 적용(1면 링크)</td>
+                <td>미국 클라이언트 사이트를 2년 5개월 원격 단독 운영 — 합의부터 인계까지 영어 서면(01) · Apple Pop 22개 로케일, 문자열 외부화 후 폰트 폴백 순서를 정하고 번역 적용(01)</td>
               </tr>
             </tbody>
           </table>
