@@ -46,9 +46,9 @@
 
 /* ── 토큰 — 코어 6 + 파생 2 ─────────────────── */
 :root {
-  --bg:#FDFCF8;  --bg-elev:#F4EFE2;  --ink:#0E1512;
-  --muted:#7A7263;  --line:#E5DECB;  --accent:#2F5D48;
-  --ink-soft:#1F2622;  --line-soft:#EFEADC;
+  --bg:#FDFCF8;  --bg-elev:#F8E7C9;  --ink:#0E1512;
+  --muted:#6F6752;  --line:#E4D3B0;  --accent:#064E3B;
+  --ink-soft:#1F2622;  --line-soft:#F0E4D0;
 
   --font-ko: 'Pretendard', 'Pretendard Fallback', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -431,6 +431,8 @@ footer a { color: var(--ink-soft); }
   .skip, .topmeta { display: none !important; }
   .for-application, .jd-lead { display: block; }
   .print-only { display: inline; }
+  /* p 에 붙으면 인라인이라 연속 문단이 한 덩어리로 이어붙는다. */
+  p.print-only { display: block; }
 
   /* 서류 단계용 축약본 — 근거의 중심만 남기고 정독용 섹션은 웹으로 보낸다.
      JYP는 면접 제출물에 대해 "충분히 담아 제출"을 명시했고, 서류는 스캔 구간이다. */
@@ -482,14 +484,14 @@ footer a { color: var(--ink-soft); }
   .sec__label { display: none; }
   .sec h2 {
     font-size: 16pt; letter-spacing: -.02em; line-height: 1.35;
-    padding-bottom: 5pt; border-bottom: .75pt solid #2F5D48; margin-bottom: 13pt;
+    padding-bottom: 5pt; border-bottom: .75pt solid #064E3B; margin-bottom: 13pt;
   }
   .sec h2::before {
     content: attr(data-no) ".  ";
   }
   .sec h2[data-print-no]::before {
     content: attr(data-print-no) ".  ";
-    color: #7A7263; font-family: var(--font-mono); font-size: 11pt; font-weight: 600;
+    color: #6F6752; font-family: var(--font-mono); font-size: 11pt; font-weight: 600;
   }
 
   /* ── 문서용 본문 리듬 ──
@@ -524,7 +526,7 @@ footer a { color: var(--ink-soft); }
   .fields > div { display: block; }
   .fields dt {
     display: block; font-family: var(--font-mono); font-size: 8.5pt; font-weight: 600;
-    color: #2F5D48; letter-spacing: .1em; padding: 0; margin-bottom: 3pt;
+    color: #064E3B; letter-spacing: .1em; padding: 0; margin-bottom: 3pt;
   }
   .fields dt::after { content: none; }
   .fields dd { display: inline; }
@@ -561,6 +563,7 @@ footer a { color: var(--ink-soft); }
 
   #map th:nth-child(1), #map td:nth-child(1) { width: 38mm; }
   #map th:nth-child(3), #map td:nth-child(3) { width: 34mm; }
+  #map { break-before: page; }
   #map td { padding: 4.5pt 4pt 4.5pt 0; line-height: 1.45; }
   #map th:nth-child(1), #map td:nth-child(1) { width: 34mm; }
   /* 34mm 고정폭 + nowrap 조합에서 "REST 실무 · GraphQL 개인"의 끝 두 글자가 잘려
@@ -571,7 +574,7 @@ footer a { color: var(--ink-soft); }
     --band-fg: var(--ink);
     --band-line: var(--line-soft);
     background: none;
-    border-block: 2pt solid #2F5D48;
+    border-block: 2pt solid #064E3B;
     padding-block: 10pt;
   }
   /* 배경을 깐 박스는 페이지 경계에서 잘려 나가 인쇄물에서 사고처럼 보인다.
@@ -584,7 +587,7 @@ footer a { color: var(--ink-soft); }
   }
   .entry--lead h3::after {
     content: "재직 중"; font-family: var(--font-mono); font-size: 8.5pt;
-    color: #2F5D48; margin-left: 8pt; vertical-align: 2pt; letter-spacing: .08em;
+    color: #064E3B; margin-left: 8pt; vertical-align: 2pt; letter-spacing: .08em;
     font-weight: 600;
   }
   pre { border: .5pt solid #999; }
@@ -593,7 +596,7 @@ footer a { color: var(--ink-soft); }
 
   /* 긴 블록에 break-inside:avoid를 걸면 앞 페이지가 통째로 비므로,
      짧은 단위(표 행 · 코드 · 스와치)에만 적용하고 긴 엔트리는 고아/과부 줄만 막는다. */
-  .closing { margin-top: 16pt; padding-top: 9pt; border-top: 1.5pt solid #2F5D48; break-inside: avoid; }
+  .closing { margin-top: 16pt; padding-top: 9pt; border-top: 1.5pt solid #064E3B; break-inside: avoid; }
   .closing blockquote p { font-size: 12pt; line-height: 1.6; max-width: none; }
   .closing cite { font-size: 8.5pt; margin-top: 5pt; }
   .closing > p { font-size: 10pt; margin-top: 9pt; max-width: none; }
@@ -609,7 +612,7 @@ footer a { color: var(--ink-soft); }
   .band .shot img { border-color: #aaa; }
   .shot figcaption { font-size: 8.5pt; margin-top: 5pt; color: #555; }
   .badges { gap: 6pt; margin-top: 10pt; break-inside: avoid; }
-  .badges > span { padding: 6pt 8pt; border: .5pt solid #bbb; background: none; }
+  .badges > span { padding: 6pt 8pt; border: .5pt solid #064E3B; background: #F8E7C9; }
   .badges b { font-size: 13pt; }
   .badges i { font-size: 7.5pt; margin-top: 3pt; }
 
