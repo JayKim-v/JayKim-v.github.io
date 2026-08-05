@@ -654,8 +654,7 @@
         <div class="gap-item">
           <p>REST로 세 서비스를 잇다 보니 화면마다 필요한 필드가 달라 엔드포인트가 늘고 안 쓰는 필드가 쌓였습니다. 리졸버 단위의 N+1은 직접 세어보기 전에는 감이 오지 않아, 제가
             출시한 게임의 Postgres 스키마를 그대로 옮긴 로컬 DB 위에 GraphQL 계층을 얹고 계측기를 붙였습니다. 리그 8개 × 25명 중첩 조회에서 <span class="num">409번</span> 나가던
-            쿼리를 DataLoader로 배치해 <span class="num">4번</span>으로 줄였고, 로더를 요청 단위로 만들지 않으면 캐시가 요청 사이로 샌다는 것도 확인했습니다. 운영 규모의 캐시
-            무효화와 스키마 변경 관리는 이 실험의 범위 밖이라 계측할 수 있는 것까지만 계측했습니다.</p>
+            쿼리를 DataLoader로 배치해 <span class="num">4번</span>으로 줄였고, 로더를 요청 단위로 만들지 않으면 캐시가 요청 사이로 샌다는 것도 확인했습니다. 계측되지 않는 경로를 남기지 않으려고 모든 조회를 함수 하나로 통과시켰습니다.</p>
           <p class="entry__links"><a href="https://github.com/JayKim-v/graphql-n-plus-one" target="_blank"
               rel="noopener">github.com/JayKim-v/graphql-n-plus-one</a></p>
         </div>
