@@ -87,7 +87,7 @@
    <p class="badges">
     <span><b>409 → 4</b><i>GraphQL 중첩 조회 쿼리 수. DataLoader 로 배치해 99% 감소 — 스키마부터 직접 구현하고 계측했습니다</i></span>
     <span><b>기획 → 운영</b><i>미국 워싱턴 D.C. 의료기관 사이트 <strong>한 건</strong>을 기획 · IA · 디자인 · 개발 · SEO · 운영까지 단독으로 맡은 2년 5개월. 100% 원격 · 영어 서면</i></span>
-    <span><b>서버 60ms</b><i>지금 맡은 서비스. 느린 원인이 서버가 아니라는 것부터 확인하고, 병목을 전달 계층으로 좁혀 서브셋이 없는 2MB짜리 폰트를 찾았습니다</i></span>
+    <span><b>서버 60ms</b><i>지금 맡은 서비스. 느린 원인이 서버가 아니라는 것부터 확인하고, 병목을 전달 계층으로 좁혀 2MB짜리 폰트 한 개를 찾았습니다</i></span>
    </p>
 
    <dl class="stack-sum">
@@ -145,7 +145,7 @@
             <div class="entry__body">
               <h3>askedtech · 러닝스파크</h3>
               <p class="chips"><span>Next.js</span><span>TypeScript</span><span>NestJS</span><span>MongoDB</span><span>AWS EC2</span></p>
-              <p class="entry__def">에듀테크 정보 플랫폼의 사용자 웹 · 관리자 CMS · API 세 서비스를 담당합니다.</p>
+              <p class="entry__def">에듀테크 뉴스 · 커뮤니티 서비스. 사용자 웹 · 관리자 CMS · API 세 서비스의 화면과 응답 계약을 맡고 있습니다.</p>
 
               <hr class="hr" />
 
@@ -212,15 +212,14 @@
               </figure>
 
               <p class="t-after web-only">인계를 앞두고 재봤습니다. 서버 응답은 60ms인데 화면이 느려 병목을 전달 계층으로 좁혔습니다.
-                15.9MB 중 <strong>폰트 한 개가 2MB</strong>로 서브셋이 안 돼 있습니다. 남은 기간에 손댈 범위는 폰트 서브셋과 이미지 지연 로딩까지로 보고, 스크립트 48건은 회귀 위험이 커서
+                전송량 <span class="num">18MB</span> 가운데 <strong>폰트 한 개가 2MB</strong>였습니다. 남은 기간에 손댈 범위는 폰트 서브셋과 이미지 지연 로딩까지로 보고, 스크립트 48건은 회귀 위험이 커서
                 측정값과 원인만 남겼습니다.</p>
 
               <p class="spec-line">EC2 3대 무중단 배포 · 사이트맵 자동화 7,000+ URL</p>
-              <p class="footnote print-only">인계 전 실측 — 서버 응답이 60ms인데 화면이 느려, 병목을 전달 계층으로 좁혔습니다. 전송량 18MB 가운데 폰트 한 개가 2MB였고 서브셋이 적용돼 있지 않았습니다.</p>
+              <p class="footnote print-only">인계 전 실측 — 서버 응답이 60ms인데 화면이 느려, 병목을 전달 계층으로 좁혔습니다. 전송량 18MB 가운데 폰트 한 개가 2MB였습니다.</p>
               <p class="entry__links"><a href="https://askedtech.com" target="_blank"
                   rel="noopener">askedtech.com</a></p>
               <p class="footnote web-only">GraphQL은 따로 확인했습니다. 출시한 게임의 Postgres 스키마를 옮긴 로컬 DB에 GraphQL 계층을 얹고 계측기를 붙여, 리그 8개 × 25명 중첩 조회에서 409번 나가던 쿼리를 DataLoader로 배치해 4번으로 줄였습니다. 로더를 요청 단위로 만들지 않으면 캐시가 요청 사이로 샌다는 것도 확인했습니다 — <a class="url" href="https://github.com/JayKim-v/graphql-n-plus-one" target="_blank" rel="noopener">github.com/JayKim-v/graphql-n-plus-one</a></p>
-              <p class="footnote">뉴스레터 파이프라인은 회사 산출물이고 인증 정보가 얽혀 있어 코드와 화면은 공개하지 않습니다. 구조와 판단 근거까지만 적습니다.</p>
             </div>
           </article>
 
@@ -234,7 +233,8 @@
             <div class="entry__body">
               <h3 lang="en">precisionrct.com</h3>
               <p class="chips"><span>PHP</span><span>JSON</span><span>jQuery</span><span>Bootstrap 5</span><span>SiteGround</span></p>
-              <p class="entry__def">2년 5개월간 100% 원격으로 맡은 미국 워싱턴 D.C. 의료기관 사이트. 현지 담당자와 요구사항 합의부터 인수인계까지 영어 서면으로 진행했습니다.</p>
+              <p class="entry__def">미국 워싱턴 D.C. 근관치료 전문 치과의 사이트. 기획 · IA · 디자인 · 개발 · SEO · 운영까지 2년 5개월간 100% 원격으로 맡았고,
+                현지 담당자와 요구사항 합의부터 인수인계까지 영어 서면으로 진행했습니다.</p>
               <hr class="hr" />
               <dl class="fields">
                 <div class="f--list">
@@ -272,8 +272,8 @@
             <div class="entry__body">
               <h3>Digital SAT 웹앱 · 교육공간</h3>
               <p class="chips"><span>React</span><span>Java</span><span>MariaDB</span><span>Figma</span></p>
-              <p class="entry__def">학원에 공급하고 학생이 쓰는 SAT 모의고사 운영 웹앱. 자사 학원에서도 같은 제품을 썼습니다.
-                학원 · 강사 · 학생 세 주체가 같은 응시 데이터를 서로 다른 범위로 봅니다.</p>
+              <p class="entry__def">학원에 공급하고 학생이 쓰는 SAT 모의고사 운영 웹앱 — 자사 학원에서도 같은 제품을 썼습니다.
+                학원 · 강사 · 학생 세 주체가 같은 응시 데이터를 서로 다른 범위로 봅니다. IA · 화면 설계부터 React 구현까지 맡았습니다.</p>
               <hr class="hr" />
               <dl class="fields">
                 <div>
