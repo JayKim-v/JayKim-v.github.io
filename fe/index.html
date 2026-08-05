@@ -592,7 +592,7 @@
 
         <div class="item">
           <h3>같은 백엔드 위에서 화면을 가릅니다</h3>
-          <p>성격이 다른 두 집단이 한 시스템을 쓰는 구조를 세 번 만났습니다. 실무에서 두 번, 교육 과정에서 한 번입니다. 아래는 그중 하나 — 교육부 원격영상 진로멘토링에서 제가 맡은 두 포털입니다. Spring MVC · JSP · jQuery 로 된 시스템이었고 일부 화면을 React 로 얹었습니다.</p>
+          <p>성격이 다른 집단이 한 시스템을 함께 쓰는 구조를 다섯 번 맡았습니다 — 진로멘토링(멘토 / 학교) · Digital SAT(학원 / 강사 / 학생) · precisionrct(환자 / 의뢰 치과의) · askedtech(사용자 / 운영자) · 할리스 리뉴얼(고객 / 창업 예정자). 아래는 그중 하나 — 교육부 원격영상 진로멘토링에서 제가 맡은 두 포털입니다. Spring MVC · JSP · jQuery 로 된 시스템이었고 일부 화면을 React 로 얹었습니다.</p>
 
           <figure class="shot shot--pair">
             <img src="img/mentoring-mentor.jpg" width="1000" height="625" loading="lazy" decoding="async"
@@ -705,10 +705,10 @@
         <h2 data-no="06"><span class="sec__label">06 / GraphQL</span>GraphQL — 쿼리 수로 확인한 것</h2>
 
         <div class="gap-item">
-          <p>REST로 세 서비스를 잇다 보니 화면마다 필요한 필드가 달라 엔드포인트가 늘고 안 쓰는 필드가 쌓였습니다. GraphQL이 그 지점을 푼다는 건 글로 알고 있었지만 리졸버 단위의 N+1은
-            직접 세어보기 전에는 감이 오지 않아, 제가 출시한 게임의 Postgres 스키마 모양을 그대로 옮긴 로컬 DB 위에 GraphQL 계층을 얹고 계측기를 붙였습니다. 리그 8개 × 25명을 중첩
-            조회할 때 <span class="num">409번</span> 나가던 쿼리를 DataLoader로 배치해 <span class="num">4번</span>으로 줄였습니다. 로더를 요청 단위로 만들지 않으면 요청 사이로 캐시가
-            새는 것도 여기서 확인했습니다. 운영 규모의 캐시 무효화와 스키마 변경 관리는 이 실험의 범위 밖이라, 계측할 수 있는 것까지만 계측했습니다.</p>
+          <p>REST로 세 서비스를 잇다 보니 화면마다 필요한 필드가 달라 엔드포인트가 늘고 안 쓰는 필드가 쌓였습니다. 리졸버 단위의 N+1은 직접 세어보기 전에는 감이 오지 않아, 제가
+            출시한 게임의 Postgres 스키마를 그대로 옮긴 로컬 DB 위에 GraphQL 계층을 얹고 계측기를 붙였습니다. 리그 8개 × 25명 중첩 조회에서 <span class="num">409번</span> 나가던
+            쿼리를 DataLoader로 배치해 <span class="num">4번</span>으로 줄였고, 로더를 요청 단위로 만들지 않으면 캐시가 요청 사이로 샌다는 것도 확인했습니다. 운영 규모의 캐시
+            무효화와 스키마 변경 관리는 이 실험의 범위 밖이라 계측할 수 있는 것까지만 계측했습니다.</p>
           <p class="entry__links"><a href="https://github.com/JayKim-v/graphql-n-plus-one" target="_blank"
               rel="noopener">github.com/JayKim-v/graphql-n-plus-one</a></p>
         </div>
