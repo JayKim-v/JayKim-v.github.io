@@ -125,9 +125,17 @@ table { border-collapse: collapse; width: 100%; }
   display: block; margin-top: 10px; font-style: normal;
   font-family: var(--font-mono); font-size: var(--t-small); color: var(--muted);
 }
-.closing > p {
-  margin-top: 20px; font-size: var(--t-body); line-height: 1.8;
-  color: var(--ink-soft); max-width: 60ch;
+.closing { text-align: center; }
+.closing blockquote p { margin-inline: auto; }
+.closing blockquote p::before { content: "\201C"; }
+.closing blockquote p::after { content: "\201D"; }
+.closing > p.closing__end {
+  margin: 22px auto 0; font-size: var(--t-body); line-height: 1.9;
+  color: var(--ink-soft); max-width: 46ch;
+}
+.closing__end strong {
+  display: inline-block; margin-top: 6px; font-size: var(--t-h3-min);
+  color: var(--accent); letter-spacing: -0.01em;
 }
 
 /* 본문 도판 — aspect-ratio 로 자리를 먼저 잡아야 로딩 중 CLS 가 생기지 않는다. */
@@ -567,8 +575,7 @@ footer a { color: var(--ink-soft); }
 
   #map th:nth-child(1), #map td:nth-child(1) { width: 38mm; }
   #map th:nth-child(3), #map td:nth-child(3) { width: 34mm; }
-  #map { break-before: page; }
-  #map td { padding: 4.5pt 4pt 4.5pt 0; line-height: 1.45; }
+  #map td { padding: 3.5pt 4pt 3.5pt 0; line-height: 1.42; }
   #map th:nth-child(1), #map td:nth-child(1) { width: 34mm; }
   /* 34mm 고정폭 + nowrap 조합에서 "REST 실무 · GraphQL 개인"의 끝 두 글자가 잘려
      표가 "GraphQL 실무"로 읽혔다. 줄바꿈만 허용한다 — 열 폭은 건드리지 않는다. */
@@ -600,10 +607,16 @@ footer a { color: var(--ink-soft); }
 
   /* 긴 블록에 break-inside:avoid를 걸면 앞 페이지가 통째로 비므로,
      짧은 단위(표 행 · 코드 · 스와치)에만 적용하고 긴 엔트리는 고아/과부 줄만 막는다. */
-  .closing { margin-top: 16pt; padding-top: 9pt; border-top: 1.5pt solid #064E3B; break-inside: avoid; }
+  .closing {
+    break-before: page; break-inside: avoid;
+    margin: 0; padding: 0; border-top: 0;
+    min-height: 232mm; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
   .closing blockquote p { font-size: 12pt; line-height: 1.6; max-width: none; }
   .closing cite { font-size: 8.5pt; margin-top: 5pt; }
-  .closing > p { font-size: 10pt; margin-top: 9pt; max-width: none; }
+  .closing > p.closing__end { font-size: 10.5pt; margin: 11pt auto 0; max-width: 46ch; line-height: 1.8; }
+  .closing__end strong { font-size: 13pt; margin-top: 4pt; }
 
   .shot { break-inside: avoid; margin-top: 11pt; }
   .shot img {

@@ -110,10 +110,6 @@
           <dd>Lighthouse · Web Vitals · 접근성 · 반응형 · Sentry · 무중단 배포</dd>
         </div>
         <div>
-          <dt>Tools</dt>
-          <dd>Figma · Notion · Git / GitHub</dd>
-        </div>
-        <div>
           <dt>그 외</dt>
           <dd>Node.js / NestJS · Java / Spring · PHP · MariaDB · MongoDB</dd>
         </div>
@@ -211,6 +207,7 @@
                 측정값과 원인만 남겼습니다.</p>
 
               <p class="spec-line">Next.js · TypeScript · NestJS · MongoDB · AWS EC2 3대 무중단 배포 · 사이트맵 자동화 7,000+ URL</p>
+              <p class="footnote print-only">인계 전 실측 — 모바일 성능 27 · LCP 64.2초. 서버 응답은 60ms라 병목은 전달 계층이었고, 15.9MB 중 폰트 한 개가 2MB로 서브셋이 없었습니다.</p>
               <p class="entry__links"><a href="https://askedtech.com" target="_blank"
                   rel="noopener">askedtech.com</a></p>
               <p class="footnote web-only">GraphQL은 따로 확인했습니다. 출시한 게임의 Postgres 스키마를 옮긴 로컬 DB에 GraphQL 계층을 얹고 계측기를 붙여, 리그 8개 × 25명 중첩 조회에서 409번 나가던 쿼리를 DataLoader로 배치해 4번으로 줄였습니다. 로더를 요청 단위로 만들지 않으면 캐시가 요청 사이로 샌다는 것도 확인했습니다 — <a class="url" href="https://github.com/JayKim-v/graphql-n-plus-one" target="_blank" rel="noopener">github.com/JayKim-v/graphql-n-plus-one</a></p>
@@ -280,7 +277,6 @@
                   <dt>결정</dt>
                   <dd>
                     <ul>
-                      <li>성적통계 대시보드는 화면보다 지표 정의를 먼저 합의했습니다. 조직 단위와 개인 단위는 축이 달라 같은 자리에 놓으면 둘 다 안 읽힙니다.</li>
                       <li>응시 상태 자동저장 · 복원은 실패 시나리오에서 출발했습니다. 시험 중 브라우저가 닫히면 응시가 사라지므로 저장을 시스템 책임으로 옮겼습니다.</li>
                     </ul>
                   </dd>
@@ -382,7 +378,7 @@
             <tbody>
               <!-- mStone 행은 웹에만 — 본문 블록이 인쇄 축약본에서 빠졌다 -->
               <tbody><tr>
-                <td>mStone</td>
+                <td>mStone <span class="alt">개인 · Next.js 정적 생성</span></td>
                 <td>데스크톱</td>
                 <td class="n hi">100<span class="bar" style="--v:100"></span></td>
                 <td class="n hi">100<span class="bar" style="--v:100"></span></td>
@@ -394,7 +390,7 @@
                 <td colspan="7">처음부터 Next.js로 만든 경우.</td>
               </tr>
               <tr>
-                <td>mStone</td>
+                <td>mStone <span class="alt">개인 · Next.js 정적 생성</span></td>
                 <td>모바일</td>
                 <td class="n lo">76<span class="bar" style="--v:76"></span></td>
                 <td class="n hi">100<span class="bar" style="--v:100"></span></td>
@@ -403,7 +399,7 @@
                 <td class="n">4.7s · —</td>
               </tr>
               <tr class="judge">
-                <td colspan="7">데스크톱 0.8초와 갈리는 지점은 회선이 아니라 모바일 CPU 스로틀링입니다. 반복 측정하면 76에서 96까지 흔들리고, 그 편차가 CPU 민감도의 신호입니다.</td>
+                <td colspan="7">반복 측정하면 76에서 96까지 흔들립니다. 회선이 아니라 모바일 CPU 스로틀링 민감도의 신호입니다.</td>
               </tr>
 </tbody>
               <tbody>              <tr>
@@ -572,16 +568,8 @@
 
         <div class="item">
           <h3>같은 백엔드 위에서 화면을 가릅니다</h3>
-          <p>성격이 다른 집단이 한 시스템을 함께 쓰는 구조를 다섯 번 맡았습니다 — 진로멘토링(멘토 / 학교) · Digital SAT(학원 / 강사 / 학생) · precisionrct(환자 / 의뢰 치과의) · askedtech(사용자 / 운영자) · 할리스 리뉴얼(고객 / 창업 예정자). 아래는 그중 하나 — 교육부 원격영상 진로멘토링에서 제가 맡은 두 포털입니다. Spring MVC · JSP · jQuery 로 된 시스템이었고 일부 화면을 React 로 얹었습니다.</p>
+          <p>성격이 다른 집단이 한 시스템을 함께 쓰는 구조를 다섯 번 맡았습니다 — 진로멘토링(멘토 / 학교) · Digital SAT(학원 / 강사 / 학생) · precisionrct(환자 / 의뢰 치과의) · askedtech(사용자 / 운영자) · 할리스 리뉴얼(고객 / 창업 예정자). 그중 교육부 원격영상 진로멘토링은 멘토 포털과 학교 포털이 같은 백엔드를 쓰는 구조라, 백엔드 담당과 응답 계약을 먼저 맞춘 뒤 화면과 권한만 갈랐습니다.</p>
 
-          <figure class="shot shot--pair">
-            <img src="img/mentoring-mentor.jpg" width="1000" height="625" loading="lazy" decoding="async"
-              alt="멘토 포털 첫 화면. 로그인 영역이 멘토 회원과 교육 수행 기관 두 탭으로 갈려 있고, 그 아래 공지사항과 사업소개 · 멘토 활동 안내 · 학교포털 세 개의 바로가기." />
-            <img src="img/mentoring-school.jpg" width="1000" height="625" loading="lazy" decoding="async"
-              alt="학교 포털 첫 화면. 수업 · 수업 문의 및 의견 · 멘토 · 멘토링 영상 · 이용안내 다섯 개의 메뉴와 배너 슬라이드, 공지 카드, 인기 수업 목록." />
-            <figcaption>왼쪽이 멘토 포털, 오른쪽이 학교 포털입니다. 백엔드는 하나이고 갈린 것은 화면과 권한입니다. 멘토 쪽은 수업 등록과 자료 관리로 좁히고, 학교 쪽은 수업을 찾아 신청하는 동선을
-              앞에 뒀습니다 — 두 집단이 시스템에 들어오는 이유가 달랐습니다.</figcaption>
-          </figure>
 
           <p>Digital SAT에서는 학생과 학원 관리자의 정보구조를 직접 설계했고, 교육 과정 최종 프로젝트였던 할리스 리뉴얼에서는 고객과 창업 예정자의 동선을 팀 리드로서 갈랐습니다. 그때 스크롤 인터랙션은 유료 라이브러리 대신 직접 구현했습니다 — 제어권을 외부에 넘기면 요구가 들어올 때마다 우회 코드가 쌓이고, 팀원 셋이 함께 유지보수해야 했기 때문입니다.</p>
           <p>어려운 건 화면을 두 벌 만드는 일이 아니라 어디까지 공유하고 어디부터 갈라야 하는지 선을 긋는 일이었습니다. 화면을 나누는 기준이 곧 권한 모델이고, 권한 모델은 나중에 붙일 수 없습니다.</p>
@@ -643,7 +631,7 @@
               </tr>
               <tr>
                 <td>웹 성능 최적화 · 접근성</td>
-                <td>askedtech 인계 전 측정으로 모바일 27 · LCP 64.2초의 원인을 전달 계층으로 좁혔고(01), precisionrct는 2년 5개월간 혼자 재면서 무엇을 먼저 고치고 무엇을 미룰지 정했습니다(02). 접근성은 대비비 전 조합 계산과 미달 조합 사용 규칙 · 건너뛰기 링크 · <span class="mono" lang="en">:focus-visible</span> 구현(02)</td>
+                <td>askedtech 인계 전 측정으로 모바일 27 · LCP 64.2초의 원인을 전달 계층으로 좁혔고(01), precisionrct는 2년 5개월간 재면서 무엇을 먼저 고치고 무엇을 미룰지 정했습니다(02). 접근성은 대비비 전 조합 계산 · 미달 조합 사용 규칙 · <span class="mono" lang="en">:focus-visible</span> · <span class="mono" lang="en">scope</span> 구현(02)</td>
                 <td class="ok">실무</td>
               </tr>
               <tr>
@@ -653,12 +641,12 @@
               </tr>
               <tr>
                 <td>글로벌 유저 경험</td>
-                <td>미국 클라이언트 사이트를 2년 5개월 원격 단독 운영 — 요구사항 합의부터 인계까지 영어 서면(01) · Apple Pop 22개 로케일, 문자열을 외부화하고 폰트 폴백 순서를 정한 뒤 번역을 넣었습니다(01)</td>
+                <td>미국 클라이언트 사이트를 2년 5개월 원격 단독 운영 — 합의부터 인계까지 영어 서면(01) · Apple Pop 22개 로케일, 문자열 외부화 후 폰트 폴백 순서를 정하고 번역 적용(1면 링크)</td>
                 <td class="ok">실무</td>
               </tr>
               <tr>
                 <td>협업 주도</td>
-                <td>엔텔스에서 두 포털이 같은 백엔드를 쓰는 구조라 백엔드 담당과 응답 계약을 조율(04) · 반자동 MVP를 제안해 설득하고 채택(04) · 프론트엔드 4인 팀 리드로 공통 규칙 합의(01)</td>
+                <td>엔텔스에서 두 포털이 같은 백엔드를 쓰는 구조라 백엔드 담당과 응답 계약을 조율(03) · 반자동 MVP를 제안해 설득하고 채택(03) · 프론트엔드 4인 팀 리드로 공통 규칙 합의</td>
                 <td class="ok">실무</td>
               </tr>
             </tbody>
@@ -711,8 +699,8 @@
         <p>그게 쉬운 일이었다면 그 속에서 아무런 즐거움도 얻을 수 없었을 것이다. 그러니 계속해서 그림을 그려야겠다.</p>
         <cite>빈센트 반 고흐가 동생 테오에게</cite>
       </blockquote>
-      <p>완벽하지 않은 날이 시작만 하는 사람과 끝까지 가는 사람을 가른다고 생각합니다. 다만 끝까지 간다는 것이 전부 만든다는 뜻은 아니어서, 어디서 멈출지 정하는 일과
-        멈춘 이유도 각 항목에 함께 적었습니다.</p>
+      <p class="closing__end">완벽하지 않은 날이 시작만 하는 사람과 끝까지 가는 사람을 가른다고 생각합니다.<br />
+        <strong>생각하는 개발자, 김재희입니다.</strong></p>
     </section>
 
   </main>
