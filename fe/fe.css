@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════
    /fe — 프론트엔드 직무용 포트폴리오
-   스크립트 0바이트 · 이미지 0장 · 인쇄(A4) 겸용
+   인터랙션 스크립트 gzip 2.5KB(외부 라이브러리 0) · 인쇄(A4) 겸용
    ═══════════════════════════════════════════════ */
 
 /* ── 폰트 ───────────────────────────────────── */
@@ -190,6 +190,9 @@ table { border-collapse: collapse; width: 100%; }
 }
 .rule { width: 120px; height: 1px; background: var(--line); margin: 28px 0; border: 0; }
 .hero__lead { font-size: var(--t-lead); line-height: 1.8; max-width: 54ch; color: var(--ink-soft); }
+/* 리드는 두 문단이다. p + p 간격 규칙이 인쇄 블록 안에만 있어 화면에서는
+   두 문단이 붙어 한 덩어리로 읽힌다. 화면 쪽에도 쉼을 준다. */
+.hero__lead + .hero__lead { margin-top: 16px; }
 .hero__links {
   margin-top: 32px; display: flex; flex-wrap: wrap; gap: 24px;
   font-size: var(--t-body);
@@ -269,6 +272,16 @@ table { border-collapse: collapse; width: 100%; }
   font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7;
   color: var(--ink-soft); margin-top: 24px;
   border-top: 1px solid var(--line); padding-top: 12px;
+}
+/* 스택 칩 — 주요 프로젝트는 본문이 길어 "무엇으로 만들었나"가 문장 속에 묻힌다.
+   제목 바로 아래 한 줄로 빼서 읽지 않고도 스캔되게 한다.
+   에메랄드 글자 / 샴페인 바탕은 7.99:1 로 AAA (03 대비비 표에 기재). */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chips span {
+  font-family: var(--font-mono); font-size: 11.5px; line-height: 1;
+  color: var(--accent); background: var(--bg-elev);
+  border: 1px solid var(--line); border-radius: 3px; padding: 5px 8px;
+  white-space: nowrap;
 }
 .entry__links { margin-top: 12px; font-size: var(--t-body); display: flex; gap: 20px; flex-wrap: wrap; }
 .entry__links a { color: var(--accent); }
@@ -463,6 +476,9 @@ footer a { color: var(--ink-soft); }
   /* 인쇄에서는 폭이 180mm로 넓어지므로 ch 기준 상한을 풀어야 수동 개행이 지켜진다. */
   .hero h1 { font-size: 17pt; max-width: none; line-height: 1.22; }
   .hero__lead { font-size: 10.5pt; margin-top: 0; }
+  /* 리드가 두 문단이므로 둘 사이에는 쉼이 있어야 한다. 위 규칙의 margin-top:0 이
+     p + p (0,0,2) 를 이기므로, 인접 선택자를 (0,2,0) 로 올려 되돌린다. */
+  .hero__lead + .hero__lead { margin-top: 7pt; }
   /* 문서 머리 — 연락처가 8페이지 끝에만 있으면 30초 스캔에서 못 찾는다. */
   .doc-head {
     /* .print-only 의 display:inline 을 되돌린다 —
@@ -670,10 +686,93 @@ footer a { color: var(--ink-soft); }
   .hr { margin: 9pt 0 12pt; }
   .fields { gap: 13pt; }
   .spec-line, .footnote { margin-top: 10pt; padding-top: 6pt; }
+  /* 칩은 지면에서 한 줄만 먹어야 한다 — 여백을 줄이고 제목에 붙인다. */
+  .chips { gap: 3pt; margin-top: 5pt; break-inside: avoid; break-after: avoid; }
+  .chips span { font-size: 7.5pt; padding: 2pt 4pt; border: .5pt solid #E4D3B0; background: #F8E7C9; color: #064E3B; }
   .diagram { margin-top: 10pt; }
   .timeline { margin-top: 14pt; }
   .timeline > div { padding: 6pt 0; }
   .preface { margin-top: 16pt; }
   footer { display: none; }
+  /* PDF 빌더도 브라우저라 fe.js 가 돌아간다. 스크립트가 만든 화면 전용
+     요소는 지면에 남으면 안 된다 — 표식은 섹션 이름 목록으로 찍힌다. */
+  .progress, .dots { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
   .a-note::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   인터랙션 — 화면 전용
+
+   전부 @media screen 안에 둡니다. 인쇄 조판은 이 블록을 보지 않으므로
+   PDF 는 지금 상태 그대로 유지됩니다.
+
+   초기 숨김은 `.js` 아래에만 둡니다. fe.js 가 로드되지 않으면 `.js` 가
+   붙지 않고 모든 내용이 처음부터 보입니다 — 스크립트가 콘텐츠의 전제가
+   되지 않게 하기 위해서입니다.
+   ═══════════════════════════════════════════════════════════════════ */
+@media screen {
+  /* ── 나타내기 ── */
+  .js .reveal { opacity: 0; transform: translateY(14px); will-change: opacity, transform; }
+  .js .reveal.is-in {
+    opacity: 1; transform: none; will-change: auto;
+    transition: opacity .6s cubic-bezier(.22, .61, .36, 1),
+                transform .6s cubic-bezier(.22, .61, .36, 1);
+  }
+
+  /* ── 스크롤 진행 막대 ──
+     scaleX 만 바꾸므로 레이아웃이 다시 계산되지 않습니다. */
+  .progress {
+    position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 100;
+    background: var(--accent); transform: scaleX(0); transform-origin: 0 50%;
+    pointer-events: none;
+  }
+
+  /* ── 섹션 표식 ── */
+  .dots {
+    position: fixed; right: 20px; top: 50%; translate: 0 -50%; z-index: 90;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  /* 최소 24×24 — 그보다 작으면 터치 대상 규격에 걸린다. */
+  .dots a {
+    display: flex; align-items: center; justify-content: flex-end; gap: 8px;
+    min-height: 26px; min-width: 26px; padding: 0 2px;
+    text-decoration: none; color: var(--muted);
+    font-family: var(--font-mono); font-size: 11px; line-height: 1;
+  }
+  .dots a i {
+    width: 18px; height: 2px; background: var(--line); border-radius: 2px;
+    transition: width .3s ease, background .3s ease; flex: none;
+  }
+  .dots a span {
+    max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0;
+    transition: max-width .3s ease, opacity .3s ease;
+  }
+  .dots a.is-on i { width: 28px; background: var(--accent); }
+  .dots a.is-on { color: var(--accent); }
+  .dots:hover a span, .dots a:focus-visible span { max-width: 170px; opacity: 1; }
+
+  /* ── 손대면 반응하는 것들 ── */
+  .entry__links a, .hero__links a {
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .hero__links a:hover { border-color: var(--accent); }
+  .chips span { transition: border-color .2s ease, transform .2s ease; }
+  .entry:hover .chips span { border-color: var(--accent); }
+  .shot img { transition: transform .45s cubic-bezier(.22, .61, .36, 1); }
+  .shot:hover img { transform: scale(1.015); }
+  .badges > span { transition: transform .25s ease, border-color .25s ease; }
+  .badges > span:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+  /* 좁은 화면에서는 표식을 접습니다 — 본문 폭을 먹습니다. */
+  @media (max-width: 1180px) { .dots { display: none; } }
+}
+
+/* 모션을 줄이도록 설정한 사용자에게는 전부 즉시 보이게 합니다. */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal, .js .reveal.is-in {
+    opacity: 1; transform: none; transition: none; will-change: auto;
+  }
+  .shot:hover img, .badges > span:hover { transform: none; }
 }

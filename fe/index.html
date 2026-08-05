@@ -24,6 +24,8 @@
   <link rel="preload" as="font" type="font/woff2" href="./fonts/Pretendard-Regular.subset.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="./fonts/Pretendard-Bold.subset.woff2" crossorigin />
   <link rel="stylesheet" href="./fe.css" />
+  <!-- 인터랙션 레이어. defer 라 파싱을 막지 않고, 없어도 내용은 전부 보입니다. -->
+  <script src="./fe.js" defer></script>
 
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"김재희","jobTitle":"Frontend Engineer","email":"mailto:jaeheekim.dev@gmail.com","url":"https://jaykim-v.github.io/fe/","sameAs":["https://github.com/JayKim-v","https://precisionrct.com","https://mstone-demo.vercel.app"]}
@@ -95,8 +97,8 @@
      <dd>요구사항 협의 · IA · 화면 설계 → React / Next.js 구현 → API 응답 계약 정의 → 배포 · 운영</dd>
     </div>
     <div>
-     <dt>학력 · 입사</dt>
-     <dd>한국방송통신대학교 컴퓨터과학과 2024.03–2027.03 · 2026년 9월부터 근무 가능</dd>
+     <dt>학력</dt>
+     <dd>한국방송통신대학교 컴퓨터과학과 2024.03–2027.03</dd>
     </div>
     <div>
      <dt>Frontend</dt>
@@ -139,6 +141,7 @@
             </div>
             <div class="entry__body">
               <h3>askedtech · 러닝스파크</h3>
+              <p class="chips"><span>Next.js</span><span>TypeScript</span><span>NestJS</span><span>MongoDB</span><span>AWS EC2</span></p>
               <p class="entry__def">에듀테크 정보 플랫폼의 사용자 웹 · 관리자 CMS · API 세 서비스를 담당합니다.</p>
               <p class="entry__note">계약 기간이 정해진 자리이고 8월에 종료됩니다. 인계 시점에서 역산해 문서와 자동화를 먼저 남기는 순서로 일하고 있습니다.</p>
 
@@ -229,6 +232,7 @@
             </div>
             <div class="entry__body">
               <h3 lang="en">precisionrct.com</h3>
+              <p class="chips"><span>PHP</span><span>jQuery</span><span>Bootstrap 5</span><span>SEO</span></p>
               <p class="entry__def">2년 5개월간 100% 원격으로 맡은 미국 워싱턴 D.C. 의료기관 사이트. 현지 담당자와 요구사항 합의부터 인수인계까지 영어 서면으로 진행했습니다.</p>
               <hr class="hr" />
               <dl class="fields">
@@ -267,7 +271,9 @@
             </div>
             <div class="entry__body">
               <h3>Digital SAT 웹앱 · 교육공간</h3>
-              <p class="entry__def">학원 · 강사 · 학생 세 주체가 같은 응시 데이터를 서로 다른 범위로 보는 B2B 시험 운영 웹앱.</p>
+              <p class="chips"><span>React</span><span>Java</span><span>MariaDB</span><span>Figma</span></p>
+              <p class="entry__def">학원에 공급하고 학생이 쓰는 SAT 모의고사 운영 웹앱. 학원마다 이름과 브랜딩을 바꿔 납품했고, 자사 학원도 같은 제품을 썼습니다.
+                학원 · 강사 · 학생 세 주체가 같은 응시 데이터를 서로 다른 범위로 봅니다.</p>
               <hr class="hr" />
               <dl class="fields">
                 <div>
@@ -438,7 +444,8 @@
                 <td class="n">1.4s · 0</td>
               </tr>
               <tr class="judge">
-                <td colspan="7">위 진단을 그대로 적용한 결과입니다. 스크립트 0바이트 · 웹폰트 self-host 서브셋 4파일 104KB. CLS 0은 본문 도판마다 <span class="mono" lang="en">width</span> · <span class="mono" lang="en">height</span>를 지정해 자리를 미리 잡은 결과입니다. 남는 미세한 밀림은
+                <td colspan="7">위 진단을 그대로 적용한 결과입니다. 스크립트는 화면 인터랙션용 <strong>gzip 2.5KB</strong> 한 벌뿐이고 직접 짰습니다 — 같은 동작을
+                  GSAP · Lenis로 붙이면 gzip 35KB에 외부 도메인 핸드셰이크가 세 번 더 붙습니다. 웹폰트는 self-host 서브셋 4파일 104KB. CLS 0은 본문 도판마다 <span class="mono" lang="en">width</span> · <span class="mono" lang="en">height</span>를 지정해 자리를 미리 잡은 결과입니다. 남는 미세한 밀림은
                   폴백 서체의 ascent · descent를 Pretendard 실측값에 맞춰 없앴습니다.</td>
               </tr>
             </tbody>
@@ -700,7 +707,8 @@
 
   <footer class="wrap">
     <div>
-      스크립트 0바이트 · 본문 도판 4장(자리 고정 · 지연 로딩) · 웹폰트 self-host 서브셋 4파일<br />
+      스크립트 gzip 2.5KB(직접 구현 · 외부 라이브러리 0) · 본문 도판 4장(자리 고정 · 지연 로딩) · 웹폰트 self-host 서브셋 4파일<br />
+      스크립트를 꺼도 내용은 전부 보입니다 — 숨김 상태는 스크립트가 켜진 뒤에만 존재합니다.<br />
       이 페이지의 소스는 브라우저에서 그대로 보실 수 있습니다 — jaykim-v.github.io/fe
     </div>
   </footer>
