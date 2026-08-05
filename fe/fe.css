@@ -574,9 +574,9 @@ footer a { color: var(--ink-soft); }
   tr:has(+ tr.judge) { break-after: avoid; }
 
   #map th:nth-child(1), #map td:nth-child(1) { width: 38mm; }
-  #map th:nth-child(3), #map td:nth-child(3) { width: 34mm; }
   #map td { padding: 3.5pt 4pt 3.5pt 0; line-height: 1.42; }
-  #map th:nth-child(1), #map td:nth-child(1) { width: 34mm; }
+  #map th:nth-child(1), #map td:nth-child(1) { width: 40mm; }
+
   /* 34mm 고정폭 + nowrap 조합에서 "REST 실무 · GraphQL 개인"의 끝 두 글자가 잘려
      표가 "GraphQL 실무"로 읽혔다. 줄바꿈만 허용한다 — 열 폭은 건드리지 않는다. */
   .maptable td:nth-child(3) { white-space: normal; line-height: 1.45; }
