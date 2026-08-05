@@ -624,6 +624,9 @@ footer a { color: var(--ink-soft); }
     max-height: 78mm; object-fit: cover; object-position: top;
   }
   .shot--pair { gap: 4mm; }
+  /* subhead 는 h 태그가 아니라 break-after 규칙이 안 걸린다. 고아 제목을 막는다. */
+  .subhead { margin-top: 20pt; break-after: avoid; }
+  thead, thead tr { break-after: avoid; }
   .band .shot figcaption { color: #555; opacity: 1; }
   .band .shot img { border-color: #aaa; }
   .shot figcaption { font-size: 8.5pt; margin-top: 5pt; color: #555; }
