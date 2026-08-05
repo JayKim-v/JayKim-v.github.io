@@ -129,8 +129,14 @@ table { border-collapse: collapse; width: 100%; }
 .closing blockquote p { margin-inline: auto; }
 .closing blockquote p::before { content: "\201C"; }
 .closing blockquote p::after { content: "\201D"; }
+/* 인용과 내 말 사이는 넉넉히 띄운다. 붙여 두면 인용이 끝난 자리에서
+   바로 다음 목소리가 시작돼 여운이 남지 않는다. */
+.closing__note {
+  margin: 44px auto 0; max-width: 46ch;
+  font-size: var(--t-body); line-height: 1.9; color: var(--muted);
+}
 .closing > p.closing__end {
-  margin: 22px auto 0; font-size: var(--t-body); line-height: 1.9;
+  margin: 30px auto 0; font-size: var(--t-body); line-height: 1.9;
   color: var(--ink-soft); max-width: 46ch;
 }
 .closing__end strong {
@@ -626,12 +632,13 @@ footer a { color: var(--ink-soft); }
   .closing {
     break-before: page; break-inside: avoid;
     margin: 0; padding: 0; border-top: 0;
-    min-height: 232mm; display: flex; flex-direction: column;
+    min-height: 252mm; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
   }
   .closing blockquote p { font-size: 11pt; line-height: 1.95; max-width: none; }
   .closing cite { font-size: 8.5pt; margin-top: 5pt; }
-  .closing > p.closing__end { font-size: 10.5pt; margin: 11pt auto 0; max-width: 46ch; line-height: 1.8; }
+  .closing__note { font-size: 10pt; margin: 26pt auto 0; max-width: 46ch; line-height: 1.8; color: #6F6752; }
+  .closing > p.closing__end { font-size: 10.5pt; margin: 18pt auto 0; max-width: 46ch; line-height: 1.8; }
   .closing__end strong { font-size: 13pt; margin-top: 4pt; }
 
   .shot { break-inside: avoid; margin-top: 11pt; }
