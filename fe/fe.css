@@ -121,9 +121,13 @@ table { border-collapse: collapse; width: 100%; }
   font-size: var(--t-h3-min); line-height: 1.9; color: var(--ink);
   max-width: none; margin: 0;
 }
+/* 출처는 한글이라 mono 를 쓰면 안 된다. mono 서브셋이 라틴(U+0020-007E)만
+   담고 있어 글자는 Pretendard 로 떨어지는데 공백만 mono 의 넓은 폭으로
+   남아, 어절 사이가 들쭉날쭉해진다. */
 .closing cite {
   display: block; margin-top: 10px; font-style: normal;
-  font-family: var(--font-mono); font-size: var(--t-small); color: var(--muted);
+  font-family: var(--font-ko); font-size: var(--t-small); color: var(--muted);
+  letter-spacing: .01em;
 }
 .closing { text-align: center; }
 .closing blockquote p { margin-inline: auto; }
