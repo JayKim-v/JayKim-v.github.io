@@ -79,7 +79,7 @@
    <p class="badges">
     <span><b>409 → 4</b><i>GraphQL 중첩 조회 쿼리 수. DataLoader 로 배치해 99% 감소 — 스키마부터 직접 구현하고 계측했습니다</i></span>
     <span><b>1인 6역</b><i>미국 워싱턴 D.C. 의료기관 사이트 <strong>한 건</strong>을 기획 · IA · 디자인 · 개발 · SEO · 운영까지 단독으로 맡은 2년 5개월. 100% 원격 · 영어 서면</i></span>
-    <span><b>60ms → 64.2초</b><i>지금 맡은 서비스. 서버는 60ms에 응답하는데 모바일 LCP는 64.2초 — 병목을 전달 계층으로 좁혀 서브셋이 없는 2MB짜리 폰트 한 개를 찾았습니다</i></span>
+    <span><b>60ms인데 64.2초</b><i>지금 맡은 서비스. 서버는 60ms에 응답하는데 모바일 LCP는 64.2초 — 병목을 전달 계층으로 좁혀 서브셋이 없는 2MB짜리 폰트 한 개를 찾았습니다</i></span>
    </p>
 
    <dl class="stack-sum">
@@ -163,6 +163,7 @@
                       <li>API는 모듈별로 생성 · 조회 · 수정을 각각 다른 DTO로 나눠 두었습니다. 28개 모듈 중 21개가 동작별로 갈립니다. 프론트가 두 개라 한쪽 화면 요구로 응답 모양을 바꾸면
                         다른 쪽이 조용히 깨지기 때문에, 화면 편의보다 계약을 먼저 정하는 쪽을 택했습니다.</li>
                       <li>두 프론트는 응답 타입을 각자 선언하지 않고 DTO에서 내린 한 벌을 공유합니다. 타입을 두 번 적으면 계약이 두 개가 되고, 어긋나는 순간을 런타임에서야 알게 됩니다.</li>
+                      <li>SNS 자동 발행은 만들지 않기로 했습니다. 개발 · 운영 비용과 사람이 직접 올리는 비용을 비교해 손익분기를 <span class="num">53주</span>로 계산했고, 자동화 대신 사람이 한 번 누르는 반자동 MVP를 제안해 채택됐습니다.</li>
                     </ul>
                   </dd>
                 </div>
@@ -339,7 +340,7 @@
               <h3>Apple Pop <span class="alt">사과게임</span></h3>
               <p class="minor__prose">색 · 타이포 · 라운드 · 간격 · 모션을 <b>토큰으로 먼저 정하고 그 위에 재사용 컴포넌트를 얹었습니다.</b> 22개 로케일을 붙이면 번역 파일보다 레이아웃이
                 먼저 깨집니다 — 같은 버튼이 언어에 따라 두 배로 길어지므로, 문자열을 전부 분리하고 폰트 폴백 순서를 정한 다음에 번역을 넣었습니다.</p>
-              <p class="spec-line">React Native · TypeScript · Supabase · i18next 22개 로케일 · EAS CI/CD · Sentry · iOS ·
+              <p class="spec-line">React Native · TypeScript · Supabase Edge Functions(REST / RPC) · i18next 22개 로케일 · EAS CI/CD · Sentry · iOS ·
                 Android 양대 마켓 출시</p>
               <p class="entry__links"><a href="https://apps.apple.com/kr/app/apple-pop/id6761319588" target="_blank"
                   rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.anonymous.apple_game" target="_blank"
@@ -628,7 +629,7 @@
               </tr>
               <tr>
                 <td>협업 주도</td>
-                <td>엔텔스에서 두 포털이 같은 백엔드를 쓰는 구조라 백엔드 담당과 응답 계약을 조율(03 일하는 방식) · 반자동 MVP를 제안해 채택까지 이끌었습니다</td>
+                <td>엔텔스에서 두 포털이 같은 백엔드를 쓰는 구조라 백엔드 담당과 응답 계약을 조율(03 일하는 방식) · SNS 자동 발행의 손익분기를 53주로 계산해 반자동 MVP를 제안하고 채택까지 이끌었습니다(01 프로젝트)</td>
               </tr>
               <tr>
                 <td>글로벌 유저 경험</td>
