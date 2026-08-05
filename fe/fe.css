@@ -203,6 +203,8 @@ table { border-collapse: collapse; width: 100%; }
 }
 .rule { width: 120px; height: 1px; background: var(--line); margin: 28px 0; border: 0; }
 .hero__lead { font-size: var(--t-lead); line-height: 1.8; max-width: 54ch; color: var(--ink-soft); }
+/* 화면에서도 리드 두 문단 사이에 쉼을 준다. */
+.hero__lead + .hero__lead { margin-top: 18px; }
 .hero__links {
   margin-top: 32px; display: flex; flex-wrap: wrap; gap: 24px;
   font-size: var(--t-body);
@@ -486,6 +488,7 @@ footer a { color: var(--ink-soft); }
   /* 인쇄에서는 폭이 180mm로 넓어지므로 ch 기준 상한을 풀어야 수동 개행이 지켜진다. */
   .hero h1 { font-size: 17pt; max-width: none; line-height: 1.22; }
   .hero__lead { font-size: 10.5pt; margin-top: 0; }
+  .hero__lead + .hero__lead { margin-top: 14pt; }
   /* 리드가 두 문단이므로 둘 사이에는 쉼이 있어야 한다. 위 규칙의 margin-top:0 이
      p + p (0,0,2) 를 이기므로, 인접 선택자를 (0,2,0) 로 올려 되돌린다. */
   /* 문서 머리 — 연락처가 8페이지 끝에만 있으면 30초 스캔에서 못 찾는다. */
@@ -510,7 +513,7 @@ footer a { color: var(--ink-soft); }
   /* 4개가 한 줄에 안 들어가 3+1 로 접히면, 혼자 떨어진 하나가 이상으로
      보여 시선을 훔친다. 4등분 격자로 고정해 한 줄에 맞춘다. */
   .hero__links {
-    margin-top: 26pt; font-size: 9.5pt;
+    margin-top: 20pt; font-size: 9.5pt;
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 6pt;
   }
   .hero__links .role { font-size: 8.5pt; margin-top: 2pt; }
@@ -518,14 +521,14 @@ footer a { color: var(--ink-soft); }
      헤드라인 위에 회색 본문 다섯 줄이 깔리면 가장 큰 글자가 진입점이 아니라
      두 번째 소제목으로 읽힌다 — 지면에 시작점이 없어진다. */
   .jd-lead {
-    font-size: 9pt; color: #555; margin: 0 0 30pt; letter-spacing: .01em;
+    font-size: 9pt; color: #555; margin: 0 0 24pt; letter-spacing: .01em;
   }
   /* 1면은 표지다. 남은 자리에 01 섹션 제목이 딸려 들어오면 제목만 고아로
      걸리고 표지의 끝이 흐려진다. 여기서 지면을 끊는다. */
   .hero { break-after: page; }
   .for-application {
-    font-size: 9.5pt; line-height: 1.45; color: #333;
-    border-top: .5pt solid #ccc; padding-top: 8pt; margin-top: 14pt;
+    font-size: 10pt; line-height: 1.5; color: #333;
+    border-left: 2pt solid #064E3B; padding-left: 9pt; margin-top: 14pt;
   }
   .sec { padding: 14pt 0; }
   .sec--light { padding: 10pt 0; }
