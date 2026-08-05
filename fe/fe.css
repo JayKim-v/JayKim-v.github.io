@@ -113,6 +113,23 @@ table { border-collapse: collapse; width: 100%; }
 
 .mono { font-family: var(--font-mono); }
 /* 숫자 강조는 굵기로만. mono로 감싸면 한글 조사가 폴백되며 공백 폭이 어긋난다. */
+/* ── 맺음 ─────────────────────────────────────
+   마지막에 읽은 것이 남는다. 문서를 덮을 때 손에 쥐는 문장을 여기 둔다. */
+.closing { margin-top: 56px; padding-top: 28px; border-top: 2px solid var(--accent); }
+.closing blockquote { margin: 0; }
+.closing blockquote p {
+  font-size: var(--t-h3-min); line-height: 1.75; color: var(--ink);
+  max-width: 46ch; margin: 0;
+}
+.closing cite {
+  display: block; margin-top: 10px; font-style: normal;
+  font-family: var(--font-mono); font-size: var(--t-small); color: var(--muted);
+}
+.closing > p {
+  margin-top: 20px; font-size: var(--t-body); line-height: 1.8;
+  color: var(--ink-soft); max-width: 60ch;
+}
+
 /* 본문 도판 — aspect-ratio 로 자리를 먼저 잡아야 로딩 중 CLS 가 생기지 않는다. */
 .shot { margin-top: 24px; }
 .shot img {
@@ -572,6 +589,11 @@ footer a { color: var(--ink-soft); }
 
   /* 긴 블록에 break-inside:avoid를 걸면 앞 페이지가 통째로 비므로,
      짧은 단위(표 행 · 코드 · 스와치)에만 적용하고 긴 엔트리는 고아/과부 줄만 막는다. */
+  .closing { margin-top: 16pt; padding-top: 9pt; border-top: 1.5pt solid #2F5D48; break-inside: avoid; }
+  .closing blockquote p { font-size: 12pt; line-height: 1.6; max-width: none; }
+  .closing cite { font-size: 8.5pt; margin-top: 5pt; }
+  .closing > p { font-size: 10pt; margin-top: 9pt; max-width: none; }
+
   .shot { break-inside: avoid; margin-top: 11pt; }
   .shot img {
     border: .5pt solid #aaa;
