@@ -486,6 +486,9 @@ footer a { color: var(--ink-soft); }
   }
   .sec h2::before {
     content: attr(data-no) ".  ";
+  }
+  .sec h2[data-print-no]::before {
+    content: attr(data-print-no) ".  ";
     color: #7A7263; font-family: var(--font-mono); font-size: 11pt; font-weight: 600;
   }
 
@@ -558,7 +561,8 @@ footer a { color: var(--ink-soft); }
 
   #map th:nth-child(1), #map td:nth-child(1) { width: 38mm; }
   #map th:nth-child(3), #map td:nth-child(3) { width: 34mm; }
-  #map td { padding: 6pt 4pt 6pt 0; }
+  #map td { padding: 4.5pt 4pt 4.5pt 0; line-height: 1.45; }
+  #map th:nth-child(1), #map td:nth-child(1) { width: 34mm; }
   /* 34mm 고정폭 + nowrap 조합에서 "REST 실무 · GraphQL 개인"의 끝 두 글자가 잘려
      표가 "GraphQL 실무"로 읽혔다. 줄바꿈만 허용한다 — 열 폭은 건드리지 않는다. */
   .maptable td:nth-child(3) { white-space: normal; line-height: 1.45; }
@@ -597,7 +601,7 @@ footer a { color: var(--ink-soft); }
   .shot { break-inside: avoid; margin-top: 11pt; }
   .shot img {
     border: .5pt solid #aaa;
-    width: auto; max-width: 100%; max-height: 38mm; margin-inline: auto;
+    width: auto; max-width: 100%; max-height: 33mm; margin-inline: auto;
   }
   .shot--pair { gap: 5mm; }
   .shot--pair img { max-height: 34mm; }
@@ -609,7 +613,9 @@ footer a { color: var(--ink-soft); }
   .badges b { font-size: 13pt; }
   .badges i { font-size: 7.5pt; margin-top: 3pt; }
 
-  tr, tr.judge, pre, .swatch, .diagram, .band .item, .gap-item, .fields > div { break-inside: avoid; }
+  tr, tr.judge, pre, .swatch, .diagram, .gap-item, .fields > div { break-inside: avoid; }
+  .band .item { break-inside: auto; }
+  .band .item h3 { break-after: avoid; }
   .entry, .entry--lead { break-inside: auto; orphans: 3; widows: 3; }
 
   /* ── 고아 제목 방지 ──
