@@ -667,8 +667,12 @@ footer a { color: var(--ink-soft); }
     max-height: 78mm; object-fit: cover; object-position: top;
   }
   .shot--pair { gap: 4mm; }
-  /* subhead 는 h 태그가 아니라 break-after 규칙이 안 걸린다. 고아 제목을 막는다. */
+  /* subhead 는 h 태그가 아니라 break-after 규칙이 안 걸린다. 고아 제목을 막는다.
+     Chrome 은 뒤 블록이 크면 break-after: avoid 를 포기하므로, 소제목과 첫 항목을
+     한 덩어리로 묶어 통째로 넘어가게 한다. */
   .subhead { margin-top: 20pt; break-after: avoid; }
+  span.subhead.print-only { display: block; }
+  .subhead.print-only + .entry { break-before: avoid; }
   thead, thead tr { break-after: avoid; }
   .band .shot figcaption { color: #555; }
   .band .shot img { border-color: #aaa; }
