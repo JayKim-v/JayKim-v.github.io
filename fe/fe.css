@@ -671,7 +671,8 @@ footer a { color: var(--ink-soft); }
      Chrome 은 뒤 블록이 크면 break-after: avoid 를 포기하므로, 소제목과 첫 항목을
      한 덩어리로 묶어 통째로 넘어가게 한다. */
   .subhead { margin-top: 20pt; break-after: avoid; }
-  span.subhead.print-only { display: block; }
+  /* 소제목이 바로 아래 메타 줄과 같은 회색 모노라 한 덩어리로 읽힌다. 아래를 띄운다. */
+  span.subhead.print-only { display: block; margin-bottom: 11pt; }
   .subhead.print-only + .entry { break-before: avoid; }
   thead, thead tr { break-after: avoid; }
   .band .shot figcaption { color: #555; }
