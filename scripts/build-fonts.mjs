@@ -19,7 +19,7 @@ const ROOT = new URL('..', import.meta.url).pathname;
 const SRC_DIR = process.env.PRETENDARD_DIR
   ?? '/Users/jay/Projects/gvStone/node_modules/pretendard/dist/web/static/woff2';
 
-const HTML = ['fe/index.html', 'fe/bg.html'];
+const HTML = ['fe/index.html', 'fe/jyp.html', 'fe/bg.html'];
 const FACES = [
   { src: 'Pretendard-Regular.woff2', out: 'fe/fonts/Pretendard-Regular.subset.woff2' },
   { src: 'Pretendard-Bold.woff2',    out: 'fe/fonts/Pretendard-Bold.subset.woff2' },
