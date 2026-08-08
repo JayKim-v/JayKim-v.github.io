@@ -68,7 +68,7 @@ const FOOTER = `
 <div style="width:100%;font-family:-apple-system,'Helvetica Neue',sans-serif;
             font-size:7.5pt;color:#7A7263;padding:0 15mm;
             display:flex;justify-content:space-between;align-items:center;">
-  <span>김재희 · 프론트엔드 포트폴리오</span>
+  <span>${process.env.PDF_FOOTER ?? "김재희 · 프론트엔드 포트폴리오"}</span>
   <span><span class="pageNumber"></span> / <span class="totalPages"></span></span>
 </div>`;
 
@@ -82,7 +82,8 @@ const browser = await puppeteer.launch({
 
 try {
   const page = await browser.newPage();
-  await page.goto(`http://127.0.0.1:${port}/fe/`, { waitUntil: 'networkidle0' });
+  const PAGE = process.env.PDF_PAGE ?? '/fe/';
+  await page.goto(`http://127.0.0.1:${port}${PAGE}`, { waitUntil: 'networkidle0' });
   // loading="lazy" 는 화면 밖 이미지를 로드하지 않는다. 인쇄에서는 전 지면이
   // 한꺼번에 나가야 하므로 eager 로 바꾸고 디코딩까지 기다린다.
   await page.evaluate(async () => {

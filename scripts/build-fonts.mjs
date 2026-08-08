@@ -19,7 +19,7 @@ const ROOT = new URL('..', import.meta.url).pathname;
 const SRC_DIR = process.env.PRETENDARD_DIR
   ?? '/Users/jay/Projects/gvStone/node_modules/pretendard/dist/web/static/woff2';
 
-const HTML = ['fe/index.html'];
+const HTML = ['fe/index.html', 'fe/bg.html'];
 const FACES = [
   { src: 'Pretendard-Regular.woff2', out: 'fe/fonts/Pretendard-Regular.subset.woff2' },
   { src: 'Pretendard-Bold.woff2',    out: 'fe/fonts/Pretendard-Bold.subset.woff2' },
@@ -38,7 +38,12 @@ function visibleText(html) {
 }
 
 const chars = new Set();
-for (const f of HTML) for (const c of visibleText(await readFile(ROOT + f, 'utf8'))) chars.add(c);
+for (const f of HTML) {
+  // 지원처별 변형본은 저장소에 올리지 않으므로 없을 수 있다. 있으면 넣는다.
+  let html;
+  try { html = await readFile(ROOT + f, 'utf8'); } catch { continue; }
+  for (const c of visibleText(html)) chars.add(c);
+}
 // 라틴 · 숫자 · 기본 문장부호는 통째로. 비용이 작고 빠지면 바로 티가 난다.
 for (let c = 0x20; c < 0x7f; c++) chars.add(String.fromCharCode(c));
 for (const c of '　·—–…“”‘’※→←↑↓✓×÷°′″₩$€£¥©®™±≤≥≠∙') chars.add(c);

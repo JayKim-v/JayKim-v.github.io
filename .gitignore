@@ -35,3 +35,7 @@ node_modules/
 *.html.sav
 jk.html
 채용*.html
+
+# 지원처별 변형본 — GitHub Pages 로 공개되면 어디에 지원했는지가 드러난다
+fe/bg.html
+.font-chars.txt
