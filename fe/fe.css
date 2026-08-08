@@ -94,7 +94,9 @@ body {
 h1, h2, h3, h4 { margin: 0; font-weight: 700; }
 p, dl, dd, figure { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
-b, strong { font-weight: 600; }
+/* Pretendard 서브셋은 400 · 700 두 벌뿐이다. 600 을 요구하면 맞는 얼굴이 없어
+   폴백 서체로 떨어진다. 있는 굵기만 쓴다. */
+b, strong { font-weight: 700; }
 a { color: inherit; text-underline-offset: 3px; }
 a:hover { color: var(--accent); }
 a { transition: color 120ms ease; }
@@ -172,12 +174,13 @@ table { border-collapse: collapse; width: 100%; }
   flex: 1 1 150px; border: 1px solid var(--line); border-radius: 3px;
   padding: 12px 14px; background: var(--bg-elev);
 }
-.badges b { display: block; font-family: var(--font-mono); font-size: 1.5rem; line-height: 1.1; color: var(--accent); }
+.badges b {
+  display: block; font-family: var(--font-ko); font-size: 1.5rem; line-height: 1.1; color: var(--accent); }
 .badges i { display: block; margin-top: 6px; font-style: normal; font-size: .8125rem; line-height: 1.5; color: var(--ink-soft); }
 
 /* URL 은 줄 중간에서 끊기면 복사했을 때 깨진 주소가 된다. 통째로 넘긴다. */
 .url { white-space: nowrap; overflow-wrap: normal; word-break: keep-all; }
-.alt { font-weight: 500; color: var(--muted); font-size: .8em; margin-left: 6px; }
+.alt { font-weight: 400; color: var(--muted); font-size: .8em; margin-left: 6px; }
 
 .num { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .print-only, .for-application, .print-note, .jd-lead { display: none; }
@@ -225,7 +228,8 @@ table { border-collapse: collapse; width: 100%; }
   gap: var(--col-gap); align-items: baseline;
 }
 .stack-sum dt {
-  font-family: var(--font-mono); font-size: var(--t-label); font-weight: 600;
+  font-family: var(--font-ko); letter-spacing: .04em;
+  font-size: var(--t-label); font-weight: 700;
   letter-spacing: .1em; color: var(--accent); text-transform: uppercase;
 }
 .stack-sum dd { font-size: 14px; line-height: 1.7; color: var(--ink-soft); }
@@ -258,7 +262,8 @@ table { border-collapse: collapse; width: 100%; }
   letter-spacing: .02em; color: var(--muted);
   border-left: 1px solid var(--line); padding-left: 16px;
 }
-.entry__meta span { display: block; }
+.entry__meta span {
+  font-family: var(--font-ko); letter-spacing: .02em; display: block; }
 .entry h3 { font-size: var(--t-h3); line-height: 1.35; letter-spacing: -.025em; }
 .entry__def { font-size: var(--t-lead); line-height: 1.8; color: var(--ink); margin-top: 8px; }
 .entry__note { font-size: var(--t-body); color: var(--ink-soft); margin-top: 8px; }
@@ -356,7 +361,7 @@ tr.judge td {
 .t-after { font-size: var(--t-lead); line-height: 1.8; color: var(--ink-soft); max-width: 54ch; margin-top: 32px; }
 
 /* 06 요건표 */
-.maptable td:nth-child(1) { font-weight: 600; color: var(--ink); }
+.maptable td:nth-child(1) { font-weight: 700; color: var(--ink); }
 .maptable td:nth-child(3) {
   font-family: var(--font-mono); font-size: var(--t-meta); color: var(--muted); white-space: nowrap;
 }
@@ -419,7 +424,7 @@ code { font-family: var(--font-mono); font-size: 13px; line-height: 1.7; color: 
   margin-top: 16px; line-height: 1.7;
 }
 
-.contact-lines { font-size: 16px; font-weight: 500; line-height: 1.9; margin-top: 32px; }
+.contact-lines { font-size: 16px; font-weight: 400; line-height: 1.9; margin-top: 32px; }
 .contact-lines a { color: var(--accent); }
 .preface {
   font-size: var(--t-small); line-height: 1.8; color: var(--ink-soft);
@@ -526,6 +531,9 @@ footer a { color: var(--ink-soft); }
   /* 1면은 표지다. 남은 자리에 01 섹션 제목이 딸려 들어오면 제목만 고아로
      걸리고 표지의 끝이 흐려진다. 여기서 지면을 끊는다. */
   .hero { break-after: page; }
+  /* 04 표가 두 면에 갈리면 뒷면에 몇 행만 남고 큰 백지가 생긴다. 잘린 표 뒤의
+     백지는 실수로 읽히고, 섹션 끝의 백지는 마침으로 읽힌다. 통째로 넘긴다. */
+  #map { break-before: page; }
   .for-application {
     font-size: 10pt; line-height: 1.5; color: #333;
     border-left: 2pt solid #064E3B; padding-left: 9pt; margin-top: 14pt;
