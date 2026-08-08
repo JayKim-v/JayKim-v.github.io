@@ -30,3 +30,8 @@ myResume/
 
 # Node
 node_modules/
+
+# 저장된 웹페이지 · 지원 기록은 저장소 밖에 둔다 (GitHub Pages 로 즉시 공개됨)
+*.html.sav
+jk.html
+채용*.html
